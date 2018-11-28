@@ -1,0 +1,54 @@
+\chapter*{Vorwort}
+
+Diese \LaTeX-Vorlage soll als Leitlinie und Anhaltspunkt für das Schreiben von Abschlussarbeiten dienen. Zum einen zeigt die Vorlage eine typische Struktur einer Abschlussarbeit auf, an der sich viele Arbeiten orientieren. Zum anderen gibt diese Vorlage gleichzeitig Tipps und Hinweise sowohl was die Strukturierung als auch was mögliche Technologien, insbesondere \LaTeX-Pakete, angeht.
+
+\chapter{Einleitung}
+
+Diese Arbeit beschreit die Entwicklung eines Projects, einen Unterricht über Vorbereitung einer Infusion auf einem Learning Managment System  einzusetzen, und die Übung dazu mit WebVR Technik durchzuführen.
+
+\section{Motivation}
+
+Das VR-Training für Vorbereitung einer Infusion ist kein neues Thema. Im Jahr 2016 wird eine Applikation auf Samsung Gear VR entwickelt\citep{26}
+Dadurch kann die Übung für Vorbereitung einer Infusion mit Head-Mounted-Display(HMD) durchgeführt werden. Mit der Anwendung der VR Technik könnten die Kosten für die echten Materialen sparen, besonders für die nicht wiederbenutzbare und ersetzbare Materialen wie Infusionsflashe und Infusionsbesteck. Außerdem werden die zeitliche und ortliche Begrenzungen freigeschaltet. Wenn Samusng GearVR zu Verfügung ist, kann die Übung irgendwann und irgendwo durchgeführt werden.
+
+Die Funktionalität erhält eine hohe Bewertung während der Evaluation. Aber es gibt noch Probleme bei der Einsetzung und Verbreitung.
+\begin{enumerate}
+\item Unfreundliche Installation und Aktuallisierung: Es gibt zwei Möglichkeiten, eine Applikation auf GearVR laufen lassen, Off-Platform und Oculus Store. Off-Platform ist ein offline Methode. Durch Kabel zwischen Samsuang Handy und Rechner kann die Applikation direkt in Handy installiert. Allerdings jede Aktuallisierung wird auch so installiert. Wenn die Applikation die Überprüfung von Oculus Store besteht und darauf hochgeladen wird, kann sie online durch Oculus Store heruntergeladen und automatisch aktuallisiert werden. Die beide Methode sind entweder für Benutzer, oder für Entwickler nicht freundlich bei Installation und Aktuallisierung.
+\item Hohe Kosten: Gear VR kostet selbe 40 Euro(alte Version, ohne Controller) oder 100 Euro(neue Version, mit Controller). Außerdem ein Samsuang Handy mit starken Leistung kostet noch mindesten 500 Euro. Für Studenten ist es schwer, so viel Geld auszugeben. Für Hochschule ist es auch kein wenig Geld, mehrere Geräte zu kaufen, um gleichzeitige Nutzung zu unterstützen.
+\item Trennung mit dem Lernprozess: Entweder die Einsetzung und Konfiguration während eines Seminars in Labor, oder Installation während der Widerholung zu Hause ist es eine Ablenkung für den Lernprozess. Der Durchlauf der Übung mit Gear VR ist nicht eng verbindet mit dem Lernprozess.
+\end{enumerate}
+
+Um bessere Benutzererfahrung von VR-Training zu haben, und oben genannten Probleme zu erheben, wird das Projekt entwickelt.
+
+\section{Zielsetzung}
+
+Dieses Projekt basiert auf das GearVR Projekt. Das Ziel dieses Projekts ist, eine Applikation zu entwicklen, dadurch die Übung der Vorbereitung einer Infusion erreichbarer ist und enger mit der Lernprozess verbindet.
+
+Um die Implementierung zu kritizieren, werden paar konkrete Ziele gesetzt.
+
+\begin{enumerate}[labelsep=1ex]
+	\renewcommand{\labelenumi}{\textbf{Z\theenumi.}}
+	\item Eine Unterricht in einem Learning Management System erstellen, die mit der VR Übung verbindet  und die Vorwissen und den entsprechenden Test bieten.
+	\item Die Applikation soll cross-platform, unabhängig von Geräte und Betriebsystem sein. Das heißt, dass die VR Übung auf Smartphone, Laptop und verschiedne HMDs dürchgeführt werden kann.
+	\item Die Installation und Aktualisierung der Applikation soll einfach und automatisch sein.
+	\item Die Interaktionen in der VR Übung sollen sich für Unterschiedliche Geräte und Controller unterscheiden.
+	\item Die VR Übung soll die reale Übung simulieren. Die Objekte in der VR Umgebung sollen erkanntbar sein. Die Reihnfolge der Schritte in der VR Übung soll gleich wie die Anforderung in reale Übung sein. Die Feedbacks der Interaktionen in VR Übung sollen eindeutig.
+	\item Die Applikation soll in Lernprogress integriert werden. Die Abnutzung des HMDs und der Aufruf der Applikation sollen zu keiner Ablenkung führen. Nach der VR Übung soll der Benutzer wieder zurück zum Lernprogress geleitet werden.
+	
+\end{enumerate}
+
+\section{Aufbau der Arbeit}
+Im Kapitel {\em Stand der Forschung und Stand der Technik} werden erst die Forschung über E-Learning und VR-Training erzählt, die die theoretische Grundlage für das Projekt bieten. Danach werden die VR Technik und WebVR Technik erklärt, die die Möglickeit der Implementierung des Projekts bieten.
+
+Im Kapitel {\em Konzeption} werden die entsprechende Ideen für oben genannte Ziele beschrieben. Z.B.
+\begin{enumerate}
+\item Auswahl der Form der Verbindung ziwischen Learning Managment System und WebVR Applikation.
+\item Auswahl der Technik, damit die cross-platform Applikation entwickelt werden kann.
+\item Entscheidung der Interaktionen für unterschiedliche Geräte.
+\end{enumerate}
+
+Im Kapitel {\em Implementierung} werden die konkrekte technische Lösungen für die Konzeption bemerkt.
+
+Im Kapitel {\em Evaluation} wird die Studie für das Projekt erzählt.
+
+Im Kapitel {\em Diskution} werden einige Themen diskutiert. Ob die WebVR Technik greif genug, in dem Projekt für Unternehmen oder Hochschule zu benutzen? Ob die cross-platform WebVR Applikation ist sinnvoller als native Applikation.

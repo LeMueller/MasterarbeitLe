@@ -1,0 +1,63 @@
+\chapter{Konzeption}
+
+Im Kapitel {\em Konzeption} beginnt jetzt die Darstellung der eigenen Arbeit. Dieses Kapitel stellt das Bindeglied zwischen Zielsetzung, Stand der Forschung und der eigentlichen Umsetzung dar. Zusammen mit Implementierung und Evaluation macht die Konzeption den Hauptteil der Arbeit aus.
+
+Typischer Umfang der Konzeption: 5-10 Seiten BA, 15-20 Seiten MA.
+
+\section{Erstellung eines Unterrichts}
+Die VR Übung ist eine ergänzige Lernmethode für das Lernen. Vor der Durchführung der Übung sollen gegügendes Vorwissen angeboten werden. Deswegen wird erst einen Unterricht auf Learning Managment System erstellt.
+
+Laut der Erklärung im Kapitel Stand der Forschung \glqq Multisensorische und emotionale Wahrnehmungen können die Gedächtnisleitung verstärkern\grqq\ sollen die Lernmaterialien des Unterrichts vielfältig sein.  Druch drei Lernmateriallien werden das Vorwissen geboten:
+\begin{enumerate}
+    \item Text: Text is das traditionelle Lernmaterial. Es spielt eine unersetzbare Roller für Lernen. Die Lesegeschwindigkeit kann der Lernende sich selbst entscheiden. Während des Lesens kann der Leser gut denken, merken und notizen.
+    \item Video: Video ist ein intuitives Lernmaterial. Zwei Wahrnehmungen, Sehen und Hören werden aufgerufen, wenn man Video anschaut. Durch Video kann die Handlung sehr konkret gezeigt. Zur Zeit ist Video das beste und verbreitete Medium, praktische Kenntisse zu vermitteln.
+    \item Diagramm: Diagramm ist eine optimale Darstellung für Struktur und Sequenz. Die deutliche visuelle Zechnungen sind hilfreich für das Verständnis und Gedächtnis.
+\end{enumerate}
+
+Nach der Sammelung der Vorkenntnisse geht der Lernende durch die Zugang in diesem Unterricht in VR Umgebung rein, und wird die praktische Übung durchgefürht. In der Übung steht das Vorwissen als Hinweise zu Verfügung. Die Hinweise müssen nicht zwingend angeschaut werden, wenn der Lernende die Übung flüßig schaffen kann. Allerdings soll die Hinweise einfach erreichbar sein. Sodass muss der Lernende nicht aus VR Umgebung rausgehen, um Hilfsmittel zu suchen, wenn der Lernende nicht an der Vorkenntnisse erinnern kann. Wenn die Übung geschafft wird, wird der Lernende wieder zu dem Unterricht geleitet.
+
+Nach der Übung wird ein Test geboten, um das Ergebnis des Lernens zu prüfen. Das Ergebnis des Tests wird in Learning Managment System gespeichert und als Feedback an dem Lehrende geschickt.
+
+\section{Verbindung zwischen WebVR Applikation und Learning Managment System}
+Es gibt drei Formen für die Verbindung zwischen WebVR Applikation und Learning Managment System(LMS):
+\begin{enumerate}
+    \item WebVR Applikation neben dem Learning Managment System:
+     \subitem In LMS wird die Zugang zur VR Umgebung geboten und durch URL können Informationen in VR Umgebung eingefügt werden. In Vr Umgebung wird auch die Zugang zurück zu LMS geboten. Aber keine Information kann von VR Umgebung an LMS übermittelt werden.
+     
+     Der Vorteil ist, dass die WebVR Applikation unabhänig von LMS ist. Jede LMS kann mit der WebVR Applikation verbinden.
+     
+     Der Nachteil ist, dass der Umtausch der Informationen ziwschen WebVR Applikation und LMS einspurig ist. Das LMS kann Keine Information von WebVR Appliktion bekommen. Außerdem wird jede Änderung in WebApp z.B. Umschreibung des Hinweises durch Programmier gemacht. Der Lehrende ist nicht in der Lage, alline die Übung zu verbessern oder korrigieren.
+     
+    \item WebVR Applikation teilweise in dem Learning Managment System:
+     \subitem In LMS wird die Zugang zur VR Umgebung geboten, allerding die Zugang nicht ein URL, sondern erfahrungsmäßig ein Plugin ist. Durch das Plugin kann die WebVR Applikation die versteckte zugängliche Daten der Datenbank des Unterrichts bekommen. Mit solche Daten ist die WebVR Applikation in der Lage, die Daten in Datenbank zu speichern und die Daten aus Datenbank zu lesen. Durch das Middleware wird die gegenseitige Kommunikation zwichen WebVR Applikation und LMS ermöglichen. Obwohl durch URL die zugängliche Daten auch übergetragen werden können, ist es sehr unsicher für das LMS.
+     
+     Der Vorteil ist, dass die Kommnikation zwischen WebVR Applikation und LMS frei ist. Das heißt, dass die übergetragene Daten nicht nur Parameter sondern auch Bilder, Audios und Videos sein können und das LMS kann die Infomationen, die während der Übung in WebVR Applikation erstellt, bekommen. Darüber hinaus kann der Lehrende durch dem Plugin die Inhälte in WebVR Applikation direkt andern.
+     
+     Die Nachteile sind, dass die WebVR Applikation von dem LMS abhängig ist und die Entwicklung aufwendig ist. Um die Daten barrierefrei überzutragen, muss entsprechende Schnittstelle in WebVR Applikation konfiguiert werden. Bei der Entwicklung werden nicht nur WebVR Applikation, sondern auch das Plugin von LMS geschrieben. Zusätzlich wird eine Datenbank eingerichtet.
+     
+    \item Learning Management System in WebVR Applikation
+     \subitem Bei dieser Form ist die Methode der Kommunikation zwischen WebVR Applikation und LMS gleich wie die zweite Form. Der größte Unterschied liegt an der Benutzererfahrung. Die Graphical User Interface(GUI) des LMSs wird in der VR Umgebung dargestellt. Das heißt, dass vom Anfang an der Lernende in der VR Umgebung steht. In der VR Umgebung wird Vorwissen gesammelt, praktische Übung durchgeführt und Test gemacht.
+     
+     Der Vorteil ist, dass der ganze Lernprozess in VR Umgebung integriert wird, keine Ablenkung existiert.
+     
+     Die Nachteile sind aufwendige Entwicklung und ungewöhnliche Erfahrung des Lesens.
+\end{enumerate}
+\includegraphics[width=\textwidth]{images/formenDerVerbindung.jpg}
+
+Bei diesem Projekt wird erste From implementiert. Wegen der begrenzte Entwicklungszeit werden die zweite und dritte Formen bei diesem Projekt nicht realisiert.
+
+
+
+
+\begin{itemize}
+\item warum WebVR: crossplatform, Verbindung mit LMS und E-Learning, 3 typen: neben, an, in
+\item unterricht ansetzen
+\item white board
+\item Interaktion
+\subitem flach Bildschirm: cursor, gaze
+\subitem GearVR: gaze, click
+\subitem HTC Vive: drag, press release, hand
+\subitem observer patern
+\item Töne
+\item section selection: observerpatern
+\end{itemize}
