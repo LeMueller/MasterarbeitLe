@@ -18,6 +18,19 @@ Nach der Sammlung der Vorkenntnisse geht der Lernende durch die Zugang in diesem
 
 Nach der Übung wird ein Test geboten, um das Ergebnis des Lernens zu prüfen. Das Ergebnis des Tests wird in Learning Managment System gespeichert und als Feedback an dem Lehrende geschickt.
 
+\section{WebVR}
+Zwei Ziele des Projekts haben höchste Prioritäten: gute Erreichbarkeit und Verbindung mit LMS.
+
+Der größte Vorteil der native Apps bei Erreichbarkeit ist offline Benutzbarkeit. Wenn die Applikation installiert ist, muss es während der VR Übung nicht online sein. Allerdings die Installation besitzt viele Kapazität von Rechner oder Smartphone. Wenn viele Übungen werden in eine Applikation eingepackt, führt es zu Missbrauch der Kapazität, weil tatsächlich die geschaffte Übungen nicht gebraucht sind. Wenn jede Übung eigne Applikation hat, wird viele extra Zeit in Installation vor dem Lernen investiert, deshalb existiert der Vorteil offline Erreichbarkeit nicht mehr.
+
+Obwohl Web Apps das Internet gefordert, ist sie jede Zeit erreichbar ist.
+
+Capterra ist eine Webseite, die deren Benutzer hilft, geeignet Software in unterschiedlichen Bereichen zu finden. Es werden insgesamt 432 Softwares gefunden, wenn \glqq LMS Software \grqq\ gesucht wird. 406 von 432 gefundene LMSs haben web basierte Applikation zu Verfügung. Das heißt, dass 94\% LMS können in Browser laufen lassen.
+
+WebVR Applikation wird auch in Browser aufgerufen. Ohne software Wechseln wird zu keiner Ablenkung geführt. Außerdem ist die Schnittstelle zwischen Web Applikationen einfach zu implementieren.
+
+Laut oben genannten Gründe wird für WebVR Technik entschieden, die VR Übung zu realisieren.
+
 \section{Verbindung zwischen WebVR Applikation und Learning Managment System}
 Es gibt drei Formen für die Verbindung zwischen WebVR Applikation und Learning Managment System(LMS):
 \begin{enumerate}
@@ -46,18 +59,39 @@ Es gibt drei Formen für die Verbindung zwischen WebVR Applikation und Learning 
 
 Bei diesem Projekt wird erste Form implementiert. Wegen der begrenzte Entwicklungszeit werden die zweite und dritte Formen bei diesem Projekt nicht realisiert.
 
+\section{Interaktion}
+Interaktion ist der Hauptteil der WebVR Applikation. Da die WebVr Applikation cross-platform ist, werden die Konzeptionen der Interaktion nach den Typen der Geräte gliedert.
 
+ \subsection{Desktop und Laptop}
+  \subsubsection{Bewegung des Aspekts}
+  Der Aspekt ist die Sicht, die in Kamera aufgenommen ist, nämlich die Sicht des Benutzers. Die Bewegung des Aspekts wird nach der Bewegung der Maus geführt. Es gibt zwei Varianten, um die Bewegung des Aspekts zu bestimmen.
+  
+  Eine Variante ist, dass die Bewegung des Aspekts aufgerufen wird, wenn die linke Taste der Maus gedrückt. Wenn die linke Taste losgelassen wird, bewegt sich der Aspekt nicht. Der Vorteil ist, dass solche Interaktion ähnlich wie alltägliche Applikation beispielsweise Google Map. Sodass wird die Interaktion schnell gewöhnt. Der Nachteil ist, dass eine Aktivität durch zwei Aktionen, Maus Druck und Maus Bewegung, aufgerufen werden. Das macht die Interaktion kompliziert, wenn der Aspekt sich häufig bewegt.
+  
+  Die andere Variante ist, dass die Bewegung Mode aktiviert wird. Das heißt, dass die Aspekt sich solange nach der Maus bewegt, bis ESC Taste gedrückt wird. Der Vorteil ist, dass die Interaktion einfach ist, und der Druck auf Maus verringert wird. Der Nachteil ist, dass der Mauszeiger während der Bewegung Mode verschwindet ist. Es könnte passiert, dass der Benutzer die Maus in einer großen Auswahl schwenkt, um den Mauszeiger zu finden, sodass der Aspekt auch schwer wackelt.
+  
+  Die verwirrende Aktivität bei zweite Variante passiert normalerweise nur bei der erst mal Nutzung und ist harmlos. Allerdings der Vorteil davon ist eindeutig. Deshalb wird die zweite Variante implementiert.
+  
+  \subsubsection{Bewegung der Kamera}
+  Die Position der Kamera ist der Ort, wo der Benutzer in der VR Umgebung steht. Die Bewegung der Kamera ist die Bewegung des Benutzers.
+  Zwei Möglichkeiten der Bewegung werden gebogen, eine zwingende und eine freiwillige.
+  
+  Zwingende Bewegung bedeutet, dass die Kamera sich automatisch zu einem Ort bewegt. Das Ziel ist, der Benutzer zu leiten, Objekten zu betrachten. Zum Beispiel soll die Plakate um die Desinfektion der Hände Während der Desinfektion richtig betrachtet werden, deswegen bewegt sich die Kamera zwingend zu der Plakate, wenn der Benutzer Hände desinfizieren will.
 
-
+  Außer der zwingende Bewegung kann die Kamera durch die Taste W, A, S, D auf die Tastatur gerückt. Das bietet die Freiheit, die VR Umgebung sich umzuschauen. Ohne die freiwillige Bewegung der Kamera kann die Übung auch barrierefrei durchgeführt werden.
+  
+  \subsubsection{Zeiger der Kamera} 
+  Zeiger der Kamera ist ein Ring, der in der Mittel der Sicht der Kamera steht. Der ist zuständig für den Aufruf eine Aktivität eines Objekts.
+  
+  
 \begin{itemize}
-\item warum WebVR: crossplatform, Verbindung mit LMS und E-Learning, 3 typen: neben, an, in
-\item unterricht ansetzen
 \item white board
 \item Interaktion
 \subitem flach Bildschirm: cursor, gaze
 \subitem GearVR: gaze, click
-\subitem HTC Vive: drag, press release, hand
+\subitem HTC Vive: drag, press release, hand, check
 \subitem observer patern
 \item Töne
 \item section selection: observerpatern
+\item hand
 \end{itemize}
