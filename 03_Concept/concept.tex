@@ -72,21 +72,61 @@ Interaktion ist der Hauptteil der WebVR Applikation, weil die nicht nur die Impl
   
   Die verwirrende Aktivität bei zweite Variante passiert normalerweise nur bei der erst mal Nutzung und ist harmlos. Allerdings der Vorteil davon ist eindeutig. Deshalb wird die zweite Variante implementiert.
   
-  \subsubsection{Bewegung der Kamera}
-  Die Position der Kamera ist der Ort, wo der Benutzer in der VR Umgebung steht. Die Bewegung der Kamera ist die Bewegung des Benutzers.
-  Zwei Möglichkeiten der Bewegung werden gebogen, eine zwingende und eine freiwillige.
+  \subsubsection{Translation der Kamera}
+  Die Position der Kamera ist der Ort, wo der Benutzer in der VR Umgebung steht. Die Trandslation der Kamera führt zu die Translation des Benutzers in dem simulierten Raum. Zwei Möglichkeiten der Translation werden gebogen, eine zwingende und eine freiwillige.
   
-  Zwingende Bewegung bedeutet, dass die Kamera sich automatisch zu einem Ort bewegt. Das Ziel ist, der Benutzer zu leiten, Objekten zu betrachten. Zum Beispiel soll die Plakate um die Desinfektion der Hände Während der Desinfektion richtig betrachtet werden, deswegen bewegt sich die Kamera zwingend zu der Plakate, wenn der Benutzer Hände desinfizieren will.
+  Zwingende Translation bedeutet, dass die Kamera sich automatisch zu einem Ort bewegt, wenn die Translation die Benutzererfahrung verbessern kann. Das Ziel ist, der Benutzer zu leiten, Objekten zu betrachten. Zum Beispiel soll die Plakate über die Desinfektion der Hände Während der Desinfektion richtig betrachtet werden, deswegen bewegt sich die Kamera zwingend zu der Plakate, wenn der Benutzer Hände desinfizieren will.
 
   Außer der zwingende Bewegung kann die Kamera durch die Taste W, A, S, D auf die Tastatur gerückt. Das bietet die Freiheit, die VR Umgebung sich umzuschauen. Ohne die freiwillige Bewegung der Kamera kann die Übung auch barrierefrei durchgeführt werden.
   
   \subsubsection{Zeiger} 
-  Zeiger ist ein schwarzer Ring, der immer in der Mittel der Sicht der Kamera steht. Der ist zuständig für den Aufruf eine Aktivität eines Objekts. Wenn der Benutzer mit dem nächsten Objekt hinter dem Zeiger interagieren kann, wechselt der Farbe des Rings zu grün, um das Selbstvertrauen dem Benutzer zu geben, die Aktivität zu aktivieren. Wenn die linke Taste der Maus gedrückt wird, scheint die Farbe des Rings rot für ca. 0,3 Sekunde, um die Botschaft an dem Benutzer geben, dass der Befehl, mit einem Objekt zu interagieren, ausgeführt ist. 
+  Zeiger ist ein schwarzer Ring, der immer in der Mittel der Sicht der Kamera steht. Der ist zuständig für den Aufruf eine Aktivität eines Objekts.
+  
+  Wenn der Benutzer mit dem nächsten Objekt hinter dem Zeiger interagieren kann, wechselt der Farbe des Rings zu grün, um das Selbstvertrauen dem Benutzer zu geben, die Aktivität zu aktivieren. Allerdings bedeutet der grüne Zeiger nicht, dass die Aktivität des Objekts aktiviert werden darf. Die Übung wird nach einer bestimmtem Reihenfolge durchgeführt, wenn eine Aktivität noch nicht daran ist, darf sie nicht aktiviert werden.
+  
+  Wenn der Zeiger grün ist und die linke Taste der Maus gedrückt wird, scheint die Farbe des Zeigers rot für ca. 0,3 Sekunde, und ein kurzes Soundeffekt geklungen wird, um die Botschaft an dem Benutzer geben, dass der Befehl, mit einem Objekt zu interagieren, ausgeführt ist. 
   
  \subsection{Smartphone}
   \subsubsection{Bewegung des Aspekts}
+  Zwei Methoden werden angeboten, den Aspekt der Kamera zu ändern, um unterschiedliche Situation anzupassen.
+  
+  Die intuitive Methode ist, das Smartphone zu bewegen. Der simulierte Umgebung wird in Smartphone räumlich dargestellt. Aber wegen die Begrenzung des Bildschirms ist nur den Raum teilweise im Blickwinkel. Durch die Bewegung des Smartphones wird andre Ort in dem Raum gesehen.
+  
+  image: Aspekt smartphone..........................
+  
+  Es ist unvermeidbar, den Körper zu drehen, um seitig gelegte Objekt zuzuschauen, wenn man mit der erste Methode das Smartphone bewegt. Allerdings ist es unmöglich, großer Winkel zu drehen, wenn man auf einem Stuhl sitzt. Außerdem beeinflusst es anderen Leute, wenn man in öffentlichem Raum beispielsweise Bibliothek große Bewegung macht. Um die Probleme zu lösen, wird die zweite Methode angeboten, dass der Aspekt durch dem Ziehen auf Bildschirm verändert wird. Obwohl diese Methode nicht so intuitive wie die erste Methode ist , vermehrt es sich die Einsatzmöglichkeiten.
+  
+  \subsubsection{Translation der Kamera}
+  Das Smartphone bietet nur 3DoF Erkennung, nämlich Rotation. Deswegen kann die Translation des Kamera nicht mit der Translation des Smartphones verbinden. Um Objekt genauer anzuschauen und Interaktion zu vereinfacht, wird zwingend Translation wie auf Laptop angeboten.
+  
+  \subsubsection{Zeiger}
+  Der Form des Zeigers ist gleich wie auf Laptop. Da keine Maus zu Verfügung für Smartphone ist, wird die Bestätigung aus Zeiger durch \glqq Anstarr\grqq\ (eng. gaze) gesendet. Wenn der Zeiger vor einem Objekt ca. 0,5 Sekunde beliebt ist, wird es versucht, die Aktivität des Objeckts durchzuführen.
+  
+ \subsection{Samsung Gear VR}
+ Samsung Gear Vr ist ein Vertreter für mobile 3Dof HMD. Gear VR kann mit oder ohne Controller benutzt werden.
+  \subsubsection{Bewegung des Aspekts}
+  Durch Gear VR wird der Benutzer in dem simulierten virtuellen Raum eingesetzt. Die Bewegung des Aspekts wird durch der Bewegung des Kopfs durchgeführt, gleich wie in reales Leben.
+  
+  \subsubsection{Translation der Kamera}
+  \begin{itemize}
+  \item \textbf{Ohne Controller}: Wenn Gear VR ohne Controller ist, kann es als Google Cupboard gelten. Die Translation der Kamera ist wie die Translation der Kamera mit Smartphone, dass nur zwingend Bewegung angeboten ist.
+  \item \textbf{Mit Controller}: Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Linie aus dem Controller ausstrahlen, die auf dem Boden landen soll. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch dem Druck von einem Knopf auf dem Gear VR Controller gesendet, soll die Kamera sich zu dem gezeichnete Position bewegen.
+  \end{itemize}
+  
+  \subsubsection{Zeiger}
+  \begin{itemize}
+  \item \textbf{Ohne Controller}: Der Zeiger kann in zwei Formen möglich sein.
+  
+  Eine Möglichkeit ist, dass der Zeiger gleich wie auf Laptop und Smartphone als Ring gezeigt. Der Vorteil ist, dass der Zeiger eindeutig ist. Der Ring ist auf dem komplizierten Hintergrund (die Objekten in dem Raum) einfach zu kennen. Der Nachteil ist, dass der Treffpunkt mit Objekte nicht klar ist , besonders wenn das Ziel klein ist.
+  
+  Die andere Variante ist, dass eine Linie aus der Position der Augen strahlt aus und mit Objekten trifft. Der Vorteil ist, dass die Position des Treffpunkts ganz genau ist. Der Nachteil ist, dass die Linie nicht auffallend ist.
+  
+  Die Merkmale der beiden Varianten sind
+  \item \textbf{Mit Controller}: 
+  \end{itemize}
   
 \begin{itemize}
+\item UI
 \item white board
 \item Interaktion
 \subitem flach Bildschirm: cursor, gaze
@@ -96,4 +136,6 @@ Interaktion ist der Hauptteil der WebVR Applikation, weil die nicht nur die Impl
 \item Töne
 \item section selection: observerpatern
 \item hand
+\item collision
+\item check 3 Dingen
 \end{itemize}
