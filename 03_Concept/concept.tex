@@ -4,7 +4,9 @@ Im Kapitel {\em Konzeption} beginnt jetzt die Darstellung der eigenen Arbeit. Di
 
 Typischer Umfang der Konzeption: 5-10 Seiten BA, 15-20 Seiten MA.
 
-\section{WebVR und Learning Managment System (LMS)}
+\section{Learning Managment System (LMS) und WebVR}
+Laut der Forschung entscheidet die Lernmethode für den Lerneffekt. WevVR Technik bietet die neue Möglichkeit, neue Lernmethode beispielsweise VR-Training zu entwickeln. Hier wird eine Konzeption eines mit VR-Training verbundenen Unterrichts auf LMS erzählt.
+
  \subsection{Erstellung eines Unterrichts}
  Die VR Übung ist eine ergänzige Lernmethode für das Lernen. Vor der Durchführung der Übung sollen genügendes Vorwissen angeboten werden. Deswegen wird erst einen Unterricht auf Learning Managment System erstellt.
 
@@ -58,28 +60,62 @@ Typischer Umfang der Konzeption: 5-10 Seiten BA, 15-20 Seiten MA.
 
 Bei diesem Projekt wird erste Form implementiert. Wegen der begrenzte Entwicklungszeit werden die zweite und dritte Formen bei diesem Projekt nicht realisiert.
 
-\section{Vorbereitung einer Infusions mit WebVR}
+\section{Vorbereitung einer Infusion mit WebVR}
 
- \subsection{GUI}
+Als der Schwerpunkt des Projektes wird die Konzeption der Übung Vorbereitung einer Infusion mit WebVR ausführlich erklärt. Die Konzeption wird nach der Kategorien der Immersion von Jason Jerald\citep{28} aufgebaut.
+
+ \subsection{Graphical user interface (GUI)}
+ GUI ist die visuelle Darstellung eine Applikation. Für dieses Projekt ist GUI die simuliert Umgebung. Laut der Forschung führt lebendiger Simulation zu bessere Gedächtnis bei VR-Training. Die Kategorien Extensiveness, Surroundness und Vividness wurden durch der GUI realisiert.
+ 
   \subsubsection{Szene}
-
-  \subsubsection{Hand}
+  Die VR Umgebung bezieht sich auf dem \glqq Skillslab\grqq\ in Fachhochschule Bielefeld. Um der relevante Objekte der Übung zu betonen, wird die Szene vereinfacht.
   
-  \subsubsection{Durchsichtlichkeit}
+  \includegraphics[width=\textwidth]{images/RealLabor.jpg}
+  
+  \includegraphics[width=\textwidth]{images/paperPrototype2.jpg}
+  
+  Der Aufbau der Szene basiert auf das Projekt, das im Jahr 2016 entwickelt wird\citep{26}. Die Modells werden korrigiert und verbessert.
+  
+  \includegraphics[width=\textwidth]{images/WithoutGlass.png}
+
+   \subsubsection{lebendige Texturen}
+   
+   Um der Verbrauch der Leistung von Smartphone zu verringern, wurden unnötige Texturen damals nicht benutzt. Zurzeit besetzen Smartphone viel stärke Leistung, deshalb können die Modells mit lebendige Texturen gerendert werden, um das \glqq Vividness\grqq\ zu verbessern.
+   
+   Beispielsweise sind die wichtige Texturen:
+   \begin{itemize}
+       \item \textbf{Holz}: Hängeschränke, Schubladenschränke und Boden
+       \item \textbf{Metal}: Griffen von Hängeschränke und Schubladenschränke, Handschuh-Dispenserhalter und Infusionsständer
+       \item \textbf{farbiges Plastik}: Kanülen-Sammler,  Mülleimer, Spenderbox, Armhebelspender usw.
+   \end{itemize}
+   
+   \subsubsection{Transparenz}
+   
+   \subsubsection{Modell Korrektur von Kanülen-Sammler}
+   
+   \subsubsection{Hinweis Streifen}
+   
+   \includegraphics[width=\textwidth]{images/Schritt_4_2.png}
+
+   \subsubsection{Hand}
 
  \subsection{Interaktion}
- Interaktion ist der Hauptteil der WebVR Applikation, weil die nicht nur die Implementierung von Interactability von der Kategorie der Immersion ist, sonder auch enge Beziehung mit Matching hat.\citep{28} Da die WebVr Applikation cross-platform ist, werden die Konzeptionen der Interaktion nach den Typen der Geräte gliedert.
+ Interaktion ist ein wichtiger Teil der WebVR Applikation, weil die nicht nur die Implementierung von Interactability ist, sonder auch enge Beziehung mit Matching hat.
+ 
+ Um bessere Benutzererfahrung zu haben, soll die Interaktionen auf der einen Seite die Merkmale der unterschiedlichen Geräte voll benutzen, auf der anderen Seite nicht zu vielfältig sein, sodass wird die Lernkosten erhöht. 
+ 
+ Da die WebVr Applikation cross-platform ist, werden die Konzeptionen der Interaktion nach den Typen der Geräte gliedert.
 
- Für jede Geräte wird von drei Aspekten die Interaktionen erklärt:
+ Für jede Geräte wird von drei Aspekten der Interaktionen erklärt:
+ 
+ \textbf{Exploration}: Änderung der Aspekt.
+ 
+ \textbf{Navigation}: Translation der Kamera.
+ 
+ \textbf{Manipulation}: Aktivierung der Aktivität des Objektes für PC, Smartphone und Samsung Gear VR, zusätzlich Überprüfung, Greifen und Befreiung für HTC Vive.
 
- \begin{enumerate}
-    \item \textbf{Exploration}: Änderung der Aspekt.
-    \item \textbf{Navigation}: Translation der Kamera.
-    \item \textbf{Manipulation}: Aktivierung der Aktivität des Objektes für PC, Smartphone und Samsung Gear VR, zusätzlich Überprüfung, Greifen und Befreiung für HTC Vive.
- \end{enumerate}
-
- \subsubsection{Desktop und Laptop}
- text.......................
+ \subsubsection{PC}
+ PC ist wichtiges Produktivitätswerkzeug für alle Leute. Im Vergleich mit Smartphone hat PC bessere Leistung und größer Bildschirm. Im Bereich E-Learning hat PC noch großer Vorteil bei Eingabe, deswegen spiele PC eine unersetzbare Rolle bei E-Learning. Durch WebVR Technik kann VR Umgebung in flachen Bildschirme gezeigt werden, damit wird die Erreichbarkeit der VR Applikation viel verbessert. 
  
   \textbf{Exploration}
   
@@ -99,7 +135,8 @@ Bei diesem Projekt wird erste Form implementiert. Wegen der begrenzte Entwicklun
 
   Außer der zwingende Bewegung kann die Kamera durch dem Druck auf den Tasten W, A, S, D navigieren. Das bietet die Freiheit, die VR Umgebung sich umzuschauen. Ohne die freiwillige Navigation kann die Übung auch barrierefrei durchgeführt werden.
   
-  \textbf{Manipulation} 
+  \textbf{Manipulation}
+  
   Die Manipulation wird durch dem Zeiger durchgeführt. Zeiger ist ein schwarzer Ring, der immer in der Mittel der Sicht der Kamera steht. Der ist zuständig für den Aufruf eine Aktivität eines Objekts.
   
   Wenn der Benutzer mit dem nächsten Objekt hinter dem Zeiger interagieren kann, wechselt der Farbe des Rings zu grün, um das Selbstvertrauen dem Benutzer zu geben, die Aktivität zu aktivieren. Allerdings bedeutet der grüne Zeiger nicht, dass die Aktivität des Objekts aktiviert werden darf. Die Übung wird nach einer bestimmtem Reihenfolge durchgeführt, wenn eine Aktivität noch nicht daran ist, darf sie nicht aktiviert werden.
@@ -107,7 +144,7 @@ Bei diesem Projekt wird erste Form implementiert. Wegen der begrenzte Entwicklun
   Wenn der Zeiger grün ist und die linke Taste der Maus gedrückt wird, scheint die Farbe des Zeigers rot für ca. 0,3 Sekunde, und ein kurzes Soundeffekt geklungen wird, um die Botschaft an dem Benutzer geben, dass der Befehl, mit einem Objekt zu interagieren, ausgeführt ist. 
   
  \subsubsection{Smartphone}
- text.....................
+ Laut der Forschung ist Mobile eine wichtige Trend von E-Learning. Ein wichtiger Faktor ist, dass die Mobilität des Smartphones unschlagbar ist. Smartphone bietet die Möglichkeit, in kurzem Zeitraum und im Verkehr zu lernen. Durch die WebVR Technik wird auch Smartphone unterstützt, VR Umgebung darzustellen.
  
   \textbf{Exploration}
   
@@ -128,20 +165,21 @@ Bei diesem Projekt wird erste Form implementiert. Wegen der begrenzte Entwicklun
   Der Form des Zeigers ist gleich wie auf Laptop. Da keine Maus zu Verfügung für Smartphone ist, wird die Bestätigung aus Zeiger durch \glqq Anstarr\grqq\ (eng. gaze) gesendet. Wenn der Zeiger vor einem Objekt ca. 0,5 Sekunde beliebt ist, wird es versucht, die Aktivität des Objeckts durchzuführen. Gleichzeitig wird ein kurz Soundeffekt geklungen.
   
  \subsubsection{Samsung Gear VR}
- Samsung Gear Vr ist ein Beispiel für das 3Dof HMD. Gear VR kann mit oder ohne Controller benutzt werden.
+ Samsung Gear VR ist gut verbreitetes mobile HMD im Markt. Es ist ein typisch 3Dof HMD. Gear VR kann mit oder ohne Controller benutzt werden.
+ 
   \textbf{Exploration}
   
   Durch Gear VR wird der Benutzer in dem simulierten virtuellen Raum eingesetzt. Die Exploration wird durch der Rotation des Kopfs durchgeführt, ähnlich wie in reales Leben. Allerdings wird nur Rotation von HMD erkannt, weil Gear VR 3DoF ist.
   
   \textbf{Navigation}
-  \begin{itemize}
-  \item \textbf{Ohne Controller}: Wenn Gear VR ohne Controller ist, kann es Google Cupboard gelten. Die Navigation ist gleich wie die Navigation mit Smartphone, dass nur zwingend Navigation angeboten ist.
-  \item \textbf{Mit Controller}: Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Kurve aus dem Controller ausstrahlen, die auf dem Boden landen soll. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch dem Druck auf dem Trackpad auf dem Gear VR Controller gesendet, soll die Kamera sich zu dem gezeichnete Position navigiert.
-  \end{itemize}
   
+  \textsl{Ohne Controller}: Wenn Gear VR ohne Controller ist, kann es Google Cupboard gelten. Die Navigation ist gleich wie die Navigation mit Smartphone, dass nur zwingend Navigation angeboten ist.
+ 
+  \textsl{Mit Controller}: Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Kurve aus dem Controller ausstrahlen, die auf dem Boden landen soll. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch dem Druck auf dem Trackpad auf dem Gear VR Controller gesendet, soll die Kamera sich zu dem gezeichnete Position navigiert.
+
   \textbf{Manipulation}
-  \begin{itemize}
-  \item \textbf{Ohne Controller}: Der Zeiger kann in zwei Formen möglich sein.
+  
+  \textsl{Ohne Controller}: Der Zeiger kann in zwei Formen möglich sein.
   
   Eine Möglichkeit ist, dass der Zeiger gleich wie auf Laptop und Smartphone als Ring gezeigt. Der Vorteil ist, dass der Zeiger eindeutig ist. Der Ring ist auf dem komplizierten Hintergrund (die Objekten in dem Raum) einfach zu kennen. Der Nachteil ist, dass der Treffpunkt mit Objekte nicht klar ist , besonders wenn das Ziel klein ist.
   
@@ -151,13 +189,12 @@ Bei diesem Projekt wird erste Form implementiert. Wegen der begrenzte Entwicklun
   
   Die Bestätigung aus Zeiger kann durch dem Druck auf Touchpad von Gear VR oder auch durch \glqq Anstarr\grqq\ wie auf Smartphone durchgeführt werden. Als Feedback der Bestätigung wird ein kurz Soundeffekt geklungen. 
   
-  \item \textbf{Mit Controller}: Ein Raycaster soll aus dem Controller ausstrahlen. Durch einem Druck auf dem Auslöser auf dem Controller wird es versucht, die Aktivität des getroffenen Objekt zu aktivieren. 
-  \end{itemize}
+  \textsl{Mit Controller}: Ein Raycaster soll aus dem Controller ausstrahlen. Durch einem Druck auf dem Auslöser auf dem Controller wird es versucht, die Aktivität des getroffenen Objekt zu aktivieren. 
   
   image: controller Gear VR....................
   
  \subsubsection{HTC Vive}
- HTC Vive ist ein Beispiel für das 6DoF HMD.
+ HTC Vive ist ein 6DoF HMD mit starken Leistung. Es verbindet mit PC. Die WebVR Applikation kann durch normale Browser wie Firefox aufgerufen und die VR Umgebung wird gleichzeitig an dem HMD geschickt.
  
   \textbf{Exploration}
   
