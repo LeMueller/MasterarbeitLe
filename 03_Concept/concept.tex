@@ -74,7 +74,7 @@ Als der Schwerpunkt des Projektes wird die Konzeption der Übung Vorbereitung ei
   
   \includegraphics[width=\textwidth]{images/paperPrototype2.jpg}
   
-  Der Aufbau der Szene basiert auf das Projekt, das im Jahr 2016 entwickelt wird\citep{26}. Die Modells werden korrigiert und verbessert.
+  Der Aufbau der Szene basiert auf das Projekt, das im Jahr 2016 entwickelt wurde\citep{26}. Die Modells werden korrigiert und verbessert.
   
   \includegraphics[width=\textwidth]{images/WithoutGlass.png}
 
@@ -87,17 +87,52 @@ Als der Schwerpunkt des Projektes wird die Konzeption der Übung Vorbereitung ei
        \item \textbf{Holz}: Hängeschränke, Schubladenschränke und Boden
        \item \textbf{Metal}: Griffen von Hängeschränke und Schubladenschränke, Handschuh-Dispenserhalter und Infusionsständer
        \item \textbf{farbiges Plastik}: Kanülen-Sammler,  Mülleimer, Spenderbox, Armhebelspender usw.
+       \item \textbf{Wand}: Wände und Dach
    \end{itemize}
    
    \subsubsection{Transparenz}
+   Die Objekte beispielsweise Infusionsflasche und Infusionsbesteck wurden im Jahr 2016 mit durchsichtige Materialien modelliert. Allerdings wurden die transparente Materialien nicht richtig in Gear VR dargestellt. Vermutlicher Grund war, dass die Leistung der damaligen Smartphones zu schwach war, weil die Renderung der transparenten Objekten sehr aufwendig ist.
+   
+   Im Jahr 2018 sind die Leistung der Smartphones schon viel stärker. Es soll möglich sein, in diesem Projekt die transparente Objekten zutreffend zu rendern.
    
    \subsubsection{Modell Korrektur von Kanülen-Sammler}
+   Im Jahr 2016 wurde ein medizinischer Fehler bei der Modellierung gemacht, dass der Kanülen-Sammler mit normalen Mülleimer verwechselt wurde. Theoretisch ist Kanülen-Sammler schwierig zu öffnen, wenn der richtig zu gemacht. Im Gegenteil ist der Deckel des normalen Mülleimer sehr locker. Und es könnten die unsichere Situation passieren, dass der gebrauchte Spritze aus normalem Mülleimer ausfällt, wenn der Mülleimer eingesetzt würden.
    
-   \subsubsection{Hinweis Streifen}
+\begin{figure}[ht]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=\textwidth]{images/muelleimmer.png}
+\caption[Skillslab WebVR]{Mülleimer}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.48\linewidth}
+\includegraphics[width=\textwidth]{images/kanueleSammler.jpg}
+\caption[Skillslab WebVR]{Kanülen-Sammler}
+\end{minipage}
+\end{figure}
+
+In diesem Projekt wird den Fehler korrigiert.
+
+   \subsubsection{Entfernung der Hinweis Streifen}
+   Bei der 2016 Version wurde einen schwarzen Streife auf dem Boden der Sicht festgelegt, darauf die Hinweise und die Symbole Desinfektionstuch und Einmalhandschuhe gelegt wurden. Bei der Evaluation wurde das Problem getroffen, dass die Hinweise nicht angenehm gesehen könnten, weil es zu tief war. Jedoch könnte die Schwarze Streife nicht höher gesetzt werden, da würde zu viele Sicht versteckt.
+   
+   Um der schwarze Streif zu entfernen, werden erst die 3 zugehörige Aufgaben geteilt, und für jede Aufgabe eine andere Lösung finden.
+   
+   \begin{itemize}
+       \item \textbf{Hinweise}: Die Aufgabe, Hinweise darzustellen wird von dem Whiteboard auf der links Seite des Raums übernommen.
+       \item \textbf{Symbol von Desinfektionstuch}: Auf PC, Smartphone und Gear VR Version wird das Modell von dem Desinfektionstuch auf der Arbeitsfläche gelegt. Auf Vive Version kann das Desinfektionstuch direkt in Hand genommen werden. Deshalb ist das Symbol von Deinfektionstuch nicht nötig.
+       \item \textbf{Symbol von Einmalhandschuhe}: Auf PC, Smartphone und Gear VR Version wird das Modell von Einmalhandschuhe direkt auf der Sicht hängt. Es bewegt sich nach der Bewegung der Kamera. Auf Vive Version wird die Modells von Händen mit Einmalhandschuhe mit der Farbe hell blau Dargestellt. Deswegen ist das Symbol von Einmalhandschuhe auch nicht mehr nötig. 
+   \end{itemize}
+   
+   Mit diesen 3 Lösungen werden alle 3 zugehörigen Aufgaben übernommen, sodass kann der schwarze Streif entfernt werden.
    
    \includegraphics[width=\textwidth]{images/Schritt_4_2.png}
 
-   \subsubsection{Hand}
+   \subsubsection{Modellierung für die Hände}
+   Auf Vive Version können die Objekt durch den Controllers genommen und befreien. Die Controllers spielen die Rolle von Händen, deswegen sollen entsprechende Modells der Händen die Modells von Vive Controllers ersetzen.
+   
+   Die Modells der Händen sollen nach der Aktionen der Controllers animieren. Wenn der Auslöser gedrückt wird, soll die entsprechende Hand ein bisschen Faust machen. Im Gegenteil wenn der Auslöser freigegeben wird, soll die Faust befreit wird.
+
 
  \subsection{Interaktion}
  Interaktion ist ein wichtiger Teil der WebVR Applikation, weil die nicht nur die Implementierung von Interactability ist, sonder auch enge Beziehung mit Matching hat.
