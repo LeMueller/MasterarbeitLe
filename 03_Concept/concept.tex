@@ -285,7 +285,7 @@ In diesem Projekt wird den Fehler korrigiert.
       
       Nach der Ausfüllung wird eine Namenetikett auf der Flasche geklebt.
       
-  \end{enumerate}  
+  \end{enumerate}
       
   \begin{figure}[ht]
   \begin{minipage}[t]{1\linewidth}
@@ -295,17 +295,27 @@ In diesem Projekt wird den Fehler korrigiert.
   \end{minipage}
   \end{figure}
   
+  Die Abschnitte sind nicht nur die abstrakte Gliederung, sondern auch die Optionen, damit für die erste Aktivität in der Übung entschieden werden kann. Der Auswahl des Abschnitts kann entweder in der VR Umgebung oder bei dem Unterricht in LMS getroffen werden.
+  
   \subsubsection{Erkennung \& Feedback der Fortschritte}
-  \begin{itemize}
-      \item \textbf{Zustand des Ablaufs}
-      \item \textbf{Erkennung der Fortschritte}
-      \item \textbf{Feedback der Fortschritte}
-  \end{itemize}
+  Der Fortschritt des Prozesses der Übung wird durch der Durchführung einer richtigen Aktivität gefördert. Wenn eine Aktivität des Objektes zur richtigen Zeit durchgeführt wird, wird der Fortschritt erkannt. Das heißt, dass die Erkennung durch den oben genannten Interaktionen nämlich Manipulationen der VR Geräten bewältigt wird.
+  
+  Auf PC, Smartphone und Gear VR führt eine wirksame Manipulation zu einem Schritt vor. Allerdings für HTC Vive ist es nicht gleich, weil die 6 DoF Geräten mehr Freiheit der Interaktion besetzen. Zum Beispiel fördert die Abholung eines gefallenen Objektes den Prozess der Übung nicht. 
+  
+  Die Feedbacks der Fortschritt bieten den Bescheid, dass die aktuelle Aufgabe erledigt wird, die nächste Aufgabe gemacht werden soll. Die Feedbacks werden meistens im Form Animation (Translation und Rotation) des Objektes gegeben. Außerdem können die Feedbacks durch die Änderung der Eigenschaft(Sichtbarkeit, Farbe) gegeben werden. Zum Beispiel wird ein Haken dargestellt, wenn das Name von Patient überprüft wird.
   
   \subsubsection{Leitung des Ablaufs}
+  Der Fortschritt wird durch die richtigen Aktivitäten durchgeführt. Die Versuche, mit dem richtigen Objekt im falschen Zeitraum oder mit den falschen Objekten zu interagieren, werden ignoriert. Um der Prozess der Übung zu leiten, wird zwei Hilfsmitteln angeboten, Whiteboard und Hilfe Boxes.
   \begin{itemize}
-      \item \textbf{Hinweise}
-      \item \textbf{Hilfe Boxes}
+      \item \textbf{Whiteboard}:
+      Ein Whiteboard wird auf dem linken Wand gehängt, um die Hinweise anzubieten. Wenn eine Aufgabe geschafft wird, wird der Hinweis für nächsten Aufgabe auf dem Whiteboard gezeigt. Wenn der Benutzer an dem nächsten Schritt nicht erinnern kann, kann er den Kopf nach links drehen, um die Hinweis zu lesen.
+      
+      Während der Übung führt keine Aufgabe außer Händedesinfektion zur der Drehung des Kopfs nach links. Das heißt, obwohl der Hinweis dargestellt ist, kann der Benutzer den Hinweis nur durch die absichtliche Drehung des Kopfs nach links lesen. Somit wird die unabsichtliche Vorsagen vermeidet.
+      
+      \item \textbf{Hilfe-Box}
+      Hilfe-Box ist ein halbe transprenter Kasten, die in der VR Umgebung dagestellt ist, wenn ein Objekt in Hand ist. Hilfe-Box hat zwei Funktionalitäten. Eine davon ist, die Position zu bezeichnen, wohin das Objekt gelegt werden soll. Die andere Funktionalität ist, der nächste Schritt zu leiten. Wenn ein Objekt gerade in Hand genommen wird, 
+      
+      
   \end{itemize}
   
   \subsubsection{Abschnitte}
@@ -315,6 +325,8 @@ In diesem Projekt wird den Fehler korrigiert.
   \subsubsection{Hacken}
   
   \subsubsection{Hilfe Boxes}
+  
+  \subsubsection{Zustand des Ablaufs in Implementierung}
   
 \begin{itemize}
 \item UI
