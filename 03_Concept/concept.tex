@@ -240,12 +240,15 @@ In diesem Projekt wird den Fehler korrigiert.
   Auch gleich wie mit Gear VR strahlt eine Kurve aus dem Controller, die auf dem Boden landet, und den Zielort zu bezeichnen. Durch dem Druck auf dem Trackpad auf dem Controller wird die Bewegung bestätigt und durchgeführt.
   
   \textbf{Manipulation}
+  image: controller HTV Vive....................
   \begin{itemize}
   \item \textbf{Aktivierung der Aktivität des Objektes}: Durch dem Druck auf dem Auslöser wird es versucht, die Aktivität des Objektes zu aktivieren.
   \item \textbf{Greifen}: Wenn der Controller mit einem Objekt überlappt und der Auslöser auf dem Controller gedrückt und nicht befreit wird, wird das Objekt in dem Hand(Controller) gegriffen.
   \item \textbf{Befreiung}: Wenn ein Objekt in einem Hand(Controller) ist und deren Auslöser losgelöst wird, wird das Objekt befreit. Das heißt, dass das Objekt entweder auf eine bestimmte Position gelegt wird oder fällt.
   \item \textbf{Überprüfung}: Wenn ein Objekt überprüft werden muss, wird ein Raycaster aus der Position der Augen ausstrahlt. Wenn das Raycaster die richtige Position trifft und der Auslöser von einem leeren Hand gedrückt wird, wird die Überprüfung durchgeführt.
   \end{itemize}
+  
+  image: Tabelle Zusammenfassung der Interaktion....................
   
  \subsection{Anordnung}
  Als eine Übung soll der Ablauf nach einer korrekten Reihenfolge durchgeführt werden. Um den korrekten und fließenden Ablauf zu garantieren, wird die VR Übung von drei Aspekten gestaltet, nämlich Planung des Ablaufs, Erkennung \& Feedback der Fortschritte und Leitung des Ablaufs.
@@ -298,23 +301,53 @@ In diesem Projekt wird den Fehler korrigiert.
   Die Abschnitte sind nicht nur die abstrakte Gliederung, sondern auch die Optionen, damit für die erste Aktivität in der Übung entschieden werden kann. Der Auswahl des Abschnitts kann entweder in der VR Umgebung oder bei dem Unterricht in LMS getroffen werden.
   
   \subsubsection{Erkennung \& Feedback der Fortschritte}
-  Der Fortschritt des Prozesses der Übung wird durch der Durchführung einer richtigen Aktivität gefördert. Wenn eine Aktivität des Objektes zur richtigen Zeit durchgeführt wird, wird der Fortschritt erkannt. Das heißt, dass die Erkennung durch den oben genannten Interaktionen nämlich Manipulationen der VR Geräten bewältigt wird.
+  Der Fortschritt des Prozesses der Übung wird durch der Durchführung einer richtigen Aktivität gefördert. Wenn eine Aktivität des Objektes zur richtigen Zeit durchgeführt wird, wird der Fortschritt erkannt. Die Erkennungen müssen durch den oben genannten Interaktionen nämlich Manipulationen der VR Geräten bewältigt wird.
   
   Auf PC, Smartphone und Gear VR führt eine wirksame Manipulation zu einem Schritt vor. Allerdings für HTC Vive ist es nicht gleich, weil die 6 DoF Geräten mehr Freiheit der Interaktion besetzen. Zum Beispiel fördert die Abholung eines gefallenen Objektes den Prozess der Übung nicht. 
   
   Die Feedbacks der Fortschritt bieten den Bescheid, dass die aktuelle Aufgabe erledigt wird, die nächste Aufgabe gemacht werden soll. Die Feedbacks werden meistens im Form Animation (Translation und Rotation) des Objektes gegeben. Außerdem können die Feedbacks durch die Änderung der Eigenschaft(Sichtbarkeit, Farbe) gegeben werden. Zum Beispiel wird ein Haken dargestellt, wenn das Name von Patient überprüft wird.
   
   \subsubsection{Leitung des Ablaufs}
-  Der Fortschritt wird durch die richtigen Aktivitäten durchgeführt. Die Versuche, mit dem richtigen Objekt im falschen Zeitraum oder mit den falschen Objekten zu interagieren, werden ignoriert. Um der Prozess der Übung zu leiten, wird zwei Hilfsmitteln angeboten, Whiteboard und Hilfe Boxes.
+  Der Fortschritt wird durch die richtigen Aktivitäten durchgeführt. Die Versuche, mit dem richtigen Objekt im falschen Zeitraum oder mit den falschen Objekten zu interagieren, werden ignoriert. Um der Prozess der Übung zu leiten, wird vier Hilfsmitteln angeboten, nämlich Whiteboard, Hilfe-Box, 30 Sekunden Indikator und Hacken.
   \begin{itemize}
       \item \textbf{Whiteboard}:
+      
       Ein Whiteboard wird auf dem linken Wand gehängt, um die Hinweise anzubieten. Wenn eine Aufgabe geschafft wird, wird der Hinweis für nächsten Aufgabe auf dem Whiteboard gezeigt. Wenn der Benutzer an dem nächsten Schritt nicht erinnern kann, kann er den Kopf nach links drehen, um die Hinweis zu lesen.
       
       Während der Übung führt keine Aufgabe außer Händedesinfektion zur der Drehung des Kopfs nach links. Das heißt, obwohl der Hinweis dargestellt ist, kann der Benutzer den Hinweis nur durch die absichtliche Drehung des Kopfs nach links lesen. Somit wird die unabsichtliche Vorsagen vermeidet.
       
-      \item \textbf{Hilfe-Box}
-      Hilfe-Box ist ein halbe transprenter Kasten, die in der VR Umgebung dagestellt ist, wenn ein Objekt in Hand ist. Hilfe-Box hat zwei Funktionalitäten. Eine davon ist, die Position zu bezeichnen, wohin das Objekt gelegt werden soll. Die andere Funktionalität ist, der nächste Schritt zu leiten. Wenn ein Objekt gerade in Hand genommen wird, 
+      \item \textbf{Hilfe-Box}:
       
+      Hilfe-Box ist ein halbe transprenter Kasten, die in der VR Umgebung dargestellt ist, wenn ein Objekt in Hand ist. Hilfe-Box hat zwei Funktionalitäten. Eine davon ist, die Position zu bezeichnen, wohin das Objekt gelegt werden soll. Die andere Funktionalität ist, die Zustände des genommenen Objektes zu zeigen. Wenn ein Objekt gerade in Hand genommen wird, wird das Hilfe-Box dafür in Rot dargestellt. Wenn alle Aufgabe, z.B Überprüfung, zu diesem Objekt erledigt werden,  wird die Farbe des Objektes zu Grün gewechselt, um dem Benutzer zu informieren, darf das Objekt hingelegt werden. Wenn das Objekt in dem entsprechenden Hilfe-Box hingelegt, verschwindet das Hilf-Box und wir die Position des Objektes angepasst.
+      
+      \item \textbf{30 Sekunden Indikator}:
+      
+      Laut fachliche Anforderung soll die händedesinfektion 30 Sekunden dauern. Um eine eindeutige Zeichnung, die genaue Zeit darzustellen, wird eine Uhr über dem Armhebelspender für Händedesinfektionsmittel gehängt. Die Uhrzeit darauf ist genau wie die Zeit in realem Welt.
+      
+      Der 30 Sekunden Indikator ist ein roter Halbkreis auf der Platte der Uhr, der genau 30 Sekunden bezeichnet. Wenn der Griff des Armhebelspender gedruckt wird, erscheint der 30 Sekunden Indikator, deren Ausgangsposition auf dem Sekundenzeiger liegt.
+      
+      Wenn 30 Sekunden abgelaufen, verschwindet der 30 Sekunden Indikator, um dem Benutzter zu informieren, dass die Händedesinfktion fertig ist und weitere Aufgaben behandeln dürfen.
+      
+      \item \textbf{Hacken}:
+      
+      Hacken bezeichnet die gecheckt Element, zum Beispiele 5-R bei Überprüfung der Krankenakte.
+      
+\begin{table}[]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llll}
+\hline
+            & Position                                                                         & rot                                                                                                      & grün                                                                                                     \\ \hline
+Abschnitt 0 & \begin{tabular}[c]{@{}l@{}}Obere linke\\ Ecke der Arbeitsoberfläche\end{tabular} & Krankenakte in Hand                                                                                      & 5R überprüft                                                                                             \\ \hline
+Abschnitt 2 & Über dem Mülleimer                                                               & Desinfektionstuch in Hand                                                                                & Arbeitsoberfläche desinfiziert                                                                           \\ \hline
+Abschnitt 4 & Auf der Arbeitsoberfläche                                                        & Infusionsflasche in Hand                                                                                 & Infusionsflasche überprüft                                                                               \\ \hline
+Abschnitt 5 & Auf der Arbeitsoberfläche                                                        & Infusionsbesteck in Hand                                                                                 & Infusionsbesteck überprüft                                                                               \\ \hline
+Abschnitt 6 & \begin{tabular}[c]{@{}l@{}}Unter dem Hacken\\ der Infusion Stand\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Infusionsflasche mit\\ eingestochenem Infusionsbesteck\\ in Hand\end{tabular} & \begin{tabular}[c]{@{}l@{}}Infusionsflasche mit\\ eingestochenem Infusionsbesteck\\ in Hand\end{tabular} \\ \hline
+Abschnitt 7 & Auf der Infusionsflasche                                                         & Namenetikett in Hand                                                                                     & Nameneitkett ausgefüllt                                                                                  \\ \hline
+\end{tabular}%
+}
+\caption{Nutzung der Hilfe-Boxes}
+\label{my-label}
+\end{table}
       
   \end{itemize}
   
