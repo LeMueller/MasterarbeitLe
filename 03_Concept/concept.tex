@@ -199,7 +199,9 @@ In diesem Projekt wird den Fehler korrigiert.
   
   Die intuitive Methode ist, das Smartphone zu bewegen. Der simulierte Umgebung wird in Smartphone räumlich dargestellt. Aber wegen die Begrenzung des Bildschirms ist nur den Raum teilweise im Blickwinkel. Durch die Bewegung des Smartphones wird andre Ort in dem Raum gesehen.
   
-  image: Aspekt smartphone..........................
+
+   \includegraphics[width=\textwidth]{images/paperPrototypewiths8mini.png}
+
   
   Es ist unvermeidbar, den Körper zu drehen, um seitig gelegte Objekt zuzuschauen, wenn man mit der erste Methode das Smartphone bewegt. Allerdings ist es unmöglich, großer Winkel zu drehen, wenn man auf einem Stuhl sitzt. Außerdem beeinflusst es anderen Leute, wenn man in öffentlichem Raum beispielsweise Bibliothek große Bewegung macht. Um die Probleme zu lösen, wird die zweite Methode angeboten, dass der Aspekt durch dem Ziehen auf Bildschirm verändert wird. Obwohl diese Methode nicht so intuitive wie die erste Methode ist , vermehrt es sich die Einsatzmöglichkeiten.
   
@@ -238,8 +240,6 @@ In diesem Projekt wird den Fehler korrigiert.
   
   \textsl{Mit Controller}: Ein Raycaster soll aus dem Controller ausstrahlen. Durch einem Druck auf dem Auslöser auf dem Controller wird es versucht, die Aktivität des getroffenen Objekt zu aktivieren. 
   
-  image: controller Gear VR....................
-  
  \subsubsection{HTC Vive}
  HTC Vive ist ein 6DoF HMD mit starken Leistung. Es verbindet mit PC. Die WebVR Applikation kann durch normale Browser wie Firefox aufgerufen und die VR Umgebung wird gleichzeitig an dem HMD geschickt.
  
@@ -252,13 +252,25 @@ In diesem Projekt wird den Fehler korrigiert.
   Auch gleich wie mit Gear VR strahlt eine Kurve aus dem Controller, die auf dem Boden landet, und den Zielort zu bezeichnen. Durch dem Druck auf dem Trackpad auf dem Controller wird die Bewegung bestätigt und durchgeführt.
   
   \textbf{Manipulation}
-  image: controller HTV Vive....................
   \begin{itemize}
   \item \textbf{Aktivierung der Aktivität des Objektes}: Durch dem Druck auf dem Auslöser wird es versucht, die Aktivität des Objektes zu aktivieren.
   \item \textbf{Greifen}: Wenn der Controller mit einem Objekt überlappt und der Auslöser auf dem Controller gedrückt und nicht befreit wird, wird das Objekt in dem Hand(Controller) gegriffen.
   \item \textbf{Befreiung}: Wenn ein Objekt in einem Hand(Controller) ist und deren Auslöser losgelöst wird, wird das Objekt befreit. Das heißt, dass das Objekt entweder auf eine bestimmte Position gelegt wird oder fällt.
   \item \textbf{Überprüfung}: Wenn ein Objekt überprüft werden muss, wird ein Raycaster aus der Position der Augen ausstrahlt. Wenn das Raycaster die richtige Position trifft und der Auslöser von einem leeren Hand gedrückt wird, wird die Überprüfung durchgeführt.
   \end{itemize}
+  
+  \begin{figure}[ht]
+   \begin{minipage}[t]{0.48\linewidth}
+   \centering
+   \includegraphics[width=\textwidth]{images/GearVRController.png}
+   \caption[Skillslab WebVR]{Samsung Gear VR Controller}
+   \end{minipage}
+   \hspace{0.5cm}
+   \begin{minipage}[t]{0.48\linewidth}
+   \includegraphics[width=\textwidth]{images/ViveController.jpg}
+   \caption[Skillslab WebVR]{HTC Vive Controller}
+   \end{minipage}
+  \end{figure}
   
 \begin{table}[]
 \begin{tabular}{llll}
