@@ -5,11 +5,43 @@ Die Implementierung beschreibt ganz grundlegende technische Details der Umsetzun
 Typischer Umfang der Implementierung: 5-10 Seiten BA, 15-20 Seiten MA.
 
 \section{Learning Managment System}
+Viele LMS sind auf dem Markt angeboten. Ein geeignete Plattform für das Projekt wird ausgewahlt. Auf diesem LMS wird ein Unterricht über Infusionsvorbereitung gestaltet. Paar Lernmethoden beispielsweise VR Übung werden in dem Unterricht eingesetzt. 
+
  \subsection{Applikation Auswahl}
+ Laut Capterra stehen mehr als 400 LMS mit Web Applikation zu Verfügung. Jede LMS hat eigne Merkmale. Moodle wird als die LMS Plattform in diesem Projekt eingesetzt.
+ 
+ Der größte Vorteil von Moodle für das Projekt ist, dass Moodle eine kostenlos open source LMS Plattform ist. Das heißt, dass es möglich ist, die Moodle gratis auf eigenem Server zu installieren, mit eigener Datenbank zu verbinden und nach eigenen Anforderungen anzupassen.
+ 
+ Durch die vielfältige Aktivitäten in Moodle beispielsweise Aufgabe, Befragung, Test usw. können unterschiedliche Lernmethode eingesetzt werden. Mit dem Plugin System kann man selbst mit PHP eigene Aktivität schreiben und in Moodle integrieren, dadurch der zweite und dritte Form der Verbindung zwischen LMS und WebVR, die in Kapitel Konzeption genannt sind, implementiert werden können.
+ 
+ In Moodle können auch Arbeitsmaterialien wie Buch, Datei, Link usw. angeboten werden. Bei diesem Projekt wird der Benutzer durch den URLs in Moodle zu der WebVR Applikation geleitet, wie die erste Form, die in Konzeption beschrieben wird. 
+ 
  \subsection{Unterricht}
+ Bei dem Unterricht Infusion Vorbereitung werden fünf Arbeitsmaterialien (drei Links, eine Datei und ein Textseite) und eine Aktivität eingesetzt. Die drei Links leiten jeweils auf einer Erklärung über Infusionsvorbereitung in Text, einer Erzählung über 5-R-Regel in Text und einem Video über Infusionsvorbereitung auf Youtube um. Die Datei ist ein Diagramm, damit der Ablauf der Vorbereitung einer Infusion graphisch dargestellt wird.
+ 
+ Die Textseite ist die Zugang der praktische Übung in VR Umgebung. Die Methoden der Interaktion für unterschiedlichen Geräten werden zuerst informiert. Danach wird der Ablauf mit dem Diagramm noch einmal wiederholt. Und die acht Abschnitte in der Übung werden bezeichnet. Zum Abschluss werden acht Links aufgelistet, die auf dem entsprechenden Abschnitt in der VR Übung umleiten.
+ 
+ Am Ende des Unterrichtes wird die Aktivität Test angeboten. Dadurch wird das Effekt des Lernens überprüft. Und das Ergebnis wird in Moodle gespeichert.
+ 
+ Die VR Übung und der Test sind wiederholbar, um die Lernenden zu helfen, die Fertigkeit richtig zu beherrschen.
+ 
+ image: Unterricht und Textseite .........
  
 \section{WebVR Übung}
+Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .........
+
  \subsection{Framework Auswahl}
+ Im Kapitel Stand der Technik wird die Technologie der WebVR vorgestellt. Fünf Frameworks oder Game Engines davon sind benutzbar, um ein WebVR Applikation effizient zu entwickeln, nämlich , Unity, Play Canvas, Vizor, React 360 und A-Frame.
+ 
+ \begin{itemize}
+     \item \textbf{Unity} ist ein umfassende Game Engine. Viele built-in Funktionen stehen zu Verfügung. Mit das Plugin von Mozilla kann ein Projekt als WebVR Applikation exportiert werden. Allerdings wird das Projekt in einem Rahmen stellt. In diesem Rahmen ist die Entwicklung hoch effizient. Aber es ist schwierig, mit der Dinge außer dem Rahmen beispielsweise LMS anzupassen. Desegen wird Unity nicht ausgewählt.
+     \item \textbf{Play Canvas} ist ein webbasiert Game Engine. Damit kann das Projekt direkt als WebVR Applikation exportiert werden. Aber wenn man die Applikation auf eigne Server bewahren möchte, muss man monatlich zahlen.
+     \item \textbf{Vizor} ist eine webbasierte visuelle WebVR Plattform. Die Scripts wird durch Blueprint geschrieben. Die Stärke ist, die 360 Grade oder VR Szene darzustellen. Die Unterstützung für Interaktion reicht nicht für dieses Projekt.
+     \item \textbf{React 360} basiert teilweise auf three.js und wird von Facebook entwickelt. Die Logik der Entwicklung von React 360 ist gleich wie die bekannte JavaScript Bibliothek React im Bereich Frontend-Entwicklung. Allerdings wurde React 360 noch nicht vorgestellt, wenn dieses Projekt fängt an. Damals existierte nur der Vorfahr von React 360, nämlich React VR. Aber die Funktionalität von React VR war nicht reif genug, dieses Projekt zu entwickeln.
+     \item \textbf{A-Frame}
+ \end{itemize}
+ 
+ 
  \subsection{Projekt aufbauen}
  \subsection{Zustand managment}
  \subsection{Interaktion}
