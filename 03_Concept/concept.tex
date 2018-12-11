@@ -191,7 +191,7 @@ In diesem Projekt wird den Fehler korrigiert.
   
   Wenn der Benutzer mit dem nächsten Objekt hinter dem Zeiger interagieren kann, wechselt der Farbe des Rings zu grün, um das Selbstvertrauen dem Benutzer zu geben, die Aktivität zu aktivieren. Allerdings bedeutet der grüne Zeiger nicht, dass die Aktivität des Objekts aktiviert werden darf. Die Übung wird nach einer bestimmtem Reihenfolge durchgeführt, wenn eine Aktivität noch nicht daran ist, darf sie nicht aktiviert werden.
   
-  Wenn der Zeiger grün ist und die linke Taste der Maus gedrückt wird, scheint die Farbe des Zeigers rot für ca. 0,3 Sekunde, und ein kurzes Soundeffekt geklungen wird, um die Botschaft an dem Benutzer geben, dass der Befehl, mit einem Objekt zu interagieren, ausgeführt ist. 
+  Wenn der Zeiger grün ist und die linke Taste der Maus gedrückt wird, scheint die Farbe des Zeigers rot für ca. 0,3 Sekunde, um die Botschaft an dem Benutzer geben, dass der Befehl, mit einem Objekt zu interagieren, ausgeführt ist. 
   
  \subsubsection{Smartphone}
  Laut der Forschung ist Mobile eine wichtige Trend von E-Learning. Ein wichtiger Faktor ist, dass die Mobilität des Smartphones unschlagbar ist. Smartphone bietet die Möglichkeit, in kurzem Zeitraum und im Verkehr zu lernen. Durch die WebVR Technik wird auch Smartphone unterstützt, VR Umgebung darzustellen.
@@ -212,7 +212,7 @@ In diesem Projekt wird den Fehler korrigiert.
   
   \textbf{Manipulation}
   
-  Der Form des Zeigers ist gleich wie auf Laptop. Da keine Maus zu Verfügung für Smartphone ist, wird die Bestätigung aus Zeiger durch \glqq Anstarr\grqq\ (eng. gaze) gesendet. Wenn der Zeiger vor einem Objekt ca. 0,5 Sekunde beliebt ist, wird es versucht, die Aktivität des Objecktes durchzuführen. Gleichzeitig wird ein kurz Soundeffekt geklungen.
+  Der Form des Zeigers ist gleich wie auf Laptop. Da keine Maus zu Verfügung für Smartphone ist, wird die Bestätigung aus Zeiger durch \glqq Anstarr\grqq\ (eng. gaze) gesendet. Wenn der Zeiger vor einem Objekt ca. 0,5 Sekunde beliebt ist, wird es versucht, die Aktivität des Objecktes durchzuführen.
   
  \subsubsection{Samsung Gear VR}
  Samsung Gear VR ist gut verbreitetes mobile HMD im Markt. Es ist ein typisch 3Dof HMD. Gear VR kann mit oder ohne Controller benutzt werden.
@@ -225,7 +225,7 @@ In diesem Projekt wird den Fehler korrigiert.
   
   \textsl{Ohne Controller}: Wenn Gear VR ohne Controller ist, kann es als Google Cardboard gelten. Die Navigation ist gleich wie die Navigation mit Smartphone, dass nur automatische Navigation angeboten ist.
  
-  \textsl{Mit Controller}: Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Kurve aus dem Controller ausstrahlen, die auf dem Boden landen soll, wenn das Trackpad gedrückt wird. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch der Loslösung auf dem Trackpad auf dem Gear VR Controller gesendet, soll die Kamera sich zu dem gezeichnete Position navigiert. Zwei Soundeffekten werden währende der Druck und Loslösung auf Trackpad geklungen.
+  \textsl{Mit Controller}: Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Kurve aus dem Controller ausstrahlen, die auf dem Boden landen soll, wenn das Trackpad gedrückt wird. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch der Loslösung auf dem Trackpad auf dem Gear VR Controller gesendet, soll die Kamera sich zu dem gezeichnete Position navigiert.
 
   \textbf{Manipulation}
   
@@ -237,9 +237,9 @@ In diesem Projekt wird den Fehler korrigiert.
   
   Die Merkmale der beiden Varianten sind eindeutig. Die Entscheidung wird bei der Implementierung nach dem Endeffekt treffen.
   
-  Die Bestätigung aus Zeiger kann durch dem Druck auf Touchpad von Gear VR oder auch durch \glqq Anstarr\grqq\ wie auf Smartphone durchgeführt werden. Als Feedback der Bestätigung wird ein kurz Soundeffekt geklungen. 
+  Die Bestätigung aus Zeiger kann durch dem Druck auf Touchpad von Gear VR oder auch durch \glqq Anstarr\grqq\ wie auf Smartphone durchgeführt werden.
   
-  \textsl{Mit Controller}: Ein Raycaster soll aus dem Controller ausstrahlen. Durch einem Druck auf dem Auslöser auf dem Controller wird es versucht, die Aktivität des getroffenen Objekt zu aktivieren. Zwei Soundeffekten werden währende der Druck und Loslösung auf Auslöser geklungen.
+  \textsl{Mit Controller}: Ein Raycaster soll aus dem Controller ausstrahlen. Durch einem Druck auf dem Auslöser auf dem Controller wird es versucht, die Aktivität des getroffenen Objekt zu aktivieren.
   
  \subsubsection{HTC Vive}
  HTC Vive ist ein 6DoF HMD mit starken Leistung. Es verbindet mit PC. Die WebVR Applikation kann durch normale Browser wie Firefox aufgerufen und die VR Umgebung wird gleichzeitig an dem HMD geschickt.
@@ -288,17 +288,17 @@ HTC Vive                                                                    & Ko
 \end{table}
 
  \subsection{Geräusche}
- Die entsprechende Geräusche können nicht nur die Lebendigkeit der VR Umgebung verstärken, sonder auch die Feedbacks der Interaktion verdeutlichen.
+ Die entsprechende Geräusche können nicht nur die Lebendigkeit der VR Umgebung verstärken, sondern auch die Feedbacks der Interaktion verdeutlichen.
  \subsubsection{VR Umgebung}
- Um lebendige VR Umgebung darzustellen, sollen erst die reale Geräusche aufgenommen werden, weil reale Geräusche die Materialien der Objekten widerspiegeln können. Die Position, wo die Geräusche klingen, werden für jede Objekt angepasst, da die räumliche Erkennung durch die auditive Wahrnehmung gemacht werden kann. Die Geräusche für die Objekte müssen mit der Animation synchronisieren, sodass die Lebendigkeit zu stärken.
+ Um wirklichkeitsnahe VR Umgebung darzustellen, sollen erst die reale Geräusche aufgenommen werden, weil reale Geräusche die Materialien der Objekten widerspiegeln können. Die Position, wo die Geräusche klingen, werden für jede Objekt angepasst, da die räumliche Erkennung durch die auditive Wahrnehmung gemacht werden kann. Die Geräusche für die Objekte müssen mit der Animation synchronisieren, sodass die Lebendigkeit zu verstärken.
  
  \subsubsection{Interaktionen}
  Als ein Feedback der Interaktion spielt Geräusch wichtige Rolle. Die Geräusche für Interaktion sind keine reale Geräusche, sonder die Töne(Soundeffekt), die für bestimmte Interaktion geeigneten.
  
- Insgesamt fünf Töne werden eingesetzt. Ein Ton klingt, wenn der Zeiger auf PC, Smartphone und Gear VR ohne Controller mit Objekt interagiert. Die andere vier Töne werden für die Druck und Loslösung für Gear VR Controller und HTC Vive Controller angepasst.
+ Insgesamt fünf Töne werden eingesetzt. Ein Ton klingt, wenn der Zeiger auf PC, Smartphone und Gear VR ohne Controller mit Objekte interagiert. Die andere vier Töne werden für die Druck und Loslösung von Auslöser und Trackpad auf Gear VR Controller und HTC Vive Controller angepasst.
  
  \subsection{Anordnung}
- Als eine Übung soll der Ablauf nach einer korrekten Reihenfolge durchgeführt werden. Um den korrekten und fließenden Ablauf zu garantieren, wird die VR Übung von drei Aspekten gestaltet, nämlich Planung des Ablaufs, Erkennung \& Feedback der Fortschritte und Leitung des Ablaufs. 
+ Als eine Übung soll der Ablauf nach einer korrekten Reihenfolge durchgeführt werden. Um den korrekten und fließenden Ablauf zu garantieren, wird die VR Übung von drei Aspekten gestaltet, nämlich Planung des Ablaufs, Erkennung \& Feedback der Fortschritte und Leitung des Ablaufs. Die Anordnung ist die Ausführung von Kategorie \glqq Plot\grqq.
   \subsubsection{Planung des Ablaufs}
       
   Der Ablauf wird laut den fachlichen Anforderungen gestaltet. Insgesamt 23 Aktivität sollen während der Übung nach richtiger Reihenfolge gemacht werden. Die Aktivitäten werden unter acht Abschnitten unterteilt.
@@ -314,7 +314,8 @@ HTC Vive                                                                    & Ko
       
       \item Arbeitsfläche desinfizieren:
       
-      Einmalhandschuhe werden erst eingezogen. Danach wird Desinfektionstuch aus dem Dose ausgenommen. Schließlich wird die Arbeitsfläche desinfiziert. Die gebraucht Einmalhandschuhe und Desinfektionstuch werden in Mülleimer geworfen.
+      Einmalhandschuhe werden erst eingezogen. Danach wird Desinfektionstuch aus dem Dose ausgenommen. Schließlich wird die Arbeitsfläche desinfiziert. Die gebraucht Einmalhandschuhe und Desinfektionstuch werden in dem Mülleimer geworfen.
+      
       \item Hände desinfizieren:
       
       Die Hände werden 30 Sekunden desinfiziert.
@@ -329,7 +330,15 @@ HTC Vive                                                                    & Ko
       
       \item Infusion vorbereiten:
       
-      Nach der Abnahmen des Deckels der Flasche wird die Infusionsbesteck in der Flasche eingestrichen. Danach wird die Flasche auf dem Infusionsständer gehängt. Durch dem Druck auf dem Tropfkammer lässt die Medikament im Tropfkammer tropfen. Durch die Öffnung der Durchflussregler wird die transparenten Infusionsleitung mit Medikament ausgefüllt. Am Ende wird die Infusionsleitung festgelegt.
+      Nach der Abnahmen des Deckels der Flasche wird die Infusionsbesteck in der Flasche eingestrichen. Danach wird die Flasche auf dem Infusionsständer gehängt. Durch dem Druck auf dem Tropfkammer lässt die Medikament im Tropfkammer tropfen. Durch die Öffnung der Rollenklemme wird die transparenten Infusionsleitung mit Medikament ausgefüllt. Am Ende wird die Infusionsleitung festgelegt.
+      
+      \begin{figure}[ht]
+       \begin{minipage}[t]{1\linewidth}
+        \centering
+         \includegraphics[width=\textwidth]{images/infusionssystem.jpg}
+        \caption[Skillslab WebVR]{Infusionsbesteck}
+       \end{minipage}
+      \end{figure}
       
       \item Namenetikett vorbereiten:
       
@@ -340,7 +349,7 @@ HTC Vive                                                                    & Ko
   \begin{figure}[ht]
   \begin{minipage}[t]{1\linewidth}
   \centering
-  \includegraphics[width=\textwidth]{images/infusion_vorbereitung_durchlauf.png}
+  \includegraphics[width=\textwidth]{images/AblaufInfusionsvorbereitung.png}
   \caption[Skillslab WebVR]{Ablauf}
   \end{minipage}
   \end{figure}
@@ -352,7 +361,7 @@ HTC Vive                                                                    & Ko
   
   Auf PC, Smartphone und Gear VR führt eine wirksame Manipulation zu einem Schritt vor. Allerdings für HTC Vive ist es nicht gleich, weil die 6 DoF Geräten mehr Freiheit der Interaktion besetzen. Zum Beispiel fördert die Abholung eines gefallenen Objektes den Prozess der Übung nicht. 
   
-  Die Feedbacks der Fortschritt bieten den Bescheid, dass die aktuelle Aufgabe erledigt wird, die nächste Aufgabe gemacht werden soll. Die Feedbacks werden meistens im Form Animation (Translation und Rotation) des Objektes gegeben. Außerdem können die Feedbacks durch die Änderung der Eigenschaft(Sichtbarkeit, Farbe) gegeben werden. Zum Beispiel wird ein Haken dargestellt, wenn das Name von Patient überprüft wird.
+  Die Feedbacks der Fortschritt bieten den Bescheid, dass die aktuelle Aufgabe erledigt wird und die nächste Aufgabe gemacht werden soll. Die Feedbacks werden meistens im Form Animation (Translation und Rotation) des Objektes gegeben. Außerdem können die Feedbacks durch die Änderung der Eigenschaft(Sichtbarkeit, Farbe) gegeben werden. Zum Beispiel wird ein Haken vor dem Name dargestellt, wenn das Name von Patient überprüft wird.
   
   \subsubsection{Leitung des Ablaufs}
   Der Fortschritt wird durch die richtigen Aktivitäten durchgeführt. Die Versuche, mit dem richtigen Objekt im falschen Zeitraum oder mit den falschen Objekten zu interagieren, werden ignoriert. Um der Prozess der Übung zu leiten, wird vier Hilfsmitteln angeboten, nämlich Whiteboard, Hilfe-Box, 30 Sekunden Indikator und Hacken.
@@ -361,15 +370,19 @@ HTC Vive                                                                    & Ko
       
       Ein Whiteboard wird auf dem linken Wand gehängt, um die Hinweise anzubieten. Wenn eine Aufgabe geschafft wird, wird der Hinweis für nächsten Aufgabe auf dem Whiteboard gezeigt. Wenn der Benutzer an dem nächsten Schritt nicht erinnern kann, kann er den Kopf nach links drehen, um die Hinweis zu lesen.
       
-      Während der Übung führt keine Aufgabe außer Händedesinfektion zur der Drehung des Kopfs nach links. Das heißt, obwohl der Hinweis dargestellt ist, kann der Benutzer den Hinweis nur durch die absichtliche Drehung des Kopfs nach links lesen. Somit wird die unabsichtliche Vorsagen vermeidet.
+      Während der Übung führt keine Aufgabe außer Händedesinfektion zu der Drehung des Kopfs nach links. Das heißt, obwohl der Hinweis dargestellt ist, kann der Benutzer den Hinweis nur durch die absichtliche Drehung des Kopfs nach links lesen. Somit wird der unabsichtliche Verrat vermeidet.
       
       \item \textbf{Hilfe-Box}:
       
-      Hilfe-Box ist ein halbe transprenter Kasten, die in der VR Umgebung dargestellt ist, wenn ein Objekt in Hand ist. Hilfe-Box hat zwei Funktionalitäten. Eine davon ist, die Position zu bezeichnen, wohin das Objekt gelegt werden soll. Die andere Funktionalität ist, die Zustände des genommenen Objektes zu zeigen. Wenn ein Objekt gerade in Hand genommen wird, wird das Hilfe-Box dafür in Rot dargestellt. Wenn alle Aufgabe, z.B Überprüfung, zu diesem Objekt erledigt werden,  wird die Farbe des Objektes zu Grün gewechselt, um dem Benutzer zu informieren, darf das Objekt hingelegt werden. Wenn das Objekt in dem entsprechenden Hilfe-Box hingelegt, verschwindet das Hilf-Box und wir die Position des Objektes angepasst.
+      Hilfe-Box ist ein halbe transprenter Kasten, die in der VR Umgebung dargestellt ist, wenn ein Objekt in Hand ist. Hilfe-Box hat zwei Funktionalitäten.
+      
+      Eine davon ist, die Position zu bezeichnen, wohin das Objekt gelegt werden soll.
+      
+      Die andere Funktionalität ist, die Zustände des genommenen Objektes zu zeigen. Wenn ein Objekt gerade in Hand genommen wird, wird das Hilfe-Box dafür in Rot dargestellt. Wenn alle Aufgabe, z.B Überprüfung, zu diesem Objekt erledigt werden,  wird die Farbe des Objektes zu Grün gewechselt, um dem Benutzer zu informieren, darf das Objekt hingelegt werden. Wenn das Objekt in dem entsprechenden grünen Hilfe-Box hingelegt, verschwindet das Hilf-Box und wir die Position des Objektes angepasst. Es gilt als, dass das Objekt nicht in Hilfe-Box positioniert wird, ein Objekt in einem roten Hilfe-Box hinzulegen.
       
       \item \textbf{30 Sekunden Indikator}:
       
-      Laut fachliche Anforderung soll die händedesinfektion 30 Sekunden dauern. Um eine eindeutige Zeichnung, die genaue Zeit darzustellen, wird eine Uhr über dem Armhebelspender für Händedesinfektionsmittel gehängt. Die Uhrzeit darauf ist genau wie die Zeit in realem Welt.
+      Laut fachliche Anforderung soll die händedesinfektion 30 Sekunden dauern. Um eine eindeutige Zeichnung, die genaue Zeit darzustellen, wird eine Uhr über dem Armhebelspender mit Händedesinfektionsmittel gehängt. Die Uhrzeit darauf ist genau wie die Zeit in dem realen Welt.
       
       Der 30 Sekunden Indikator ist ein roter Halbkreis auf der Platte der Uhr, der genau 30 Sekunden bezeichnet. Wenn der Griff des Armhebelspender gedruckt wird, erscheint der 30 Sekunden Indikator, deren Ausgangsposition auf dem Sekundenzeiger liegt.
       
@@ -399,35 +412,12 @@ Abschnitt 7 & Auf der Infusionsflasche                                          
 
   
 \subsection{Zusammenfassung}
-Web basierte Applikation wie LMS ist weit verbreitet. Browser kann aus der Sicht der Anwendung sogar als mini-Betriebssystem gelten. Deshalb besetzt die Web VR Applikation einen unersetzbaren Vorteil, barrierefrei mit andere web basierte Applikation zu integrieren.
+Web basierte Applikation wie LMS ist weit verbreitet. Browser kann aus der Sicht der webbasierten Anwendung sogar als mini-Betriebssystem gelten. Deshalb besetzt die Web VR Applikation den unersetzbaren Vorteil, barrierefrei mit andere webbasierte Applikation zu integrieren.
 
-Als eine Anwendung einer cross-platform Technik müssen der Entwickler während der Konzeption mit unterschiedlichen Geräten rechnen, um bessere Erreichbarkeit zu realisieren.
+Das immersive Erlebnis wird durch die lebendige Umgebung und interaktive Möglichkeiten angeboten. Mit aktuelle WebVR Technik sind die visuelle und auditive Simulationen realisierbar.
 
-Das immersive Erlebnis kann lebendige Umgebung und mehr interaktive Aktivitäten anbieten. Allerdings soll das VR-Training die richtige und fachliche Kenntnisse vermitteln, deswegen wird die interaktive Freiheiten in diesem Projekt begrenzt.
+Als eine Anwendung einer cross-platform Technik muss die Konzeption mit unterschiedlichen Geräten gerechnet werden, um bessere Erreichbarkeit zu erreichen. Außerdem werden die Merkmale der Geräten ausgenutzt, um gemäße Immersion zu realisieren.
 
-Durch die Verbindung zwischen E-Learning und VR-Training werden die Nachteile von den beiden überwunden. Theoretisch soll die neue Lernmethode effektive sein.
-  
-  \subsubsection{Abschnitte}
-  
-  \subsubsection{White board}
-  
-  \subsubsection{Hacken}
-  
-  \subsubsection{Hilfe Boxes}
-  
-  \subsubsection{Zustand des Ablaufs in Implementierung}
-  
-\begin{itemize}
-\item UI
-\item white board
-\item Interaktion
-\subitem flach Bildschirm: cursor, gaze
-\subitem GearVR: gaze, click
-\subitem HTC Vive: drag, press release, hand, check
-\subitem observer patern---------
-\item Töne
-\item section selection: observerpatern------
-\item hand
-\item collision
-\item check 3 Dingen
-\end{itemize}
+Als eine Lernmaterial werden die VR Übung die fachliche Kenntnisse vermitteln. Durch technischen Lösungen wird das Verhältnis des Benutzers geleitet, um die richtige Handlungen durchzuführen.
+
+Als eine neue Lernmethode wird VR-Training bei E-Learning eine unersetzbare Rolle spielen.
