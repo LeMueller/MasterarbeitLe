@@ -31,6 +31,18 @@ Viele LMS sind auf dem Markt angeboten. Ein geeignete Plattform für das Projekt
 Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .........
 
  \subsection{Framework Auswahl}
+ 
+ Um die Ziele dieses Projektes zu erreichen, muss das ausgewählte Framework folgende Anforderungen erfüllen:
+ 
+ \begin{enumerate}
+     \item Das Projekt kann gut mit LMS kommunizieren. Die Kommunikation kann durch URL oder Datenbank realisiert werden.
+     \item Das Framework kann unterschiedlichen Geräte unterstützen, z.B. PC, Smartphone und HMD.
+     \item Das Projekt kann auf eigene Server bewahrt.
+     \item Die Nutzung ist kostenlos.
+     \item Reichliche Dokumentationen und erreichbare Community stehen zu Verfügung.
+     \item Das Framework soll lange Zeit unterstützt und am besten kontinuierlich entwickelt werden.
+ \end{enumerate}
+ 
  Im Kapitel Stand der Technik wird die Technologie der WebVR vorgestellt. Fünf Frameworks oder Game Engines davon sind benutzbar, um ein WebVR Applikation effizient zu entwickeln, nämlich , Unity, Play Canvas, Vizor, React 360 und A-Frame.
  
  \begin{itemize}
@@ -38,12 +50,62 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
      \item \textbf{Play Canvas} ist ein webbasiert Game Engine. Damit kann das Projekt direkt als WebVR Applikation exportiert werden. Aber wenn man die Applikation auf eigne Server bewahren möchte, muss man monatlich zahlen.
      \item \textbf{Vizor} ist eine webbasierte visuelle WebVR Plattform. Die Scripts wird durch Blueprint geschrieben. Die Stärke ist, die 360 Grade oder VR Szene darzustellen. Die Unterstützung für Interaktion reicht nicht für dieses Projekt.
      \item \textbf{React 360} basiert teilweise auf three.js und wird von Facebook entwickelt. Die Logik der Entwicklung von React 360 ist gleich wie die bekannte JavaScript Bibliothek React im Bereich Frontend-Entwicklung. Allerdings wurde React 360 noch nicht vorgestellt, wenn dieses Projekt fängt an. Damals existierte nur der Vorfahr von React 360, nämlich React VR. Aber die Funktionalität von React VR war nicht reif genug, dieses Projekt zu entwickeln.
-     \item \textbf{A-Frame}
+     \item \textbf{A-Frame} ist ein von Mozilla entwickeltes kostenloses open source WebVR Framework. Es bietet die größte Freiheit, das Projekt zu manipulieren. Außerdem werden unterschiedlichen Geräte unterstützt. Mit A-Frame werden die Funktionen von three.js in einem Entity-Component System eingewickelt. Die Features von three.js werden vererbt. Die Lösungen der Probleme über der Entwicklung können entweder in der Community von A-Frame oder der Community von three.js gefunden werden.
  \end{itemize}
  
+ image: Editor von Frameworks .........
  
- \subsection{Projekt aufbauen}
- \subsection{Zustand managment}
+ A-Frame kann alle Anforderungen erfüllen. Deshalb wird nach dem Vergleich für A-Frame entschieden.
+ 
+ \subsection{Projekt bauen}
+ Im Bereich Web Entwicklung bieten zwei beliebte Werkzeugen, npm und Webpack, die Mögilichkeit, die Entwicklung einer Web Applikation zu projektieren, damit wird die Entwicklung effizienter gemacht. 
+ 
+ Npm (Node Package Manager) ist ein Packetmanager für die JavaScript-Luafzeitumgebung Node.js. Mit npm ist es einfach, die auf npm gespeicherte Pakete(Softwares) zu benutzen. Die Abhängigkeit der Paketen werden durch npm automatisch behandelt. Alle benutzte Pakete werden in einer Datei eingepackt, sodass wird der Einsatz auf dem Server erleichtert.
+ 
+ image: npm .........
+ 
+ Webpack ist ein auf npm gespeichertes Werkzeug, die verwendete und geschriebene Dateien zu organisieren. Während der Entwicklung einer Web Applikation werden vielen Dateien beispielsweise Javascript Dateien, HTML Dateien, CSS Dateien, Bilder Dateien usw. benutzt. Die Dateien sind getrennt, aber mit einander verbindet. Solche dezentralisiere Struktur führt zum hohen Aufwand, das Projekt auf Server zu bewähren. Durch Webpack werden die Dateien während der Entwicklung bündig verpackt und komprimiert.
+ 
+ image: webpack .........
+ 
+ Webpack-dev-server ist ein zusätzliches Werkzeug von Webpack. Dadurch wird die verpackte JavaScript Dateien automatisch kompiliert und die Webseite automatisch aktualisiert, solange die Code geändert werden.
+ 
+ Währen der Entwicklung einer Web Applikation können die CORS (Cross-Origin Resource Sharing) Errors auftauchen, wenn die lokale zugängliche Datei direkt in Browser aufgerufen wird, um das Effekt der Code anzuschauen. Der Grund ist, dass zur Sicherheit die Browsers Same-Origin-Policy benutzen. Das heißt, dass es untersagt wird, auf Objekte (zum Beispiel Grafiken) zuzugreifen, die von einer anderen Webseite stammen oder deren Speicherort nicht der Origin entspricht. Die von Browser direkt aufgerufenen lokalen Dateien gelten nicht als Same-Origin requests sodern Cross-Origin requests.
+ 
+ image: cross origin .........
+ 
+ Http-server ist auch ein auf npm gespeichertes Werkzeug, dadurch ein Server (localhost) auf eigene PC erstellt werden kann. Und ein ausgewählter Ordner auf dem PC wird als das Wurzelverzeichnis des Servers eingerichtet. Alle Dateien in diesem Ordner gelten als in dem gleichen Origin, sodass die CORS Errors behoben werden.
+ 
+ image: projekt screenshot 
+ 
+ \subsection{Fortschritte}
+ Im Kapitel Konzeption werden die Erkennung und Feedback Fortschritte erzählt. Wie werden die Fortschritte in der Applikation implementiert, wird in diesem Kapitel erklärt.
+ 
+ Um die Fortschritte zu definieren, wird die Konzeption \glqq state container \grqq von der Technik Redux importiert. Jede Objekt in der VR Szene hat eigne Zustand, zum Beispiel Position. Die betreffende Zustände werden geändert, wenn der Prozess der Applikation betrieben wird. Die Sammlung der Zustände der allen Objekten wird als \glqq state container \grqq bezeichnet. Durch die Kombination der Zustände wird der Fortschritt der Übung notiert.
+ 
+ Dann ist der ganze Ablauf eines Fortschritts, dass eine Aktivität des Benutzers auf ein Objekt erst erkannt wird. Danach wird die betreffende Zustände geändert. Laut der Änderung der Zustände wird die entsprechende Aktivität des Objektes durchgeführt, was als Feedback an dem Benutzer gilt.
+ 
+ image: Fortschritt Diagramm .........
+ 
+  \subsubsection{Beobachter (en. Observer Pattern)}
+  Beobachter ist ein Entwurfsmuster (en. Design Pattern) aus dem Bereich Softwareentwicklung. Es ist geeignet, der Fortschritte zu realisieren.
+  
+  Die Funktionalität davon ist ähnlich wie Twitter. Ein Fußballspieler hat einen Account von Twitter, damit er Nachrichten freigibt. Die Fans von dem Fußballspieler \glqq follow \grqq dem Fußballspieler auf Twitter. Wenn der Fußballspieler Nachrichten weiter freigibt, werden die Fans benachrichtet.
+  
+  Im Bereich Softwareentwicklung wird der Fußballspieler als \glqq Observable \grqq oder \glqq Subject \grqq bezeichnet. Die Fans werden als \glqq Observer \grqq bezeichnet. Die Aktivität \glqq follow \grqq ist \glqq Subscribe \grqq. Die Benachrichtigung heißt \glqq Notify \grqq.
+  
+  \includegraphics[width=\textwidth]{images/observerPattern.jpeg}
+  
+  Um der das Oberserver Pattern zu implementieren, wird ein Class \glqq Observable \grqq bei diesem Projekt erstellt.
+  
+  image: Observable .........
+  
+  
+  \subsubsection{Zustände Management}
+  
+  Um das Zustand Management zu realisieren, wird ein Class geschrieben. Da fast alle Objekt in der Szene mit diesem Class verbinden und das einzige \glqq state container \grqq referenzieren, wird das Class als \glqq static \grqq Class definiert. 
+ 
+ 
  \subsection{Interaktion}
   \subsubsection{PC und Smartphone}
   \subsubsection{Samsung Gear VR}
