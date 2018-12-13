@@ -78,10 +78,10 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
  
  image: projekt screenshot 
  
- \subsection{Fortschritte}
+ \subsection{Zustände Management für Fortschritte}
  Im Kapitel Konzeption werden die Erkennung und Feedback Fortschritte erzählt. Wie werden die Fortschritte in der Applikation implementiert, wird in diesem Kapitel erklärt.
  
- Um die Fortschritte zu definieren, wird die Konzeption \glqq state container \grqq von der Technik Redux importiert. Jede Objekt in der VR Szene hat eigne Zustand, zum Beispiel Position. Die betreffende Zustände werden geändert, wenn der Prozess der Applikation betrieben wird. Die Sammlung der Zustände der allen Objekten wird als \glqq state container \grqq bezeichnet. Durch die Kombination der Zustände wird der Fortschritt der Übung notiert.
+ Um die Fortschritte zu definieren, wird die Konzeption \glqq state container\grqq von der Technik Redux importiert. Jede Objekt in der VR Szene hat eigne Zustand, zum Beispiel Position. Die betreffende Zustände werden geändert, wenn der Prozess der Applikation betrieben wird. Die Sammlung der Zustände der allen Objekten wird als \glqq state container\grqq bezeichnet. Durch die Kombination der Zustände wird der Fortschritt der Übung notiert.
  
  Dann ist der ganze Ablauf eines Fortschritts, dass eine Aktivität des Benutzers auf ein Objekt erst erkannt wird. Danach wird die betreffende Zustände geändert. Laut der Änderung der Zustände wird die entsprechende Aktivität des Objektes durchgeführt, was als Feedback an dem Benutzer gilt.
  
@@ -90,21 +90,66 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   \subsubsection{Beobachter (en. Observer Pattern)}
   Beobachter ist ein Entwurfsmuster (en. Design Pattern) aus dem Bereich Softwareentwicklung. Es ist geeignet, der Fortschritte zu realisieren.
   
-  Die Funktionalität davon ist ähnlich wie Twitter. Ein Fußballspieler hat einen Account von Twitter, damit er Nachrichten freigibt. Die Fans von dem Fußballspieler \glqq follow \grqq dem Fußballspieler auf Twitter. Wenn der Fußballspieler Nachrichten weiter freigibt, werden die Fans benachrichtet.
+  Die Funktionalität davon ist ähnlich wie Twitter. Ein Fußballspieler hat einen Account von Twitter, damit er Nachrichten freigibt. Die Fans von dem Fußballspieler \glqq follow\grqq dem Fußballspieler auf Twitter. Wenn der Fußballspieler Nachrichten weiter freigibt, werden die Fans benachrichtet.
   
-  Im Bereich Softwareentwicklung wird der Fußballspieler als \glqq Observable \grqq oder \glqq Subject \grqq bezeichnet. Die Fans werden als \glqq Observer \grqq bezeichnet. Die Aktivität \glqq follow \grqq ist \glqq Subscribe \grqq. Die Benachrichtigung heißt \glqq Notify \grqq.
+  Im Bereich Softwareentwicklung wird der Fußballspieler als \glqq Observable\grqq oder \glqq Subject\grqq bezeichnet. Die Fans werden als \glqq Observer\grqq bezeichnet. Die Aktivität \glqq follow\grqq ist \glqq Subscribe\grqq. Die Benachrichtigung heißt \glqq Notify\grqq.
   
   \includegraphics[width=\textwidth]{images/observerPattern.jpeg}
   
-  Um der das Oberserver Pattern zu implementieren, wird ein Class \glqq Observable \grqq bei diesem Projekt erstellt.
+  Um der das Oberserver Pattern zu implementieren, wird ein Class \glqq Observable\grqq bei diesem Projekt erstellt.
   
   image: Observable .........
+  
+  Während der Erstellung einer Observable wird ein Array generiert, um die Observers zu speichern. Durch die Funktionen subscribe und unsubscribe können die Observers in dem Array eingefügt oder von dem Array ausgezogen werden. Die Observers(Funktionen) sollen ein Parameter haben, um die Nachrichten von Observer zu empfangen. Wenn die Funktion Notify aufgerufen wird, werden alle Observers in dem Array nacheinander aufgerufen. Der Parameter der Funktion Notify wird als Parameter der Observers eingesetzt, sodass die Nachrichten auszuteilen.
   
   
   \subsubsection{Zustände Management}
   
-  Um das Zustand Management zu realisieren, wird ein Class geschrieben. Da fast alle Objekt in der Szene mit diesem Class verbinden und das einzige \glqq state container \grqq referenzieren, wird das Class als \glqq static \grqq Class definiert. 
+  Um das Zustand Management zu realisieren, wird ein Class stateIndex geschrieben. Da fast alle Objekt in der Szene mit diesem Class verbinden und das einzige \glqq state container\grqq referenzieren, wird das Class als \glqq static\grqq Class definiert.
+  
+  Mit init Funktion werden alle Zustände initialisiert. Die Initialisierung liegt an dem Query string in URL. Das Query string ist ein Teil von URL, dadurch der  Parameter bei dem \glqq request\grqq zusammen an dem Server geschickt. Bei dieser Applikation soll das Query string die Ziffer des ausgewählten Abschnitt sein. Mit dem Query string wird die Zustände nach dem Ausgewählten Abschnitt initialisiert.
+  
+  Während der Initialisierung wird eine Entität von Observable erstellt, um die Benachrichtigung vorzubereiten.
+  
+  Die init Funktion wird nur ein mal durchgeführt, wenn die Applikation aufgerufen.
+  
+  image: URL mit Query string .........
+  
+  Zu Sichert darf die Zustände von andere Objekt nicht erreichen. Deswegen werden die Funktionen von Class stateIndex angeboten, um die Zustände zu manipulieren.
+  
+  \begin{itemize}
+      \item \textbf{getState}: alle aktuelle Zustände zu bekommen.
+      \item \textbf{get}: bestimmte Zustand zu bekommen.
+      \item \textbf{getIn}: bestimmte Zustand in tiefen Ebenen zu bekommen.
+      \item \textbf{set}: bestimmte Zustand zu aktualisieren. Durch der Funktion Notify von Observable die neue Zustände an allen Observer auszuteilen.
+      \item \textbf{setIn}: bestimmte Zustand in tiefen Ebenen zu aktualisieren. Durch der Funktion Notify von Observable die neue Zustände an allen Observer auszuteilen.
+  \end{itemize}
+  
+ \subsection{Abschnitte Auswahl}
+
+ Der Auswahl der Abschnitte kann auf zwei Zeitpunkten durchgeführt werden. Einer davon ist während der Aufruf der Applikation. Die Ziffer der ausgewählte abschnitt wird durch dem Query string in URL an der Applikation gegeben. Der andere ist vor dem Nahm der Krankenakte in VR Szene. Auf dem Whiteboard werden die Abschnitte aufgelistet, dadurch bestimmter Abschnitt auswählen werden kann.
  
+  \subsubsection{Abschnitte Auswahl durch URL}
+  Die Zustände werden am Anfang als ursprüngliche Zustände initialisiert. Durch der Funktion getSectionSelectionFromURL in Class stateIndex kann die ausgewählte Ziffer bestimmen werden. Wenn die Ziffer zwischen 1 und 7 ist, werden die betreffende Zustände durch die Funktion selectSection aktualisiert. Danach werden die Objekte in der Szene nach den Zuständen auch aktualisiert.
+  
+  Um die GUI richtig einzusetzen, wird ein Trick benutzt. Wenn die Applikation aufgerufen, wird die Szene nach den aktuellen Zuständen eingerichtet und werden gleichzeitig die Modells geladen. Es könnte passieren, dass das Modell noch nicht fertig geladen ist, wenn es von der Aktualisierung betroffen wird. Das führ zu Fehler der Applikation.
+  
+  Um das Problem zu lösen, werden die Ladung vor der Aktualisierung überprüft. Mit der Funktion setInterval wird es implementiert, jede 0,5 Sekunde die Zustand der Ladung zu überprüfen. Wenn alle Modells schon geladen ist, wird die Überprüfung beendet und die Szene aktualisiert.
+  
+  image: Überprüfen die Ladung .........
+  
+  \subsubsection{Abschnitte Auswahl in VR Szene}
+  Auf dem Whiteboard wird die Abschnitte aufgelistet. Durch Zeiger oder Raycaster wird die Funktion selectSection in Class stateIndex mit entsprechendem Parameter aufgerufen, um der Abschnitt zu wechseln.
+  
+  Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle box\grqq eingesetzt, dadurch die Funktion selectSection von HTC Vive Controller aufgerufen kann.
+  
+  image: toggle box für Abschnitt .........
+  
+  \subsubsection{Verbesserung}
+  Der Abschnitte Auswahl kann nicht nur während der Initialisierung, sondern auch nach der Initialisierung durchgeführt wird. Deswegen sollen die Funktionen über Abschnitte Auswahl wie selectSection nicht in Class stateIndex eingepackt werden, sondern in eigenen Datei geschrieben werden.
+  
+ \subsection{Gemeinsame Class Struktur der Objekten}
+ Um effizient zu entwickeln 
  
  \subsection{Interaktion}
   \subsubsection{PC und Smartphone}
@@ -115,7 +160,7 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
  \subsection{Uhr}
  \subsection{Hand}
  \subsection{Attribute Veränderung}
- \subsection{Abschnitte Auswahl}
+ 
  \subsection{Arbeitsoberfläche Desinfektion in Vive}
  \subsection{Animation}
  \subsection{Kollision Erkennung}
