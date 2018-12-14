@@ -115,7 +115,7 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   image: URL mit Query string .........
   
-  Zu Sichert darf die Zustände von andere Objekt nicht erreichen. Deswegen werden die Funktionen von Class stateIndex angeboten, um die Zustände zu manipulieren.
+  Zu Sicherheit darf die Zustände von andere Objekt nicht erreichen. Deswegen werden die Funktionen von Class stateIndex angeboten, um die Zustände zu manipulieren.
   
   \begin{itemize}
       \item \textbf{getState}: alle aktuelle Zustände zu bekommen.
@@ -126,7 +126,6 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   \end{itemize}
   
  \subsection{Abschnitte Auswahl}
-
  Der Auswahl der Abschnitte kann auf zwei Zeitpunkten durchgeführt werden. Einer davon ist während der Aufruf der Applikation. Die Ziffer der ausgewählte abschnitt wird durch dem Query string in URL an der Applikation gegeben. Der andere ist vor dem Nahm der Krankenakte in VR Szene. Auf dem Whiteboard werden die Abschnitte aufgelistet, dadurch bestimmter Abschnitt auswählen werden kann.
  
   \subsubsection{Abschnitte Auswahl durch URL}
@@ -145,11 +144,43 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   image: toggle box für Abschnitt .........
   
-  \subsubsection{Verbesserung}
+  \subsubsection{Möglichkeit der Verbesserung}
   Der Abschnitte Auswahl kann nicht nur während der Initialisierung, sondern auch nach der Initialisierung durchgeführt wird. Deswegen sollen die Funktionen über Abschnitte Auswahl wie selectSection nicht in Class stateIndex eingepackt werden, sondern in eigenen Datei geschrieben werden.
   
- \subsection{Gemeinsame Class Struktur der Objekten}
- Um effizient zu entwickeln 
+ \subsection{Gestaltung der Class Struktur der Objekten}
+ Um das Projekt effizient zu entwickeln, wird ein Class Struktur gestaltet, die meisten Objekte in diesem Projekt anpasst. Die Struktur basiert auf die Class Struktur von A-Frame.
+ 
+ \subsubsection{Gestaltung}
+ Die Philosophie von A-Frame ist, mit spezifischen HTML Elements die Szene aufzubauen. Ein Element ist eine Kombination der Entitäten von unterschiedlichen Classes. Eine Entität kann ein HTML Element oder ein Attribut eines HTML Elements sein. Das Class in A-Frame wird als Component genannt.
+ 
+ Drei Built-in Objekten von Komponent sind wichtig.
+ \begin{itemize}
+     \item \textbf{init} ist eine Funktion, die während der Erstellung einer Entität von Component durchgeführt wird.
+     \item \textbf{schema} ist ein JavaScript Objekt, die Attribute von Component speichert.
+     \item \textbf{update} ist eine Funktion, die durchgeführt wird, wenn das schema durch HTML geändert wird. Die Initialisierung gilt als eine Änderung von schema, d.h. dass die Funktion update während der Erstellung einer Entität durchgeführt wird. Deswegen muss die Funktion init nicht definiert, wenn die Funktion update existiert.
+ \end{itemize}
+ Andere Funktionen können auch in Class geschrieben und aufgerufen.
+ 
+ image: A-Frame Component und HTML .........
+ 
+ Der Vorteil ist, dass jede Entität eigne Kopie der Funktionen und Attribute von Component hat. Das bedeutet, dass ein Component(Class) viele Entitäten haben kann. Die Entitäten haben keine Beeinflussung mit einander.
+ 
+ Allerdings wird die Struktur von Component wegen der Nutzung von Observer Pattern neu gestaltet.
+ 
+ Wie der Code von Class Observable gezeigt, dass der Parameter der Funktion subscribe eine Funktion sein soll. Aber die Funktionen, die in Class definiert werden, gelten nicht als eine bestimmter Funktion bei JavaScript. Deshalb müssen die Funktionen, die als oberser benutzt werden, außer dem Class definiert werden, sodass die Entitäten von dem Class die Nachrichten von observable empfangen können. Das führt zu einer suboptimale Situation, dass alle Entität, die durch dem gleichen Class erstellt werden, die selbe Funktion benutzen.
+ 
+ Obwohl die Class Struktur passt sich die Philosophie von A-Frame nicht an, ist es praktisch und geeignet für diesem Projekt, weil selten gleiche Objekten, die von Zusände controlliert werden, in der Szene existieren.
+ 
+ Um die Attribute und Funktionen von Component von die Funktion in observer zu erreichen, werden die Attribute und Funktionen beispielsweise schema auch außer dem Class (global) geschrieben.
+ 
+ image: spezielle Component Struktur .........
+ 
+ \subsubsection{Möglichkeit der Verbesserung}
+ Es ist auch möglich, nach der Philosophie von A-Frame die Class Struktur zu gestalten.
+ 
+ Durch angepassend \glqq eventlistener\grqq\, die während der Initialisierung eingefügt wird, kann die Nachricht von observable in dem Class transportiert wird.
+ 
+ image: bessere Struktur .........
  
  \subsection{Interaktion}
   \subsubsection{PC und Smartphone}
