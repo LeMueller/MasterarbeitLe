@@ -173,7 +173,7 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
  
  Um die Attribute und Funktionen von Component von die Funktion in observer zu erreichen, werden die Attribute und Funktionen beispielsweise schema auch außer dem Class (global) geschrieben.
  
- image: spezielle Component Struktur .........
+ image: eigne spezielle Component Struktur .........
  
  \subsubsection{Möglichkeit der Verbesserung}
  Es ist auch möglich, nach der Philosophie von A-Frame die Class Struktur zu gestalten.
@@ -205,6 +205,10 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   image: code a-camera .........
   
+  Außer der manuelle Navigation wird auch die automatische Navigation implementiert. Das Event \glqq raycaster-intersected\grqq wird auf der selbe Objekt emittiert, wenn das Objekt mit Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig ist, empfängt das Objekt das Event nicht mehr.
+  
+  image: code camera move .........
+  
   \textbf{Manipulation}
   
   Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert. Um der Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
@@ -213,16 +217,47 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   Als Standardeinstellung wird der Zeiger auf PC aktiviert, wenn die linke Taste von dem Maus gedruckt. Mit dem Attribut \glqq fuse-timeout\grqq wird die Methode, der Zeiger zu aktivieren, auf Smartphone konfiguriert. Die Wert 1000 bedeutet, dass der Zeiger aktiviert wird, wenn der Zeiger auf einem Objekt 1 Sekunde fokussiert.
   
-  Das Attribut \glqq raycaster-intersection\grqq ist eine Entität von Class \glqq raycaster-intersection\grqq, das die Funktion zu realisieren, dass der Zeiger zu grün wechseln, wenn der Zeiger ein Objekt trifft, damit interagieren kann.
+  Das Attribut \glqq raycaster-intersection\grqq ist eine Entität von Class \glqq raycaster-intersection\grqq, das die Funktion zu realisieren, dass der Zeiger zu grün wechseln, wenn der Zeiger die Objekte trifft, damit interagieren kann.
+  
+  Das Event \glqq raycaster-intersection\grqq wird auf die Entität selbe emittiert, wenn das raycaster sich mit Objekten überlappt. Im Gegenteil wird \glqq raycaster-intersection-cleard\grqq emittiert, wenn nichts mit das Raycaster überlappt.
+  
+  Da \glqq a-cursor\grqq hat die Eigenschaften von raycaster integriert, sind \glqq raycaster-intersection\grqq und \glqq raycaster-intersection-cleard\grqq für \glqq a-cursor\grqq zu Verfügung.
   
   image: raycaster-intersection .........
   
-  Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, dass der Zeiger in Rot dargestellt wird und ein Geräusch geklungen wird, wenn der Zeiger aktiviert wird. 
+  Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, der Zeiger in Rot darzustellen und ein entsprechendes Geräusch zu klingen, wenn der Zeiger aktiviert wird. 
   
   image: cursor-submit .........
   
-  
   \subsubsection{Samsung Gear VR}
+  Die Interaktionen für Samsung Gear VR sind abhängig von der Verfügbarkeit des Controllers.
+  
+  \textbf{Ohne Controller}
+  
+  Die Interaktionen von Samsung Gear VR ohne Controller sollen von die Funktionen für PC und Smartphone durch A-Frame automatisch angepasst. Allerdings taucht ein Problem bei der Anpassung an Gear VR auf: die Zeiger für jede Auge überlappen sich nicht zusammen. Das heißt, dass zwei Zeiger in der Sicht erscheinen.
+  
+  Der Grund dafür ist, dass der Zeiger zu nahe zu der Augen. Wenn der Zeiger weiter zu der Augen gelegt wird, ist der Zeiger eindeutig. Jedoch das führt zu der Situation, dass der Zeiger hinter dem Objekt wie Krankenakte ist. Wenn die Krankenakte auch weiter eingesetzt wird, können die Informationen auf der Krankenakte nicht deutlich gesehen werden.
+  
+  Zwei mögliche Lösungen werden versucht, Raycaster und große Skalierung.
+  \begin{itemize}
+      \item Raycaster: Die Idee Raycaster ist, das Raycaster von Controller zu den Augen zu bringen. Der Zeiger ist nicht mehr ein Ring, sondern eine aus Augen ausstrahlende Linie, sodass der Abstand zwischen Augen und Objekte keine Rolle spielt. Allerdings wird das Raycaster in Gear VR nicht richtig dargestellt. Die Linie wird als viele kurze Stückchen geschnitten. Und die Stückchen zeigen nicht nach eine einzige Richtung. Sodass kann die Lösung nicht eingesetzt werden.
+      
+      image: Raycaster for GearVR .........
+      
+      \item große Skalierung: Der Zeiger und die andere Objekten werden weit gelegt. Um die Objekten deutlicher zu schauen, werden alle Objekten vergrößern, sodass die relative Große sich nicht verändert. Die Position der Kamera wird dafür angepasst.
+      
+      Das ist keine optimale Lösung, weil der Benutzer fühlen sich, dass selbe ein Gigant ist. Allerdings ist es besser als Raycaster, deswegen wird diese Lösung eingesetzt.
+      
+      image: Gear VR Skalierung .........
+      
+  \end{itemize}
+  
+  \textbf{Mit Controller}
+  
+  
+  
+
+  
   \subsubsection{HTC Vive}
  \subsection{Geräte anpassen}
  \subsection{Töne}
