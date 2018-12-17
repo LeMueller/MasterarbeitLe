@@ -7,7 +7,7 @@ Typischer Umfang der Implementierung: 5-10 Seiten BA, 15-20 Seiten MA.
 \section{Learning Managment System}
 Viele LMS sind auf dem Markt angeboten. Ein geeignete Plattform für das Projekt wird ausgewahlt. Auf diesem LMS wird ein Unterricht über Infusionsvorbereitung gestaltet. Paar Lernmethoden beispielsweise VR Übung werden in dem Unterricht eingesetzt. 
 
- \subsection{Applikation Auswahl}
+ \subsection{LMS Auswahl}
  Laut Capterra stehen mehr als 400 LMS mit Web Applikation zu Verfügung. Jede LMS hat eigne Merkmale. Moodle wird als die LMS Plattform in diesem Projekt eingesetzt.
  
  Der größte Vorteil von Moodle für das Projekt ist, dass Moodle eine kostenlos open source LMS Plattform ist. Das heißt, dass es möglich ist, die Moodle gratis auf eigenem Server zu installieren, mit eigener Datenbank zu verbinden und nach eigenen Anforderungen anzupassen.
@@ -153,7 +153,7 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
  \subsubsection{Gestaltung}
  Die Philosophie von A-Frame ist, mit spezifischen HTML Elements die Szene aufzubauen. Ein Element ist eine Kombination der Entitäten von unterschiedlichen Classes. Eine Entität kann ein HTML Element oder ein Attribut eines HTML Elements sein. Das Class in A-Frame wird als Component genannt.
  
- Drei Built-in Objekten von Komponent sind wichtig.
+ Drei Built-in Objekten von Component sind wichtig.
  \begin{itemize}
      \item \textbf{init} ist eine Funktion, die während der Erstellung einer Entität von Component durchgeführt wird.
      \item \textbf{schema} ist ein JavaScript Objekt, die Attribute von Component speichert.
@@ -183,7 +183,45 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
  image: bessere Struktur .........
  
  \subsection{Interaktion}
+  Für unterschiedlichen Geräten werden entsprechend Interaktionen konzipiert. Die Implementierungen werden nach Geräten erzählt.
   \subsubsection{PC und Smartphone}
+  Viele Interaktionen von PC und Smartphone werden durch selbem Component umgesetzt, deswegen werden PC und Smartphone hier zusammen erklärt.
+  
+  \textbf{Exploration}
+  
+  Mit einer Entität von built-in Component \glqq a-camera\grqq in A-Frame wird ein Kamera in der Szene eingesetzt. Dadurch wird die Sicht von Benutzer in der VR Umgebung erstellt. Die Interaktionen, die das Kamera betreffen, nämlich Exploration und Navigation werden in dieser Entität realisiert.
+  
+  Mit dem Component \glqq look-controls\grqq kann die Rotation einer Entität manipuliert werden. Wenn \grqq look-controls\grqq als Attribut von \glqq a-camera\grqq eingesetzt wird, wird es realisiert, die Drehung der Kamera zu manipulieren.
+  
+  Wenn die Eigenschaft \glqq pointerLockEnabled\grqq von \glqq look-controls\grqq  als true eingerichtet wird, wird der Zeiger auf PC durch ein Click auf Maus versteckt, und wird Kamera durch der Bewegung von Maus gedreht. Wenn ESC Taste auf Tastatur gedrückt wird, wird der Zeiger wieder gezeigt, und verliert der Maus die Kontrolle der Rotation der Kamera.
+  
+  Außerdem is es möglich, durch das Ziehen auf dem Smartphone die Kamera zu drehen, wenn die Eigenschaft \glqq touchEnabled\grqq als true konfiguriert. True ist die Standardeinstellung für \glqq touchEnabled\grqq, deswegen muss es nicht extra eingerichtet werden.
+  
+  \textbf{Navigation}
+  
+  Mit dem Component \glqq wasd-controls\grqq kann die Position einer Entität manipuliert werden. Die Nutzung ist ähnlich wie das Component \glqq look-controls\grqq. Wenn \grqq wasd-controls\grqq als Attribut von \glqq a-camera\grqq eingesetzt wird, wird die Position der Kamera mit den Tasten W, A, S und D auf der Tastatur zu manipulieren.
+  
+  Die Eigenschaft \glqq acceleration\grqq beschreibt die Geschwindigkeit der Bewegung, wenn die Teste gedrückt. Um der Schwindel zu vermeiden, wird die Wert ziemlich klein eingerichtet.
+  
+  image: code a-camera .........
+  
+  \textbf{Manipulation}
+  
+  Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert. Um der Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
+  
+  Das Attribut \glqq objects\grqq beschreibt, mit welchen Objekten kann man interagieren. Alle solche Objekte werden mit Class \glqq clickable\grqq bezeichnet. Mit dem Attribut \glqq geometry\grqq wird der Zeiger als ein Ring definiert.
+  
+  Als Standardeinstellung wird der Zeiger auf PC aktiviert, wenn die linke Taste von dem Maus gedruckt. Mit dem Attribut \glqq fuse-timeout\grqq wird die Methode, der Zeiger zu aktivieren, auf Smartphone konfiguriert. Die Wert 1000 bedeutet, dass der Zeiger aktiviert wird, wenn der Zeiger auf einem Objekt 1 Sekunde fokussiert.
+  
+  Das Attribut \glqq raycaster-intersection\grqq ist eine Entität von Class \glqq raycaster-intersection\grqq, das die Funktion zu realisieren, dass der Zeiger zu grün wechseln, wenn der Zeiger ein Objekt trifft, damit interagieren kann.
+  
+  image: raycaster-intersection .........
+  
+  Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, dass der Zeiger in Rot dargestellt wird und ein Geräusch geklungen wird, wenn der Zeiger aktiviert wird. 
+  
+  image: cursor-submit .........
+  
+  
   \subsubsection{Samsung Gear VR}
   \subsubsection{HTC Vive}
  \subsection{Geräte anpassen}
