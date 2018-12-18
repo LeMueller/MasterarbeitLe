@@ -270,7 +270,7 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   Die Navigation von HTC Vive wird durch dem Component \glqq teleport-controls\grqq\ gleich wie Gear VR implementiert.
   
-  \textbf{vive-controls}
+  \textbf{Component vive-controls}
   
   Durch dem built-in Component \glqq vive-controls\grqq\ werden die Vive Controllers anerkannt. Mit dem Attribut \glqq modl\grqq\ wird die Darstellung des Modells von Controller konfiguriert. Da der Controllers als Hände gezeigt, wird das Attribut als false eingerichtet.
   
@@ -278,9 +278,13 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   Nach der Erkennung der Controllers wird ein Events \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ ausgelöst, wenn der Auslöser gedrückt und losgelöst. Um die Nachrichten über die Aktivität der Controllers auszubreiten, wird Observer Pattern verwendet.
   
-  Die relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Auslöser gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, Position von Controller) an alle Observers geschickt.
+  Die relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Auslöser gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt.
   
   image: code controller 6d ..........
+  
+  Um die globale Position zu rechnen, wird die Funktion von three.js verwendet. Die A-Frame Objekte sind eigentliche verpackte three.js Objekte, deswegen ist die Vervwendung von three.js in A-Frame barrierefrei. Das ist ein Vorteil für A-Frame.
+  
+  image: code getWordPosition ........
   
   \textbf{Prüfung mit Raycaster}
   
@@ -292,15 +296,44 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   Weil die Manipulation mit Vive Controller große Freiheit hat, und nicht jede Ausführung einer Aktivität den Fortschritt fördert, werden eine neue Liste für die Zustände der Vive Controllers und die entsprechenden Funktionen erstellt.
   
-  Zum Beispiel wird die Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als das ID des Controller, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers(Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte erkannt wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers umgezogen.
+  Zum Beispiel wird die Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als das ID des Controller, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers(Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte erkannt wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen.
   
   image: code controllerstate, portfolio
   
-  \textbf{Hinweis Box}
+  \textbf{Attribute Veränderung}
   
-  \textbf{Kollision Erkennung}
+  Wenn ein Element in dem Controller Element eingezogen oder aus dem Controller ausgezogen wird, wird die Dimension der Koordination geändert. Deshalb muss das Attribut Position neu gerechnet und umgesetzt.
+  
+  Normalerweise kann das Attribut direkt mit dem Befehl \glqq setAttribute\grqq konfiguriert werden. Allerdings sind die 3D A-Frame Objekte viel größer als 2D Objekte, sodass die DOM Manipulation länger dauert. Deshalb passiert es, dass die Änderung des Attributs vor dem Umzug des DOM Elements geschafft wird. Und nach dem Umzug wird das Attribut wieder zurückgesetzt.
+  
+  Um das Problem zu lösen, muss die DOM Funktion \glqq MutationObserver\grqq\ verwendet. Die Funktion \glqq MutationObserver\grqq\ ist zuständig dafür, die Änderung der gegebenen Attribute eines Elements zu beobachten. Wenn die Änderung fertig ist, wird eine Nachricht an den allen Observers geschickt.
+  
+  Weil die DOM Manipulation sehr häufig ist und fast alle aufwendige Änderungen mit den Controllers zu tun haben, wird die Funktion \glqq MutationObserver\grqq\ in einem Class \glqq controllerActions\grqq\ verpackt, um die Verwendung zu vereinfachen.
+  
+  Die \glqq MutationObserver\grqq\ beochatet die \glqq childList\grqq\ des eingegebenen Controllers. Wenn die Einfügung und Entfernung der Child Elements des Controllers fertig ist, werden die eingegebene Attribute eingesetzt. 
+  
+  image: controllerAction .........
+  
+  \textbf{Hinweis-Box}
+  
+  Die Hinweis-Box wird durch das built-in Element a-box implementiert. Durch die Konfiguration des Attributs \glqq material\grqq\ wird die Hinweis-Box in halb transparentem Rot dargestellt, wenn ein Objekt beispielsweise Krankenakte in Hand ist. Die Hinweis-Box hört zu den Zuständen aller Objekten. Wenn alle nötige Aktivitäten für das Objekt fertig gemacht, z.B. Überprüfung der Krankenakte, werden die Änderungen der entsprechenden Zuständen von der Hinweis-Box erkannt. Nach der Erkennung wird das Attributs \glqq material\grqq\ zum Grün umgeschrieben.
+  
+  Wenn die Kollision zwischen der grüne Hinweis-Box und dem Objekt in Hand während des Loslösens auf den Auslöser des Controllers detektiert wird, wird der entsprechende Zustand geändert und das Objekt auf die Arbeitsfläche gelegt.
+  
+  image: code HTML toggleBoxPortfolio .........
+  image: code class toggleBoxPortfolio .........
+  
+  \textbf{Kollision Detektion}
+  
+  Die Funktion Kollision Detektion wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion \glqq setFromObject\grqq\ als Kuben umgerechnet. Durch die Funktion \glqq intersectsBox\grqq\ wird es überprüft, ob zwei Kuben überlappt sind, damit die Kollision zu Detektieren.
+  
+  Allerdings ist die Methode keine optimale Lösung. Wenn das Objekt kein Kubus ist, ist die Detektion ungenau.
+  
+  image: code collision detection.
   
   \textbf{Fallen}
+  
+  Die Objekte können aus den Händen fallen. Um der Fall zu simulieren, werden die Position auf Y Achse 
   
   \textbf{Arbeitsoberfläche Desinfektion in Vive}
   
@@ -310,7 +343,7 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
  \subsection{Töne}
  \subsection{Uhr}
  \subsection{Hand}
- \subsection{Attribute Veränderung}
+ 
  \subsection{Animation}
  \subsection{Transparenz}
  
