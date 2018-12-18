@@ -203,6 +203,8 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   Die Eigenschaft \glqq acceleration\grqq beschreibt die Geschwindigkeit der Bewegung, wenn die Teste gedrückt. Um der Schwindel zu vermeiden, wird die Wert ziemlich klein eingerichtet.
   
+  Es gibt noch Bug bei dem Component \glqq wasd-controls\grqq. Die manuelle Navigation kann mit Firefox richtig durchgeführt werden. Aber mit Chrome kann die Bewegung nicht beendet werden.
+  
   image: code a-camera .........
   
   Außer der manuelle Navigation wird auch die automatische Navigation implementiert. Das Event \glqq raycaster-intersected\grqq wird auf der selbe Objekt emittiert, wenn das Objekt mit Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig ist, empfängt das Objekt das Event nicht mehr.
@@ -254,21 +256,66 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   \textbf{Mit Controller}
   
+  Die Navigation und Manipulation werden durch den Controller aktiviert.
   
+  Das Element von Gear VR Controller wird mit dem Element von Kamera zusammen in dem Element mit ID \glqq cameraRig\grqq\ eingepackt. Die Bewegung der Kamera wird durch die Translation von \glqq cameraRig\grqq\ geschafft, sodass wird die relative Position zwischen der Kamera und dem Controller während der Bewegung behaltet.
   
-
+  Mit dem built-in Component \glqq teleport-controls\grqq\ werden die Navigation implementiert. Das Attribut \glqq cameraRig\grqq\ beschreibt das Element, das sich zur den bezeichneten Position bewegt. Das Attribut \glqq teleportOrigin\grqq\ beschreibt das Element, das als die Ursprung von dem Element \glqq cameraRig\grqq\ gilt.
+  
+  Wenn der Trackpad auf Gear VR Controller gedrückt wird, wird die Position bezeichnet. Solange der Trackpad losgelöst wird, bewegt sich das Element \glqq cameraRig\grqq\ zur den bezeichneten Position. Die Position der Kamera auf den x und z Achsen sind gleich wie die bezeichnete Position. 
+  
+  Test!!! gearvr-controls vs leser controls
   
   \subsubsection{HTC Vive}
+  
+  Die Navigation von HTC Vive wird durch dem Component \glqq teleport-controls\grqq\ gleich wie Gear VR implementiert.
+  
+  \textbf{vive-controls}
+  
+  Durch dem built-in Component \glqq vive-controls\grqq\ werden die Vive Controllers anerkannt. Mit dem Attribut \glqq modl\grqq\ wird die Darstellung des Modells von Controller konfiguriert. Da der Controllers als Hände gezeigt, wird das Attribut als false eingerichtet.
+  
+  image: vive-controls element .........
+  
+  Nach der Erkennung der Controllers wird ein Events \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ ausgelöst, wenn der Auslöser gedrückt und losgelöst. Um die Nachrichten über die Aktivität der Controllers auszubreiten, wird Observer Pattern verwendet.
+  
+  Die relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Auslöser gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, Position von Controller) an alle Observers geschickt.
+  
+  image: code controller 6d ..........
+  
+  \textbf{Prüfung mit Raycaster}
+  
+  Ein aus Augen ausstrahlendes verstecktes Raycaster in dem Element \glqq a-camera\grqq\ eingesetzt. Wenn die Krankenakte, Infusionsflasche und Infusionsbesteck überprüft werden sollen, wird das Raycaster gezeigt, um die Überprüfung durchzuführen. Wenn das Raycaster die richtige Position trifft, Event \glqq raycaster-intersection\grqq\ ausgelöst wird, wird das Raycaster in grün dargestellt, sonst in orange. Wenn die Überprüfung fertig ist, die Zustände für die Prüfungen true sind ,wird das Raycaster wieder versteckt.
+  
+  image: code raycaster vive .........
+  
+  \textbf{Zustände für Vive Controller}
+  
+  Weil die Manipulation mit Vive Controller große Freiheit hat, und nicht jede Ausführung einer Aktivität den Fortschritt fördert, werden eine neue Liste für die Zustände der Vive Controllers und die entsprechenden Funktionen erstellt.
+  
+  Zum Beispiel wird die Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als das ID des Controller, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers(Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte erkannt wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers umgezogen.
+  
+  image: code controllerstate, portfolio
+  
+  \textbf{Hinweis Box}
+  
+  \textbf{Kollision Erkennung}
+  
+  \textbf{Fallen}
+  
+  \textbf{Arbeitsoberfläche Desinfektion in Vive}
+  
+  image: tabelle Interaktion Component .........
+  
  \subsection{Geräte anpassen}
  \subsection{Töne}
  \subsection{Uhr}
  \subsection{Hand}
  \subsection{Attribute Veränderung}
+ \subsection{Animation}
+ \subsection{Transparenz}
  
  \subsection{Arbeitsoberfläche Desinfektion in Vive}
- \subsection{Animation}
  \subsection{Kollision Erkennung}
- \subsection{Transparenz}
  \subsection{Fallen}
 
 
