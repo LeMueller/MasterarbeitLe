@@ -351,10 +351,40 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   
   image: code getWordBound, handleSpecialCondition .........
   
-  
-  
  \subsection{Geräte anpassen}
+ Anpassende Interaktionen werden für unterschiedlichen Geräte gestaltet und implementiert. Um die Szene lebendig darzustellen, die Interaktion barrierefrei durchzuführen und die falsche Initialisierung der Position der Kamera(Bug von A-Frame) zu beheben muss die Applikation für unterschiedlichen Geräten während des Ladens konfiguriert wird.
+ 
+ Durch die Funktion \glqq navigator.userAgent\grqq wird die Informationen über dem Browser ausgelesen. Dadurch wird die Typen der Geräten(PC, Smartphone, GearVR) unterschieden. Durch das Event \glqq gamepadconnected\grqq wird der verbundene Controller(GearVR Controller, Vive Controller) erkannt. Damit wird die Mode auf PC(flach, VR) und Gear VR(ohne Controller, mit Controller) unterschieden. Durch das Event \glqq enter-vr\grqq\ wird die Mode auf Smartphone(flach, Cardboard) unterschieden.
+ 
+ \includegraphics[width=\textwidth]{images/geraeteAnpassen.png}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|} 
+\toprule
+PC & Vive                                                                         & \begin{tabular}[c]{@{}l@{}}Smart-\\phone\end{tabular} & Cardboard                                                           & \begin{tabular}[c]{@{}l@{}}Ohne\\Controller\end{tabular}             & \begin{tabular}[c]{@{}l@{}}Mit\\Controller\end{tabular}                       \\ 
+\hline
+   & Ring Zeiger entfernen                                                        &                                                       & \begin{tabular}[c]{@{}l@{}}Kamera Position\\einstellen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Objekte \\skarlieren\end{tabular}         & Ring Zeiger entfernen                                                         \\ 
+\cline{2-2}\cline{4-6}
+   & Objekte skalieren                                                            &                                                       &                                                                     & \begin{tabular}[c]{@{}l@{}}Kamera Position~\\einstellen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Automatische Bewegung \\deaktivieren\end{tabular}  \\ 
+\cline{2-2}\cline{5-6}
+   & \begin{tabular}[c]{@{}l@{}}Kamera Position \\einstellen\end{tabular}         &                                                       &                                                                     &                                                                      & Objekte skalieren                                                             \\ 
+\cline{2-2}\cline{6-6}
+   & \begin{tabular}[c]{@{}l@{}}Automatische Bewegung \\deaktivieren\end{tabular} &                                                       &                                                                     &                                                                      & \begin{tabular}[c]{@{}l@{}}Gear VR Controller \\darstellen\end{tabular}       \\ 
+\cline{2-2}\cline{6-6}
+   & \begin{tabular}[c]{@{}l@{}}Vive Controller \\darstellen\end{tabular}         &                                                       &                                                                     &                                                                      &                                                                               \\
+\bottomrule
+\end{tabular}
+\caption{Anpassung der Geräten}
+\end{table}
+ 
  \subsection{Töne}
+ Die Töne sind wichtig, eine lebendige Simulation aufzubauen. Alle reale Geräusche werden während der Übung in reale Skillslab in Fachhochschule Bielelfeld aufgenommen. Die Größe ist ca. 14 MB. Es ist zu groß in einer webbasierte Applikation einzufügen, weil es zu zu lange Zeit für das Laden führt. Deswegen werden nur die Geräusch für die Feedbacks von Controllers eingesetzt.
+ 
+ Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung auf dem Auslöser und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq componets\grqq\ eingepackt. Wenn ein Event von Controllers emittiert wird, wird die Funktion \glqq playSound\grqq\ des entsprechenden Sound Objekt aufgerufen.
+ 
+ image: code submitSound .........
+ 
  \subsection{Uhr}
  \subsection{Hand}
  \subsection{Arbeitsoberfläche Desinfektion in Vive}
