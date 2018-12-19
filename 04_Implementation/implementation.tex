@@ -323,32 +323,42 @@ Die Implementierung der WebVR Übung ist der Schwerpunkt dieses Projektes. .....
   image: code HTML toggleBoxPortfolio .........
   image: code class toggleBoxPortfolio .........
   
-  \textbf{Kollision Detektion}
+  \textbf{Kollisionserkennung}
   
-  Die Funktion Kollision Detektion wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion \glqq setFromObject\grqq\ als Kuben umgerechnet. Durch die Funktion \glqq intersectsBox\grqq\ wird es überprüft, ob zwei Kuben überlappt sind, damit die Kollision zu Detektieren.
+  Die Funktion Kollisionserkennung wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion \glqq setFromObject\grqq\ als Kuben umgerechnet. Durch die Funktion \glqq intersectsBox\grqq\ wird es überprüft, ob zwei Kuben überlappt sind, damit die Kollision zu erkennen.
   
-  Allerdings ist die Methode keine optimale Lösung. Wenn das Objekt kein Kubus ist, ist die Detektion ungenau.
+  Allerdings ist die Methode keine optimale Lösung. Wenn das Objekt kein Kubus ist, ist die Kollisionserkennung ungenau.
   
   image: code collision detection.
   
-  \textbf{Fallen}
+  \textbf{Freier Fall}
   
-  Die Objekte können aus den Händen fallen. Um der Fall zu simulieren, werden die Position auf Y Achse 
+  Die Objekte können aus den Händen fallen, wenn der Auslöser losgelöst wird.
   
-  \textbf{Arbeitsoberfläche Desinfektion in Vive}
+  Das Fallen wird so simuliert, dass in jedem bestimmten Zeitraum (0.01 Millisekunde) die Position auf Y Achse des Objektes eine Geschwindigkeit reduziert wird. Laut der Formel der Geschwindigkeit des freien Falls 
   
-  image: tabelle Interaktion Component .........
+  image: Formel Geschwindigkeit V(t) = gt, g = 9.8 .........
+  
+  kann die Geschwindigkeit so gerechnet \textit{speed = speed + accelerate} werden. 
+  
+  Da das reale Schwerefeld ist 9.8 m/s, soll die konstante Wert \textit{accelerate} 0.098 sein. Aber in der simulierten VR Umgebung fällt das Objekt zu schnell, sodass das Fallen nicht deutlich gemerkt werden kann. Um bessere Benutzererfahrung zu implementieren, wird die Wert \textit{accelerate} als 0.049 befestigt.
+  
+  Um der passende Zeitpunkt zu finden, das Fallen zu beenden, wird jede 0.01 Millisekunde die Kollision auf Y Achse detektiert. Allerdings könnte es passieren, dass vor der Detektion das Objekt in der letzten 0.01 Millisekunde schon in anderem Objekt beispielsweise Boden gefallen. Wenn das Objekt sehr dünn ist, z.B. Namenetikett, wird es nicht mehr gesehen.
+  
+  Um das Problem zu vermeiden, wird eine Variable \textit{lowestY} benutzt. Damit kann eine neue Ebenen erstellte werden, die als eine Kollision Ebene auf Y Achse gilt. Mit der Hilfe der neuen Ebenen, kann das Fallen des Objektes früher beendet werden. Allerdings kann es passieren, dass das Objekt über dem Boden liegt.
+  
+  Außer Boden (Y = 0) können andere Objekte wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um der Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Die Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als die Kollision Bereich.
+  
+  image: code getWordBound, handleSpecialCondition .........
+  
+  
   
  \subsection{Geräte anpassen}
  \subsection{Töne}
  \subsection{Uhr}
  \subsection{Hand}
- 
+ \subsection{Arbeitsoberfläche Desinfektion in Vive}
  \subsection{Animation}
  \subsection{Transparenz}
  
- \subsection{Arbeitsoberfläche Desinfektion in Vive}
- \subsection{Kollision Erkennung}
- \subsection{Fallen}
-
 
