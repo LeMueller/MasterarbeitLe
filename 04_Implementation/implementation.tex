@@ -442,6 +442,26 @@ easing    & Die Erleichterung der Animation                                     
  
  \subsection{Uhr}
  
+ Die Uhr hat zwei Funktionen in der Szene, die Uhrzeit darzustellen und der 30 Sekunden Markierung während der Händedesinfektion zu zeigen.
+ 
+ \subsubsection{Uhrzeit darstellen}
+ Um die reale Uhrzeit darzustellen, wird ein Class \glqq clock\_hand\_roll\grqq\ entwickelt. Da der Zeiger bewegt sich jede Sekunde, wird die built-in Funktion \glqq tick\grqq\ benutzt. Die von \glqq tick\grqq\ aufgerufene Funktionen werden jede Sekunde ein Mal durchgeführt.
+ 
+ Mit der Hilfe der Funktion \glqq tick\grqq\ wird ede Sekunde das Attribute \glqq Rotation\grqq\ der allen drei Zeiger aktualisiert. 
+ 
+ Um der Winkel der Rotation zu rechnen wird zuerst die aktuelle Uhrzeit durch das Class \glqq Data\grqq\ bekommen. Und mit den Funktionen \glqq getSeconds\grqq\, \glqq getMinutes\grqq\, \glqq getHours\grqq\ werden die Ziffern für jeden Zeiger gerechnet.
+ 
+ Danach wird der Winkel jedes Zeigers gerechnet, der bei jeder Bewegung dreht. Für Sekundenzeiger und Minutenzeiger ist der Winkel 360/60. Für Stundenzeiger ist der Winkel 360/12.
+ 
+ Das Produkt von der Ziffer mal entsprechendem Winkel bei jeder Bewegung ist der Winkel der Rotation auf X Ebene in der Koordination.
+ 
+ image: code Uhr....
+ 
+ \subsubsection{30 Sekunden Markierung}
+ Solange der Griff des Händedesinfektionsspenders gedrückt wird, wird ein Event \glqq handwashing\grqq\ emittiert. Danach wird ein A-Frame Element \glqq a-gltf-model\grqq\ für die 30 Sekunden Markierung erstellt. Die Methode, die Rotation zu rechnen, ist gleich wie die Methode für den Sekundenzeiger. Nach 30 Sekunden wird das Markierung Element entworfen.
+ 
+ image: 30 sekunden Markierung
+ 
  
  \subsection{Transparenz}
  
