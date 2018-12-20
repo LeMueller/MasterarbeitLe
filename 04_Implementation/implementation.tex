@@ -385,10 +385,64 @@ PC & Vive                                                                       
  
  image: code submitSound .........
  
- \subsection{Uhr}
- \subsection{Hand}
  \subsection{Arbeitsoberfläche Desinfektion in Vive}
+ Das Feedback der Desinfektion der Arbeitsoberfläche wird durch eine Hinweis-Box über dem Mülleimer und zwei versteckte Umschalter auf der Arbeitsoberfläche implementiert.
+ 
+ Solange ein Desinfektionstuch in Hand gehaltet wird, wird eine rote Hinweis-Box über dem Mülleimer dargestellt, um die Botschaft zu vermitteln, dass das Tuch und in Handschuhe in dem Mülleimer eingeworfen werden sollen, aber zur Zeit die Voraussetzung(Desinfektion der Arbeitsoberfläche) noch nicht erfüllt wird.
+ 
+ Gleichzeitig überprüfen die zwei Umschalter jede 0.5 Sekunde, ob die Kollision zwischen dem Tuch und den Umschalter erkannt wird. Wenn ein Schalter mit dem Tuch getroffen hat, wird der entsprechende Zustand für Vive Controller als true umgesetzt.
+ 
+ Solange die beide Zustände der Umschalter true sind, wechselt die Farbe der Hinweis-Box über dem Mülleimer zum Grün, um die Information zu teilen, dass das Tuch und die Handschuhe in dem Mülleimer einwerfen dürfen.
+ 
+ image: code tuch, szene .........
+ 
  \subsection{Animation}
+ Die Animation in A-Frame wird auch durch ein HTML Element \glqq a-animation\grqq bezeichnet. Das übergeordnete Element ist das Objekt zu animiert. Die genaue Manipulation wird durch die Attribute des \glqq a-animation\grqq Elements konfiguriert. Hier werden die wichtige Attribute aufgellist:
+ 
+ image: beispiel html animation element .........
+ 
+\begin{table}
+\centering
+\begin{tabular}{lll} 
+\toprule
+Name      & Beschreibung                                                                                                          & Standardeinstellung  \\
+attribute & Das Attribut des übergeordneten Elements zu animieren                                                                 & rotation             \\
+begin     & Name des Events, die Animation aufzurufen                                                                             & ''                   \\
+from      & Die Wert am Anfang                                                                                                    &                      \\
+to        & Die Wert am Ende                                                                                                      &                      \\
+dur       & Die Zeitdauer der Animation                                                                                           & 1000                 \\
+direction & Die Richtung der Animation (zwischen Anfang und End)                                                                  & normal               \\
+fill      & \begin{tabular}[c]{@{}l@{}}Der Effekt der Animation zu bestimmen, \\wenn die Animation deaktiviert wird.\end{tabular} & forwards             \\
+repeat    & Die Zahl der Wiederholung der Animation                                                                               & 0                    \\
+easing    & Die Erleichterung der Animation                                                                                       & ease                 \\
+\bottomrule
+\end{tabular}
+\caption{Wichtige Attribute von a-animation Element}
+\end{table}
+ 
+ Um die Animation einfach zu benutzen, wird eine Funktion entwickelt. Das \glqq a-animation\grqq Element wird erstellt. Und nach dem Laufen der Animation wird das Element nach dem Bedarf, der als Parameter eingegeben, entworfen oder behaltet.
+ 
+ image: code animation .........
+ 
+ 
+ \subsection{Hand}
+ 
+ Durch das \glqq a-animation\grqq Element kann ganzes Objekt animiert werden. Um komplizierte Animation zu realisieren, wird das Objekt während der Modellierung direkt animiert.
+ 
+ Das Hand Modell wird in Blender animiert. Zuerst wird das Skelett für dem Hand erstellt. Mit die Funktion \glqq Set Parent To \grqq\ können das Modell und die Skelett zusammen verbinden. Durch \glqq Key Frame\grqq\ kann die Hand animiert werden.
+ 
+ image: bledner hand .........
+ 
+ Das Modell wird als glTF 2.0 exportiert. Das glTF 2.0 ist ein Format für 3D Objket, die für webbasierte Applikation entwickelt. Die Vorteile sind kleine Größe und die Unterstützung der Animation.
+ 
+ Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ von dem Hand Modell aufgerufen werden. Allerdings kann die Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand Faust während des Drucks auf dem Auslöser ein bisschen macht und die Hand Faust während der Auslösung auf den Auslöser lockert, nicht implementiert werden.
+ 
+ image: code animation-mixer .........
+ 
+ 
+ \subsection{Uhr}
+ 
+ 
  \subsection{Transparenz}
  
 
