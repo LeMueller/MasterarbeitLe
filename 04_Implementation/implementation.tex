@@ -22,7 +22,7 @@ Viele LMS sind auf dem Markt angeboten. Eine geeignete Plattform für das Projek
  
  Die VR Übung und der Test sind wiederholbar, um die Lernenden zu helfen, die Fertigkeit richtig zu beherrschen.
  
- image: Unterricht und Textseite .........
+ image: Unterricht und Textseite ......... bis fertig von Unterricht
  
 \section{WebVR Applikation}
 Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. Zuerst Teil werden die Realisierungen, die das ganze Projekt betreffen, erzählt. Danach werden die Implementierungen für kleine Features erklärt.
@@ -50,30 +50,50 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
      \item \textbf{A-Frame} ist ein von Mozilla entwickeltes kostenloses open source WebVR Framework. Es bietet die größte Freiheit, das Projekt zu manipulieren. Außerdem werden unterschiedlichen Geräte unterstützt. Mit A-Frame werden die Funktionen von three.js in einem Entity-Component System eingewickelt. Die Features von three.js werden vererbt. Die Lösungen der Probleme über der Entwicklung können entweder in der Community von A-Frame oder der Community von three.js gefunden werden.
  \end{itemize}
  
- image: Editor von Frameworks .........
- 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/playCanvasVizor.png}
+\caption[Webbasierte Engine]{Webbasierte Editoren von PlayCanvas und Vizor}
+\label{fig:Webbasierte Engine}
+\end{figure}
+
  A-Frame kann alle Anforderungen erfüllen. Deshalb wird nach dem Vergleich für A-Frame entschieden.
  
- \subsection{Projekt bauen}
+ \subsection{Projektierung}
  Im Bereich Web Entwicklung werden zwei beliebte Werkzeugen geboten, npm und Webpack. Mit den Beiden Werkzeugen kann Web Applikation projektiert werden und die Effizient der Entwicklung gefördert werden.
  
- Npm (Node Package Manager) ist ein Packetmanager für die JavaScript-Luafzeitumgebung Node.js. Mit npm ist es einfach, die auf npm gespeicherten Pakete(Softwares) zu benutzen. Die Abhängigkeit der Pakete wird durch npm automatisch behandelt. Alle benutzte Pakete werden in einer Datei eingepackt, sodass wird der Einsatz auf dem Server erleichtert.
- 
- image: npm .........
+ NPM (Node Package Manager) ist ein Packetmanager für die JavaScript-Luafzeitumgebung Node.js. Mit npm ist es einfach, die auf npm gespeicherten Pakete(Softwares) zu benutzen. Die Abhängigkeit der Pakete wird durch npm automatisch behandelt. Alle benutzte Pakete werden in einer Datei eingepackt, sodass wird der Einsatz auf dem Server erleichtert.
  
  Webpack ist ein auf npm gespeichertes Werkzeug, die verwendete und geschriebene Dateien zu organisieren. Während der Entwicklung einer Web Applikation werden vielen Dateien beispielsweise Javascript Dateien, HTML Dateien, CSS Dateien, Bilder Dateien usw. benutzt. Die Dateien sind getrennt, aber mit einander verbindet. Solche dezentralisiere Struktur führt zum hohen Aufwand, das Projekt auf Server zu bewähren. Durch Webpack werden die Dateien während der Entwicklung bündig verpackt und komprimiert.
  
- image: webpack .........
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/npmWebpack.png}
+\caption[Projektierungswerkzeuge]{Projektierungswerkzeuge: NPM und Webpack}
+\label{fig:npm Webpack}
+\end{figure}
  
  Webpack-dev-server ist ein zusätzliches Werkzeug von Webpack. Dadurch wird die verpackte JavaScript Dateien automatisch kompiliert und die Webseite in Browser automatisch aktualisiert, solange die Codes geändert werden.
  
  Währen der Entwicklung einer Web Applikation können die CORS (Cross-Origin Resource Sharing) Errors auftauchen, wenn die lokale zugängliche Datei direkt in Browser aufgerufen wird, um das Effekt der Code anzuschauen. Der Grund ist, dass zur Sicherheit die Browsers Same-Origin-Policy benutzen. Das heißt, dass es untersagt wird, auf Objekte (zum Beispiel Grafiken) zuzugreifen, die von einer anderen Webseite stammen oder deren Speicherort nicht der Origin entspricht. Die von Browser direkt aufgerufenen lokalen Dateien gelten nicht als Same-Origin requests sondern Cross-Origin requests.
  
- image: cross origin .........
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/sameOrigin.png}
+\caption[Same-Origin-Policy]{Same-Origin-Policy}
+\label{fig:Same-Origin-Policy}
+\end{figure}
  
- Http-server ist auch ein auf npm gespeichertes Werkzeug, dadurch ein Server (localhost) auf eigene PC erstellt werden kann. Und ein ausgewählter Ordner auf dem PC wird als das Wurzelverzeichnis des Servers eingerichtet. Alle Dateien in diesem Ordner gelten als in dem gleichen Origin, sodass die CORS Errors behoben werden.
+ Http-server ist ein auf npm gespeichertes Werkzeug, dadurch ein Server (localhost) auf eigene PC erstellt werden kann. Und ein ausgewählter Ordner auf dem PC wird als das Wurzelverzeichnis des Servers eingerichtet. Alle Dateien in diesem Ordner gelten als in dem gleichen Origin, sodass die CORS Errors behoben werden.
  
- image: projekt screenshot 
+ Nach der Projektierung ist die Struktur der Applikation wie Abbildung ~\ref{fig:projektStruktur} gezeigt.
+ 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/projektSturktur.png}
+\caption[Struktur der Projekt]{Struktur der Projekt}
+\label{fig:projektStruktur} 
+\end{figure}
  
  \subsection{Zustände Management für Fortschritte}
  Im Kapitel Konzeption werden die Erkennung und Feedback Fortschritte erzählt. Wie werden die Fortschritte in der Applikation implementiert, wird in diesem Kapitel erklärt.
@@ -82,7 +102,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  
  Eine Aktivität auf dem Objekt wird so durchgeführt. Zuerst wird die Interaktion auf einem Objekt erkannt. Danach werden die betreffenden Zustände geändert. Laut der Änderung der Zustände wird die entsprechende Aktivität des Objektes durchgeführt, was als Feedback an dem Benutzer gilt.
  
- image: Fortschritt Diagramm .........
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/interaktionVerlauf.png}
+\caption[Durchlauf einer Aktivität]{Durchlauf einer Aktivität}
+\label{fig:interaktionVerlauf} 
+\end{figure}
  
   \subsubsection{Beobachter (en. Observer Pattern)}
   Beobachter ist ein Entwurfsmuster (en. Design Pattern) aus dem Bereich Softwareentwicklung. Es ist geeignet, der Zustand Management zu implementieren.
@@ -91,11 +116,22 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Im Bereich Softwareentwicklung wird der Fußballspieler als \glqq Observable\grqq oder \glqq Subject\grqq bezeichnet. Die Fans werden als \glqq Observer\grqq bezeichnet. Die Aktivität \glqq follow\grqq ist \glqq Subscribe\grqq. Die Benachrichtigung heißt \glqq Notify\grqq.
   
-  \includegraphics[width=\textwidth]{images/observerPattern.jpeg}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/observerPattern.jpeg}
+\caption[Observer Pattern]{Observer Pattern}
+\label{fig:observerPatern} 
+\end{figure}
   
   Um der das Oberserver Pattern zu implementieren, wird ein Class \glqq Observable\grqq in diesem Projekt erstellt.
   
-  image: code Observable .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/observable.png}
+\caption[Class Observable]{Class Observale}
+\label{fig:observable} 
+\end{figure}
   
   Während der Erstellung einer \glqq Observable\grqq\ wird ein Array generiert, um die \glqq Observers\grqq\ zu speichern. Durch die Funktionen \glqq subscribe\grqq\ und \glqq unsubscribe\grqq\ können die \glqq Observers\grqq\ in dem Array eingefügt oder von dem Array ausgezogen werden. Die \glqq Observers\grqq\ (Funktionen) sollen ein Parameter haben, um die Nachrichten von \glqq Observer\grqq\ zu empfangen. Wenn die Funktion \glqq Notify\grqq\ aufgerufen wird, werden alle \glqq Observers\grqq\ in dem Array nacheinander aufgerufen. Der Parameter der Funktion \glqq Notify\grqq\ wird als Parameter der \glqq Observers\grqq\ eingesetzt, sodass die Nachrichten auszuteilen.
   
@@ -109,7 +145,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Die \glqq init\grqq\ Funktion wird nur einmal durchgeführt, wenn die Applikation aufgerufen.
   
-  image: URL mit Query string .........
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{images/queryString.png}
+\caption[Query String]{Query String}
+\label{fig:queryString} 
+\end{figure}
   
   Zu Sicherheit dürfen die Zustände von andere Objekt nicht erreichen. Deswegen werden die Funktionen von Class \glqq stateIndex\grqq\ angeboten, um die Zustände zu manipulieren.
   
@@ -131,14 +172,26 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Um das Problem zu lösen, wird die Ladung vor der Aktualisierung überprüft. Mit der Funktion \glqq setInterval\grqq\ wird es implementiert, jede 0,5 Sekunde die Zustand der Ladung zu überprüfen. Wenn alle Modells schon geladen ist, wird die Überprüfung beendet und die Szene aktualisiert.
   
-  image: Überprüfen die Ladung .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/checkLadung.png}
+\caption[Überprüfen die Zustände der Ladungen]{Überprüfen die Zustände der Ladungen}
+\label{fig:checkLadung} 
+\end{figure}
   
   \subsubsection{Abschnitte Auswahl in VR Szene}
   Auf dem Whiteboard werden die Abschnitte aufgelistet. Durch Zeiger oder Raycaster wird die Funktion \glqq selectSection\grqq\ in Class \glqq stateIndex\grqq\ mit entsprechendem Parameter aufgerufen, um der Abschnitt zu wechseln.
   
   Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle box\grqq eingesetzt, dadurch die Funktion \glqq selectSection\grqq\ von HTC Vive Controller aufgerufen kann.
   
-  image: toggle box für Abschnitt .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/toggleBoxAbschnitte.png}
+\caption[Toggle Boxes]{Toggle Boxes für Auswahl der Abscshnitte}
+\label{fig:toggleBoxAbschnitte} 
+\end{figure}
   
   \subsubsection{Möglichkeit der Verbesserung}
   Der Abschnitte Auswahl kann nicht nur während der Initialisierung, sondern auch nach der Initialisierung durchgeführt wird. Deswegen sollen die Funktionen über Abschnitte Auswahl wie \glqq selectSection\grqq\ nicht in Class \glqq stateIndex\grqq\ eingepackt werden, sondern in eigenen Datei geschrieben werden.
@@ -156,7 +209,13 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
      \item \textbf{update} ist eine Funktion, die durchgeführt wird, wenn das schema durch HTML geändert wird. Die Initialisierung gilt als eine Änderung von schema, d.h. dass die Funktion update während der Erstellung einer Entität durchgeführt wird. Deswegen muss die Funktion init nicht definiert, wenn die Funktion update existiert.
  \end{itemize}
  
- image: A-Frame Component und HTML .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/aframeClass.png}
+\caption[typisches A-Frame Class]{typisches A-Frame Class}
+\label{fig:aframeClass} 
+\end{figure}
  
  Der Vorteil solcher Struktur ist, dass jede Entität eigne Kopie der Funktionen und Attribute von Component hat. Das bedeutet, dass ein Component(Class) viele Entitäten haben kann. Die Entitäten haben keine Beeinflussung mit einander.
  
@@ -168,14 +227,26 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  
  Um die Attribute und Funktionen von Component von die Funktion in \glqq observer\grqq\ zu erreichen, werden die Attribute und Funktionen beispielsweise schema auch außer dem Class als globale Variablen geschrieben.
  
- image: eigne spezielle Component Struktur .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/eigenesClass.png}
+\caption[Eigene Class Struktur]{Eigene Class Struktur}
+\label{fig:eigenesClass} 
+\end{figure}
  
  \subsubsection{Möglichkeit der Verbesserung}
  Es ist auch möglich, nach der Philosophie von A-Frame die Class Struktur zu gestalten.
  
- Durch anpassend \glqq eventlistener\grqq\, die während der Initialisierung eingefügt wird, kann die Nachricht von \glqq observable\grqq\ in dem Class transportiert wird.
+ Durch anpassend \glqq eventlistener\grqq\ (\glqq on\grqq\ in Jquery), die während der Initialisierung eingefügt wird, kann die Nachricht von \glqq observable\grqq\ in dem Class transportiert wird. (Abbildung ~\ref{fig:bestesClass})
  
- image: bessere Struktur .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/bestClass.png}
+\caption[Bessere Class Struktur]{Bessere Class Struktur}
+\label{fig:bestesClass} 
+\end{figure}
  
  \subsection{Interaktion}
   Für unterschiedlichen Geräten werden entsprechend Interaktionen konzipiert. Die Implementierungen werden nach Geräten erzählt.
@@ -201,15 +272,35 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Es gibt noch Bug bei dem Component \glqq wasd-controls\grqq. Die manuelle Navigation kann mit Firefox richtig durchgeführt werden. Aber mit Chrome kann die Bewegung nicht beendet werden.
   
-  image: code a-camera .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/cameraHtml.png}
+\caption[Kamera Element]{Kamera Element}
+\label{fig:cameraHtml} 
+\end{figure}
   
-  Außer der manuellen Navigation wird auch die automatische Navigation implementiert. Das Event \glqq raycaster-intersected\grqq wird auf dasselbe Objekt emittiert, wenn das Objekt mit Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig sind, empfängt das Objekt keinem Event mehr.
+  Außer der manuellen Navigation wird auch die automatische Navigation implementiert. Das Event \glqq raycaster-intersected\grqq wird auf dasselbe Objekt emittiert, wenn das Objekt mit Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig sind, empfängt das Objekt keinem Event mehr. (Abbildung ~\ref{fig:cameraMove})
   
-  image: code camera move .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/cameraMove.png}
+\caption[Automatische Navigation]{Automatische Navigation}
+\label{fig:cameraMove} 
+\end{figure}
   
   \textbf{Manipulation}
   
-  Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert. Um der Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
+  Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert. (Abbildung ~\ref{fig:aCursorElement}) Um der Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
+  
+ \begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/aCursorElement.png}
+\caption[a-cursor Element]{a-cursor Element}
+\label{fig:aCursorElement} 
+\end{figure}
   
   Das Attribut \glqq objects\grqq beschreibt, mit welchen Objekten kann man interagieren. Alle solche Objekte werden mit Class \glqq clickable\grqq bezeichnet. Mit dem Attribut \glqq geometry\grqq wird der Zeiger als ein Ring definiert.
   
@@ -219,13 +310,25 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Das Event \glqq raycaster-intersected\grqq wird auf den Objekten selbe emittiert, wenn das raycaster sich mit den Objekten überlappt. Im Gegenteil wird \glqq raycaster-intersected-cleard\grqq emittiert, wenn nichts mit das Raycaster überlappt.
   
-  Da \glqq a-cursor\grqq hat die Eigenschaften von Raycaster integriert, sind \glqq raycaster-intersection\grqq und \glqq raycaster-intersection-cleard\grqq für \glqq a-cursor\grqq zu Verfügung.
+  Da \glqq a-cursor\grqq hat die Eigenschaften von Raycaster integriert, sind \glqq raycaster-intersection\grqq und \glqq raycaster-intersection-cleard\grqq für \glqq a-cursor\grqq zu Verfügung. (Abbildung ~\ref{fig:raycasterIntersection})
   
-  image: raycaster-intersection .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/raycasterIntersection.png}
+\caption[Automatische Navigation]{Automatische Navigation}
+\label{fig:raycasterIntersection} 
+\end{figure}
   
-  Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, der Zeiger in Rot darzustellen und ein entsprechendes Geräusch zu klingen, wenn der Zeiger aktiviert wird. 
+  Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, der Zeiger in Rot darzustellen und ein entsprechendes Geräusch zu klingen, wenn der Zeiger aktiviert wird. (Abbildung ~\ref{fig:cursorSubmit})
   
-  image: cursor-submit .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/cursorSubmit.png}
+\caption[Zeiger bestimmen]{Zeiger bestimmen}
+\label{fig:cursorSubmit} 
+\end{figure}
   
   \subsubsection{Samsung Gear VR}
   Die Interaktionen für Samsung Gear VR sind abhängig von der Verfügbarkeit des Controllers.
@@ -238,17 +341,30 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Zwei mögliche Lösungen werden versucht, Raycaster und große Skalierung.
   \begin{itemize}
-      \item \textbf{Raycaster}: Die Idee Raycaster ist, das Raycaster von Controller zu den Augen zu bringen. Der Zeiger ist nicht mehr ein Ring, sondern eine aus Augen ausstrahlende Linie, sodass der Abstand zwischen Augen und Objekte keine Rolle spielt. Allerdings wird das Raycaster in Gear VR nicht richtig dargestellt. Die Linie wird als viele kurze Stückchen geschnitten. Und die Stückchen zeigen nicht nach eine einzige Richtung. Sodass kann die Lösung nicht eingesetzt werden.
+      \item \textbf{Raycaster}: Die Idee Raycaster ist, das Raycaster von Controller zu den Augen zu bringen. Der Zeiger ist nicht mehr ein Ring, sondern eine aus Augen ausstrahlende Linie, sodass der Abstand zwischen Augen und Objekte keine Rolle spielt. Allerdings wird das Raycaster in Gear VR nicht richtig dargestellt. Die Linie wird als viele kurze Stückchen geschnitten. Und die Stückchen zeigen nicht nach einer bestimmen Richtung. (Abbildung ~\ref{fig:GearVRRaycaster})
       
-      image: Raycaster for GearVR .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/gearVRRaycaster.png}
+\caption[Raycaster in Gear VR]{Raycaster aus Kamera in Gear VR in A-Frame basic Scene}
+\label{fig:GearVRRaycaster} 
+\end{figure}
       
       \item \textbf{große Skalierung}: Der Zeiger und die andere Objekte werden weit gelegt. Um die Objekten deutlicher zu schauen, werden alle Objekten vergrößern, sodass die relative Große sich nicht verändert. Die Position der Kamera wird dafür angepasst.
+      (Abbildung ~\ref{fig:GearVRCursor})
       
-      Das ist keine optimale Lösung, weil der Benutzer fühlt sich, dass selbe ein Gigant ist. Allerdings ist es besser als Raycaster, deswegen wird diese Lösung eingesetzt.
-      
-      image: Gear VR Skalierung .........
+\begin{figure}[t]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/gearVRCursor.png}
+\caption[vergrößerte Szene in Gear VR]{vergrößerte Szene in Gear VR}
+\label{fig:GearVRCursor} 
+\end{figure}
       
   \end{itemize}
+  
+  Obwohl die zweite Möglichkeit keine optimale Lösung ist, weil der Benutzer sich fühlt, dass selbe ein Gigant ist, ist es besser als Raycaster, deswegen wird diese Lösung eingesetzt. 
   
   \textbf{Mit Controller}
   
@@ -258,9 +374,25 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Mit dem built-in Component \glqq teleport-controls\grqq\ werden die Navigation implementiert. Das Attribut \glqq cameraRig\grqq\ beschreibt das Element, das sich zu der bezeichneten Position bewegt. Das Attribut \glqq teleportOrigin\grqq\ beschreibt das Element, das als die Ursprung von dem Element \glqq cameraRig\grqq\ gilt.
   
-  Wenn der Trackpad auf Gear VR Controller gedrückt wird, wird die Position bezeichnet. Solange der Trackpad losgelöst wird, bewegt sich das Element \glqq cameraRig\grqq\ zu der bezeichneten Position. Die Position der Kamera auf den X und Z Achsen sind gleich wie die bezeichnete Position. 
+  Wenn der Trackpad auf Gear VR Controller gedrückt wird, wird die Position bezeichnet. Solange der Trackpad losgelöst wird, bewegt sich das Element \glqq cameraRig\grqq\ zu der bezeichneten Position. Die Position der Kamera auf den X und Z Achsen sind gleich wie die bezeichnete Position.
   
-  Test!!! gearvr-controls vs leser controls
+  Die Manipulation wird durch dem Component \glqq laser-controls\grqq\ realisiert. Mit dem Component wird nicht nur der Gear VR Controller, sondern auch Daydrame Controller usw. (Abbildung ~\ref{fig:GearVRControllerElement} \& Abbildung ~\ref{fig:GearVRWithController})
+  
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/gearVRControllerElement.png}
+\caption[Gear VR Controller Element]{Gear VR Controller Element}
+\label{fig:GearVRControllerElement} 
+\end{figure}
+  
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/gearVRWithController.png}
+\caption[Gear VR mit Controller]{Gear VR mit Controller}
+\label{fig:GearVRWithController} 
+\end{figure}
   
   \subsubsection{HTC Vive}
   
@@ -268,33 +400,55 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Component vive-controls}
   
-  Durch dem built-in Component \glqq vive-controls\grqq\ werden die Vive Controllers anerkannt. Mit dem Attribut \glqq model\grqq\ wird die Darstellung des Modells von Controller konfiguriert. Da der Controllers als Hände gezeigt, wird das Attribut als \glqq false\grqq\ eingerichtet.
+  Durch dem built-in Component \glqq vive-controls\grqq\ werden die Vive Controllers anerkannt. Mit dem Attribut \glqq model\grqq\ wird die Darstellung des Modells von Controller konfiguriert. Da der Controllers als Hände gezeigt, wird das Attribut als \glqq false\grqq\ eingerichtet. (Abbildung ~\ref{fig:viveControllerElement})
   
-  image: vive-controls element .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/viveControllerElement.png}
+\caption[Vive Controller Element]{Vive Controller Element}
+\label{fig:viveControllerElement} 
+\end{figure}
   
   Nach der Erkennung der Controllers werden Events \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ ausgelöst, wenn der Auslöser gedrückt und losgelöst. Um die Nachrichten über die Aktivität der Controllers auszubreiten, wird Observer Pattern verwendet.
   
-  Die Controller relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Auslöser gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt.
+  Die Controller relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Auslöser gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt.(Abbildung ~\ref{fig:controller6D})
   
-  image: code controller 6d ..........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/controller6D.png}
+\caption[6 DoF Controller]{6 DoF Controller}
+\label{fig:controller6D} 
+\end{figure}
   
-  Um die globale Position zu rechnen, wird die Funktion von three.js verwendet. Die A-Frame Objekte sind eigentliche verpackte three.js Objekte, deswegen ist die Verwendung von three.js in A-Frame barrierefrei. Das gilt als ein Vorteil von A-Frame.
+  Um die globale Position zu rechnen, wird die Funktion von three.js verwendet. Die A-Frame Objekte sind eigentliche verpackte three.js Objekte, deswegen ist die Verwendung von three.js in A-Frame barrierefrei. Das gilt als ein Vorteil von A-Frame. (Abbildung ~\ref{fig:getWorldPosition})
   
-  image: code getWordPosition ........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/getWorldPosition.png}
+\caption[get global position]{get global position}
+\label{fig:getWorldPosition} 
+\end{figure}
   
   \textbf{Prüfung mit Raycaster}
   
   Ein aus Augen ausstrahlendes verstecktes Raycaster in dem Element \glqq a-camera\grqq\ eingesetzt. Wenn die Krankenakte, Infusionsflasche und Infusionsbesteck überprüft werden sollen, wird das Raycaster gezeigt, um die Überprüfung durchzuführen. Wenn das Raycaster die richtige Position trifft, Event \glqq raycaster-intersection\grqq\ ausgelöst wird, wird das Raycaster in grün dargestellt, sonst in orange. Wenn die Überprüfung fertig ist, die relevante Zustände für die Prüfungen als \glqq true\grqq\ gesetzt, wird das Raycaster wieder versteckt.
   
-  image: code raycaster vive .........
-  
   \textbf{Zustände für Vive Controller}
   
   Weil die Manipulation mit Vive Controller große Freiheit hat, und nicht jede Ausführung einer Aktivität den Fortschritt fördert, werden eine neue Liste für die Zustände der Vive Controllers und die entsprechenden Funktionen erstellt.
   
-  Zum Beispiel wird der Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als die ID des Controllers, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers(Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte erkannt wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen.
+  Zum Beispiel wird der Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als die ID des Controllers, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers(Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte informiert wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen. (Abbildung ~\ref{fig:controller6D} \& Abbildung ~\ref{fig:portfolioPress})
   
-  image: code controllerstate, portfolio
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/portfolioPress.png}
+\caption[Bearbeitung der Krankenakte]{Bearbeitung der Krankenakte}
+\label{fig:portfolioPress} 
+\end{figure}
   
   \textbf{Attribute Veränderung}
   
