@@ -460,9 +460,15 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Weil die DOM Manipulation sehr häufig ist und fast alle aufwendige Änderungen mit den Controllers zu tun haben, wird die Funktion \glqq MutationObserver\grqq\ in einem Class \glqq controllerActions\grqq\ verpackt, um die Verwendung zu vereinfachen.
   
-  Die \glqq MutationObserver\grqq\ beachtet die \glqq childList\grqq\ des eingegebenen Controllers. Wenn die Einfügung und Entfernung der Child Elements des Controllers fertig ist, werden die eingegebenen Attribute eingesetzt. 
+  Die \glqq MutationObserver\grqq\ beachtet die \glqq childList\grqq\ des eingegebenen Controllers. Wenn die Einfügung und Entfernung der Child Elements des Controllers fertig ist, werden die eingegebenen Attribute eingesetzt. (Abbildung ~\ref{fig:controllerAction})
   
-  image: controllerAction .........
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/controllerAction.png}
+\caption[Veränderung der Attribute]{Veränderung der Attribute}
+\label{fig:controllerAction} 
+\end{figure}
   
   \textbf{Hinweis-Box}
   
@@ -470,16 +476,21 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Wenn die Kollision zwischen der grüne Hinweis-Box und dem Objekt in Hand während des Loslösens auf den Auslöser des Controllers detektiert wird, wird der entsprechende Zustand geändert und das Objekt auf den entsprechend Platz gelegt.
   
-  image: code HTML toggleBoxPortfolio .........
-  image: code class toggleBoxPortfolio .........
+  image: M5 toggleBoxPortfolio .........
   
   \textbf{Kollisionserkennung}
   
   Die Funktion Kollisionserkennung wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion \glqq setFromObject\grqq\ als Kuben umgerechnet. Durch die Funktion \glqq intersectsBox\grqq\ wird es überprüft, ob zwei Kuben überlappt sind, damit die Kollision zu erkennen.
   
-  Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Kubus ist, ist die Kollisionserkennung ungenau.
+  Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Kubus ist, ist die Kollisionserkennung ungenau. (Abbildung ~\ref{fig:controllerAction})
   
-  image: code collision detection.
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/collisionDetection.png}
+\caption[Kollisionserkennung]{Kollisionserkennung}
+\label{fig:collisionDetection} 
+\end{figure}
   
   \textbf{Freier Fall}
   
@@ -497,9 +508,15 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Um das Problem zu vermeiden, wird eine Variable \textit{lowestY} benutzt. Damit kann eine neue Ebenen erstellte werden, die als eine Kollision Ebene auf Y Achse gilt. Mit der Hilfe der neuen Ebenen, kann das Fallen des Objektes früher beendet werden. Allerdings kann es passieren, dass das Objekt über dem Boden liegt.
   
-  Außer Boden (Y = 0) können andere Objekte wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um der Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als die Kollision Bereich.
+  Außer Boden (Y = 0) können andere Objekte wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um der Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als die Kollision Bereich. (Abbildung ~\ref{fig:controllerAction})
   
-  image: code getWordBound, handleSpecialCondition .........
+\begin{figure}[ht]
+\vspace*{1cm}
+\centering
+\includegraphics[width=\textwidth]{images/fallDown.png}
+\caption[Freier Fall]{Freier Fall}
+\label{fig:fallDown} 
+\end{figure}
   
   \subsubsection{Möglichkeit der Verbesserung}
   Die kürzere Ladezeit der Applikation führt zur besseren Benutzererfahrung. Die Größe der Dateien spielt wichtige Rolle bei der Ladung.
@@ -511,9 +528,16 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  \subsection{Geräte anpassen}
  Anpassende Interaktionen werden für unterschiedlichen Geräte gestaltet und implementiert. Um die Szene lebendig darzustellen, die Interaktion barrierefrei durchzuführen und die falsche Initialisierung der Position der Kamera(Bug von A-Frame) zu beheben muss die Applikation für unterschiedlichen Geräten während des Ladens konfiguriert wird.
  
- Durch die Funktion \glqq navigator.userAgent\grqq wird die Informationen über dem Browser ausgelesen. Dadurch wird die Typen der Geräten(PC, Smartphone, GearVR) unterschieden. Durch das Event \glqq gamepadconnected\grqq wird der verbundene Controller(GearVR Controller, Vive Controller) erkannt. Damit wird die Mode auf PC(flach, VR) und Gear VR(ohne Controller, mit Controller) unterschieden. Durch das Event \glqq enter-vr\grqq\ wird die Mode auf Smartphone(flach, Cardboard) unterschieden.
+ Durch die Funktion \glqq navigator.userAgent\grqq wird die Informationen über dem Browser ausgelesen. Dadurch wird die Typen der Geräten(PC, Smartphone, GearVR) unterschieden. Durch das Event \glqq gamepadconnected\grqq wird der verbundene Controller(GearVR Controller, Vive Controller) erkannt. Damit wird die Mode auf PC(flach, VR) und Gear VR(ohne Controller, mit Controller) unterschieden. Durch das Event \glqq enter-vr\grqq\ wird die Mode auf Smartphone(flach, Cardboard) unterschieden. (Abbildung ~\ref{fig:geraeteAnpassen} \& Tabelle ~\ref{tab:geraeteAnpassen}) 
  
- \includegraphics[width=\textwidth]{images/geraeteAnpassen.png}
+
+\begin{figure}[ht]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=\textwidth]{images/geraeteAnpassen.png}
+\caption[Geräte erkennen]{Geräte erkennen}
+\label{fig:geraeteAnpassen} 
+\end{figure}
 
 \begin{table}
 \centering
@@ -533,14 +557,21 @@ PC & Vive                                                                       
 \bottomrule
 \end{tabular}
 \caption{Anpassung der Geräten}
+\label{tab:geraeteAnpassen} 
 \end{table}
  
  \subsection{Töne}
  Die Töne sind wichtig, eine lebendige Simulation aufzubauen. Alle realen Geräusche werden während der Übung in reale Skillslab in Fachhochschule Bielelfeld aufgenommen. Die Größe ist ca. 14 MB. Es ist zu groß in einer webbasierte Applikation einzufügen, weil es zu lange Zeit für das Laden führt. Deswegen werden nur die Geräusche für die Feedbacks von Controllers eingesetzt.
  
- Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung auf dem Auslöser und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq componets\grqq\ eingepackt. Wenn ein Event von Controllers emittiert wird, wird die Funktion \glqq playSound\grqq\ des entsprechenden Sound Objekt aufgerufen.
+ Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung auf dem Auslöser und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq componets\grqq\ eingepackt. Wenn ein Event von Controllers emittiert wird, wird die Funktion \glqq playSound\grqq\ des entsprechenden Sound Objekt aufgerufen. (Abbildung ~\ref{fig:submitSound})
  
- image: code submitSound .........
+\begin{figure}[ht]
+\vspace*{0.8cm}
+\centering
+\includegraphics[width=\textwidth]{images/submitSound.png}
+\caption[Geräusche spielen]{Geräusche spielen}
+\label{fig:submitSound} 
+\end{figure}
  
  \subsection{Arbeitsoberfläche Desinfektion in Vive}
  Das Feedback der Desinfektion der Arbeitsoberfläche wird durch eine Hinweis-Box über dem Mülleimer und zwei versteckte Umschalter auf der Arbeitsoberfläche implementiert.
@@ -551,12 +582,10 @@ PC & Vive                                                                       
  
  Solange die beiden Zustände der Umschalter \glqq true\grqq\ sind, wechselt die Farbe der Hinweis-Box über dem Mülleimer zum Grün, um die Information zu teilen, dass das Tuch und die Handschuhe in dem Mülleimer einwerfen dürfen.
  
- image: code tuch, szene .........
+ image: m5 Szene .........
  
  \subsection{Animation}
- Die Animation in A-Frame wird auch durch ein HTML Element \glqq a-animation\grqq bezeichnet. Das übergeordnete Element ist das Objekt zu animiert. Die genaue Manipulation wird durch die Attribute des \glqq a-animation\grqq Elements konfiguriert. Hier werden die wichtige Attribute aufgellist:
- 
- image: beispiel html animation element .........
+ Die Animation in A-Frame wird auch durch ein HTML Element \glqq a-animation\grqq bezeichnet. Das übergeordnete Element ist das Objekt zu animiert. Die genaue Manipulation wird durch die Attribute des \glqq a-animation\grqq Elements konfiguriert. (Tabelle ~\ref{tab:aAnimation})
  
 \begin{table}
 \centering
@@ -575,27 +604,52 @@ easing    & Die Erleichterung der Animation                                     
 \bottomrule
 \end{tabular}
 \caption{Wichtige Attribute von a-animation Element}
+\label{tab:aAnimation} 
 \end{table}
  
- Um die Animation einfach zu benutzen, wird eine Funktion entwickelt. Das \glqq a-animation\grqq Element wird erstellt. Und nach dem Laufen der Animation wird das Element nach dem Bedarf, der als Parameter eingegeben, entworfen oder behaltet.
+ Um die Animation einfach zu benutzen, wird eine Funktion entwickelt. Das \glqq a-animation\grqq Element wird erstellt. Und nach dem Laufen der Animation wird das Element nach dem Bedarf, der als Parameter eingegeben, entworfen oder behaltet. (Abbildung ~\ref{fig:aAnimation})
  
- image: code animation .........
- 
+\begin{figure}[ht]
+\vspace*{0.6cm}
+\centering
+\includegraphics[width=\textwidth]{images/aAnimation.png}
+\caption[Animation]{Animation}
+\label{fig:aAnimation} 
+\end{figure}
  
  \subsection{Hand}
  
  Durch das \glqq a-animation\grqq Element kann ganzes Objekt animiert werden. Um komplizierte Animation zu realisieren, wird das Objekt während der Modellierung direkt animiert.
  
- Das Hand Modell wird in Blender animiert. Zuerst wird das Skelett für die Hand erstellt. Mit die Funktion \glqq Set Parent To \grqq\ können das Modell und die Skelett zusammen verbinden. Durch \glqq Key Frame\grqq\ kann die Hand animiert werden.
+ Das Hand Modell wird in Blender animiert. Zuerst wird das Skelett für die Hand erstellt. Mit die Funktion \glqq Set Parent To \grqq\ können das Modell und die Skelett zusammen verbinden. Durch \glqq Key Frame\grqq\ kann die Hand animiert werden. (Abbildung ~\ref{fig:handSetParentTo} \& Abbildung ~\ref{fig:handKeyframes})
  
- image: bledner hand .........
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/handSetParentTo.png}
+\caption[Verbinden Modell und Skelett]{Verbinden Modell und Skelett}
+\label{fig:handSetParentTo} 
+\end{figure}
+
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/handKeyframes.png}
+\caption[Einstellung der Animation von Hand]{Einstellung der Animation von Hand}
+\label{fig:handKeyframes} 
+\end{figure}
  
  Das Modell wird als glTF 2.0 exportiert. Das glTF 2.0 ist ein Format für 3D Objeket, die für webbasierte Applikation entwickelt. Die Vorteile sind kleine Größe und die Unterstützung der Animation.
  
- Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand Faust während des Drucks auf dem Auslöser ein bisschen macht und die Hand Faust während der Auslösung auf den Auslöser lockert, nicht implementiert werden.
+ Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ (Abbildung ~\ref{fig:handAnimation}) von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand Faust während des Drucks auf dem Auslöser ein bisschen macht und die Hand Faust während der Auslösung auf den Auslöser lockert, nicht implementiert werden.
  
- image: code animation-mixer .........
- 
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/handAnimation.png}
+\caption[Aufruf der Animation von Hand]{Aufruf der Animation von Hand}
+\label{fig:handAnimation} 
+\end{figure}
  
  \subsection{Uhr}
  
@@ -610,16 +664,30 @@ easing    & Die Erleichterung der Animation                                     
  
  Danach wird der Winkel jedes Zeigers gerechnet, der bei jeder Bewegung dreht. Für Sekundenzeiger und Minutenzeiger ist der Winkel 360/60. Für Stundenzeiger ist der Winkel 360/12.
  
- Das Produkt von der Ziffer mal entsprechendem Winkel bei jeder Bewegung ist der Winkel der Rotation auf X Ebene in der Koordination.
+ Das Produkt von der Ziffer mal entsprechendem Winkel bei jeder Bewegung ist der Winkel der Rotation auf X Ebene in der Koordination. (Abbildung ~\ref{fig:clockRoll})
  
- image: code Uhr....
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/clockRoll.png}
+\caption[Drehung des Zeigers der Uhr]{Drehung des Zeigers der Uhr}
+\label{fig:clockRoll} 
+\end{figure}
  
  \subsubsection{30 Sekunden Markierung}
- Solange der Griff des Händedesinfektionsspenders gedrückt wird, wird ein Event \glqq handwashing\grqq\ emittiert. Danach wird ein A-Frame Element \glqq a-gltf-model\grqq\ für die 30 Sekunden Markierung mit entsprechenden Attributen  erstellt. Die Methode, die Rotation zu rechnen, ist gleich wie die Methode für den Sekundenzeiger. Nach 30 Sekunden wird das Markierung Element entworfen.
+ Solange der Griff des Händedesinfektionsspenders gedrückt wird, wird ein Event \glqq handwashing\grqq\ emittiert. Danach wird ein A-Frame Element \glqq a-gltf-model\grqq\ für die 30 Sekunden Markierung mit entsprechenden Attributen  erstellt. Die Methode, die Rotation zu rechnen, ist gleich wie die Methode für den Sekundenzeiger. Nach 30 Sekunden wird das Markierung Element entworfen. (Abbildung ~\ref{fig:clockMarker})
  
- image: 30 sekunden Markierung
- 
- 
- \subsection{Transparenz}
- 
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/clockMarker.png}
+\caption[Markierung der Uhr]{Markierung der Uhr}
+\label{fig:clockMarker} 
+\end{figure}
 
+\subsection{Zusammenfassung}
+Das Projekt wird von zwei Teile implementiert, die Gestaltung des Unterrichts in LMS und die WebVR Applikation.
+
+Wegen des Mangels den fachliche Kenntnissen werden die meisten Materialien auf Internet benutzt. Allerdings das Ziel, das LMS und die WebVR Applikation zu verbinden, wird erreicht.
+
+Als der Schwerpunkt des Projektes wird die meisten Zeit in der WebVR Applikation investiert. Die Implementierung wird nicht einmal geschafft, sondern iterativ verbessert und ergänzt. Obwohl nicht alle Funktionen optimal implementiert, wird die Konzeption der cross-platformen WebVR Applikation umgesetzt.

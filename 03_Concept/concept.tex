@@ -33,9 +33,15 @@ Laut der Forschung ist die Lernmethode entscheidend für den Lerneffekt. WebVR T
 
  Nach der Sammlung der Vorkenntnisse können die Lernenden durch den Zugang in diesem Unterricht in VR Umgebung reingehen, um die praktische Übung durchzuführen. In der VR Umgebung steht das Vorwissen als Hinweise auf einem Whiteboard zu Verfügung. Die Hinweise können von den Lernenden ignoriert werden, wenn die Lernenden die Übung auch alleine flüssig schaffen können. Allerdings sollen die Hinweise einfach zu erreichen sein, damit der Lernende nicht aus VR Umgebung herausgehen muss, um Hilfsmittel zu suchen, wenn sie sich nicht an die Vorkenntnisse erinnern können. Wenn die Übung geschafft wird, können die Lernenden wieder zu dem Unterricht geleitet werden.
 
- Nach der Übung wird ein Test angeboten, um das Ergebnis des Lernens zu prüfen. Das Ergebnis des Tests wird in Learning Managment System gespeichert und als Feedback an die jeweilige Lehrperson geschickt.
+ Nach der Übung wird ein Test angeboten, um das Ergebnis des Lernens zu prüfen. Das Ergebnis des Tests wird in Learning Managment System gespeichert und als Feedback an die jeweilige Lehrperson geschickt. (Abbildung ~\ref{fig:moodleBeispiel})
  
- image: Screenshot von Moodle .........
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/moodleBeispiel.png}
+\caption{Moodle}
+\label{fig:moodleBeispiel} 
+\end{figure}
 
  \subsection{WebVR}
  Zwei Ziele des Projekts haben höchste Priorität: gute Erreichbarkeit und Verbindung mit LMS.
@@ -49,7 +55,7 @@ Laut der Forschung ist die Lernmethode entscheidend für den Lerneffekt. WebVR T
  Laut der oben genannten Gründe wird für die WebVR Technik entschieden, die VR Übung für den Vorbereitung einer Infusion zu realisieren.
 
  \subsection{Verbindung zwischen WebVR Applikation und Learning Managment System}
- Es gibt drei Formen für die Verbindung zwischen WebVR Applikation und Learning Managment System (LMS):
+ Es gibt drei Formen für die Verbindung (Abbildung ~\ref{fig:formenderVerbindung}) zwischen WebVR Applikation und Learning Managment System (LMS):
  \begin{enumerate}
    \item WebVR Applikation neben dem Learning Managment System:
      \subitem In LMS wird der Zugang zur VR Umgebung geboten und durch URL können Informationen in VR Umgebung miteingebracht werden. In VR Umgebung kann auch der Zugang zurück zu LMS geboten werden. Aber keine Information kann von VR Umgebung an LMS übermittelt werden.
@@ -72,7 +78,14 @@ Laut der Forschung ist die Lernmethode entscheidend für den Lerneffekt. WebVR T
      
      Die Nachteile sind dabei aber die aufwendige Entwicklung und Lesen eines Textes in einer ungewöhnlichen Umgebung. Um die Inhalte in LMS logisch und effektiver darzustellen, müssen geeignete graphische Komponenten in der VR Umgebung gestaltet und implementiert werden. Es gibt noch kein bestimmtes Ergebnis einer Forschung, ob das Lesen einer Textes in einer virtuellen Umgebung den gleichen Effekt wie das Lesen auf Papier ergibt. Allerdings muss es erst angewöhnt werden, mit keinem konkreten Medium in der Hand zu lesen.
  \end{enumerate}
-\includegraphics[width=\textwidth]{images/formenDerVerbindung.jpg}
+ 
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/formenderVerbindung.png}
+\caption{Formen der Verbindung}
+\label{fig:formenderVerbindung} 
+\end{figure}
 
 Bei diesem Projekt wird die erste Form implementiert. Wegen der begrenzten Entwicklungszeit werden die zweite und dritte Formen bei diesem Projekt nicht realisiert.
 
@@ -84,16 +97,26 @@ Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer 
  GUI ist die visuelle Darstellung einer Applikation. Für dieses Projekt gilt GUI als die simulierte Umgebung. Laut der Forschung führt eine lebendigere Simulation zu besserem Behalten von Informationen bei VR-Training. \citep{27} Die Kategorien Extensiveness, Surroundness und Vividness werden durch die GUI realisiert.
  
   \subsubsection{Szene}
-  Die VR Umgebung bezieht sich auf das \glqq Skillslab\grqq\ der Fachhochschule Bielefeld. Um die relevanten Objekte der Übung hervorzuheben, wird die Szene vereinfacht.
+  Die VR Umgebung bezieht sich auf das \glqq Skillslab\grqq\ der Fachhochschule Bielefeld. Um die relevanten Objekte der Übung hervorzuheben, wird die Szene vereinfacht. (Abbildung ~\ref{fig:realToPrototype})
   
-  \includegraphics[width=\textwidth]{images/RealLabor.jpg}
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/realToPrototype.png}
+\caption{Reales Skillslab \& Prototyp}
+\label{fig:realToPrototype} 
+\end{figure}
   
-  \includegraphics[width=\textwidth]{images/paperPrototype2.jpg}
-  
-  Der Aufbau der Szene basiert auf einem Projekt, das im Jahr 2016 entwickelt wurde\citep{26}. Die Modelle werden korrigiert und ausgebessert.
-  
-  \includegraphics[width=\textwidth]{images/WithoutGlass.png}
+  Der Aufbau der Szene basiert auf einem Projekt, das im Jahr 2016 entwickelt wurde\citep{26}. Die Modelle werden korrigiert und ausgebessert. (Abbildung ~\ref{fig:WithoutGlass})
 
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/WithoutGlass.png}
+\caption{Gear VR Version in 2016}
+\label{fig:WithoutGlass} 
+\end{figure}
+  
    \subsubsection{lebendige Texturen}
    
    Um den Anspruch der Leistung des Smartphones zu verringern, wurden in dem damaligen Projekt unnötige Texturen nicht benutzt. Zurzeit besitzen Smartphone eine stärkere Leistung, deshalb können die Modelle mit lebhafteren Texturen gerendert werden, um die \glqq Vividness\grqq\ zu verbessern.
@@ -112,25 +135,20 @@ Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer 
    Im Jahr 2018 ist die Leistung der Smartphones schon viel stärker. Es sollte möglich sein, in diesem Projekt die transparenten Objekten zutreffend zu rendern.
    
    \subsubsection{Modell Korrektur von Kanülen-Sammler}
-   Im Jahr 2016 wurde ein medizinisch fachlicher Fehler bei der Modellierung gemacht: der Kanülen-Sammler wurde als normaler Mülleimer modelliert und somit nicht korrekt dargestellt. Ein Kanülen-Sammler ist einmalig verschließbar, bzw ist schwierig, zu öffnen, sobald dieser einmal geschlossen wurde. Im Gegensatz dazu ist der Deckel eines normalen Mülleimers sehr locker und beweglich, und lässt sich unendlich oft öffnen und schließen. Diese Öffnungsmöglichkeiten eines herkömmlichen Mülleimers ziehen viele Risiken mit sich, da gebrauchte Spritzen herausfallen könnten.
-   
+   Im Jahr 2016 wurde ein medizinisch fachlicher Fehler bei der Modellierung gemacht: der Kanülen-Sammler wurde als normaler Mülleimer modelliert und somit nicht korrekt dargestellt. Ein Kanülen-Sammler ist einmalig verschließbar, bzw ist schwierig, zu öffnen, sobald dieser einmal geschlossen wurde. Im Gegensatz dazu ist der Deckel eines normalen Mülleimers sehr locker und beweglich, und lässt sich unendlich oft öffnen und schließen. Diese Öffnungsmöglichkeiten eines herkömmlichen Mülleimers ziehen viele Risiken mit sich, da gebrauchte Spritzen herausfallen könnten. (Abbildung ~\ref{fig:muelleimerKanueleSammler})
+
 \begin{figure}[ht]
-\begin{minipage}[t]{0.48\linewidth}
+\vspace*{0.2cm}
 \centering
-\includegraphics[width=\textwidth]{images/muelleimmer.png}
-\caption[Skillslab WebVR]{Mülleimer}
-\end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[t]{0.48\linewidth}
-\includegraphics[width=\textwidth]{images/kanueleSammler.jpg}
-\caption[Skillslab WebVR]{Kanülen-Sammler}
-\end{minipage}
+\includegraphics[width=\textwidth]{images/muelleimerKanueleSammler.png}
+\caption{Mülleimer \& Kanüle Sammler}
+\label{fig:muelleimerKanueleSammler} 
 \end{figure}
 
 In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun anstelle einer Mülleimers, ein Kanülen-Sammler in der vurtuellen Umgebung zur Verfügung steht.
 
    \subsubsection{Entfernung der Hinweis Streifen}
-   Bei der Version aus dem Jahre 2016 wurde für das Feedback eine schwarze Text-Leiste am unteren Sichtfeld des Nutzers positioniert. Feedback kam dabei in Form von Text, also Hinweisen, und gegebenenfalls mit entsprechenden Icons (dass der Nutzer beispielsweise im Besitz eines Desinfektionstuchs ist). Bei der Evaluation stellte sich heraus, dass die Hinweise nicht gut gelesen werden konnten, weil die Leiste etwas zu niedrig positioniert worden war. Eine höhere Positionierung der Text-Leiste hätte hingegen eine zu große Einschränkung des Sichtfeldes mit sich gebracht.
+   Bei der Version aus dem Jahre 2016 wurde für das Feedback eine schwarze Text-Leiste am unteren Sichtfeld des Nutzers positioniert. (Abbildung ~\ref{fig:Schritt_4_2}) Feedback kam dabei in Form von Text, also Hinweisen, und gegebenenfalls mit entsprechenden Icons (dass der Nutzer beispielsweise im Besitz eines Desinfektionstuchs ist). Bei der Evaluation stellte sich heraus, dass die Hinweise nicht gut gelesen werden konnten, weil die Leiste etwas zu niedrig positioniert worden war. Eine höhere Positionierung der Text-Leiste hätte hingegen eine zu große Einschränkung des Sichtfeldes mit sich gebracht.
    
    Um die Text-Leiste \glqq verlustfrei\grqq (keine der Aufgaben, die die Leiste übernommen hat, soll vernachlässigt werden) zu entfernen, müssen erst die Aufgaben spezifiziert werden, die sie übernommen hat, sodass diese Aufgaben andere Bereiche übernehmen können und somit kein Verlust an Feedback entsteht. Insgesamt werden drei Aufgaben ermittelt:
    
@@ -142,7 +160,14 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
    
    Mit diesen drei Lösungen werden alle drei zugehörigen Aufgaben übernommen, sodass die schwarze Text-Leiste nicht mehr gebraucht wird und ohne einhergehende Verlüste entfernt werden kann.
    
-   \includegraphics[width=\textwidth]{images/Schritt_4_2.png}
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/Schritt_4_2.png}
+\caption{Szene mit Text-Leiste}
+\label{fig:Schritt_4_2} 
+\end{figure}
+   
 
    \subsubsection{Modellierung der Hände}
    Auf der Vive Version können die Objekte mit dem Controller genommen werden. Die Controller übernehmen die Rolle von Händen, deswegen sollen entsprechende Modelle der Händen die Modelle der Vive Controllers in der VR Umgebung ersetzen.
@@ -154,11 +179,11 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
  
  Um bessere Benutzererfahrung zu haben, soll die Interaktionen auf der einen Seite die Merkmale der unterschiedlichen Geräte möglichst geeignet und in voller Ausprägung benutzen, auf der anderen Seite nicht zu vielfältig sein, sodass der Fokus nicht auf dem Lernen der Interaktion bzw dem Händeln des Geräts liegt. 
  
- Da die WebVR Applikation cross-plattform ist, werden die Konzeptionen der Interaktion nach den Typen der Geräte gliedert.
+ Da die WebVR Applikation cross-plattform ist, werden die Konzeptionen der Interaktion nach den Typen der Geräte gliedert. (Tabelle ~\ref{tab:Interaktionen})
 
  Für jedes Geräte wird von drei Aspekten der Interaktionen erklärt:
  
- \textbf{Exploration}: Änderung der Aspekt (TODO: ich weiß nicht genau was du mit "Aspekt" meinst... vllt lieber "Erforschen der virtuellen Umgebung"? "Umsehen", "sich mit der Umgebung vertraut machen"; frag da am besten Thies, was du statt Aspekt schreiben kannst).
+ \textbf{Exploration}: Änderung der Sicht. Aspekt (TODO: ich weiß nicht genau was du mit "Aspekt" meinst... vllt lieber "Erforschen der virtuellen Umgebung"? "Umsehen", "sich mit der Umgebung vertraut machen"; frag da am besten Thies, was du statt Aspekt schreiben kannst).
  
  \textbf{Navigation}: Translation der Kamera.
  
@@ -200,10 +225,16 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   
   Zwei Methoden werden für Exploration angeboten, um unterschiedliche Situation anzupassen.
   
-  Die intuitive Methode ist, das Smartphone zu bewegen. Die simulierte Umgebung wird im Smartphone räumlich dargestellt. Aber aufgrund der Begrenzung des Bildschirms ist nur der Raum teilweise im Blickwinkel. Durch die Bewegung des Smartphones werden andere Ort in dem Raum gesehen.
+  Die intuitive Methode ist, das Smartphone zu bewegen. Die simulierte Umgebung wird im Smartphone räumlich dargestellt. Aber aufgrund der Begrenzung des Bildschirms ist nur der Raum teilweise im Blickwinkel. Durch die Bewegung des Smartphones werden andere Ort in dem Raum gesehen. (Abbildung ~\ref{fig:paperPrototypewiths8mini})
 
-  \includegraphics[width=\textwidth]{images/paperPrototypewiths8mini.png}
-  
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/paperPrototypewiths8mini.png}
+\caption{Smartphone Prototyp}
+\label{fig:paperPrototypewiths8mini} 
+\end{figure}
+
   Es ist unvermeidbar, den Körper zu drehen, um seitlich gelegene Objekt zu sehen, wenn man mit der ersten Methode das Smartphone bewegt. Allerdings ist es unmöglich, es um einen größeren Winkel zu drehen, wenn man auf einem Stuhl sitzt. Außerdem beeinflusst es andere Leute, wenn man in der Öffentlichkeit (beispielsweise in einer Bibliothek) solch große Bewegungen macht. Um dieses Probleme zu lösen, wird die zweite Methode angeboten, dass der Aspekt durch das Wischen auf dem Bildschirm verändert wird. Obwohl diese Methode nicht so intuitiv wie die erste Methode ist, vermehren sich dadurch die Einsatzmöglichkeiten.
   
   \textbf{Navigation}
@@ -223,13 +254,19 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   
   \textbf{Navigation}
   
-  \textsl{Ohne Controller}: Wenn Gear VR ohne Controller ist, kann es als Google Cardboard gelten. Die Navigation ist die gleiche wie die Navigation mit Smartphone, nur dass automatische Navigation angeboten wird.
+  \textsl{Ohne Controller}:
+  
+  Wenn Gear VR ohne Controller ist, kann es als Google Cardboard gelten. Die Navigation ist die gleiche wie die Navigation mit Smartphone, nur dass automatische Navigation angeboten wird.
  
-  \textsl{Mit Controller}: Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Kurve aus dem Controller ausstrahlen, die auf dem Boden landen soll, wenn das Trackpad gedrückt wird. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch der Loslösung auf dem Trackpad auf dem Gear VR Controller gesendet, soll die Kamera sich zu der gezeichneten Position navigieren.
+  \textsl{Mit Controller}: (Abbildung ~\ref{fig:gearViveController})
+  
+  Der Gear VR Controller ist ein 3DoF Controller, dass nur die Rotation erkannt wird. Es soll eine Kurve aus dem Controller ausstrahlen, die auf dem Boden landen soll, wenn das Trackpad gedrückt wird. Dort wird als der Zielort gezeichnet. Wenn den Tranlation Befehl durch der Loslösung auf dem Trackpad auf dem Gear VR Controller gesendet, soll die Kamera sich zu der gezeichneten Position navigieren.
 
   \textbf{Manipulation}
   
-  \textsl{Ohne Controller}: Der Zeiger kann in zwei Formen möglich sein.
+  \textsl{Ohne Controller}:
+  
+  Der Zeiger kann in zwei Formen dargestellt werden.
   
   Eine Möglichkeit ist, dass der Zeiger ebenso wie auf dem Laptop und dem Smartphone als Ring gezeigt wird. Der Vorteil ist, dass der Zeiger eindeutig ist. Der Ring ist auf dem komplizierten Hintergrund (die Objekten in dem Raum) einfach zu erkennen. Der Nachteil ist, dass der Treffpunkt mit den Objekte nicht klar ist, besonders wenn das Ziel sehr klein ist.
   
@@ -239,7 +276,9 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   
   Die Bestätigung des Zeigers kann durch den Druck auf das Touchpad der Gear VR oder auch durch \glqq Anstarren\grqq\ wie auf dem Smartphone durchgeführt werden.
   
-  \textsl{Mit Controller}: Ein Raycaster soll aus dem Controller ausstrahlen. Durch Betätigun des Auslösers des Controllers wird versucht, die Aktion des getroffenen Objekts zu aktivieren.
+  \textsl{Mit Controller}:
+  
+  Ein Raycaster soll aus dem Controller ausstrahlen. Durch Betätigun des Auslösers des Controllers wird versucht, die Aktion des getroffenen Objekts zu aktivieren.
   
  \subsubsection{HTC Vive}
  HTC Vive ist ein 6DoF HMD mit starker Leistung. Eine Vive wird mit einem PC verbunden. Die WebVR Applikation kann durch normale Browser wie Firefox aufgerufen und die VR Umgebung wird zeitgleich an das HMD geschickt.
@@ -250,7 +289,7 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   
   \textbf{Navigation}
   
-  Auch wie mit der Gear VR strahlt eine Kurve aus dem Controller, die auf dem Boden landet, und den Zielort zu bildet, wenn das Trackpad gedrückt wird. Durch dsa Loslassen des Trackpads auf dem Controller wird die Bewegung bestätigt und durchgeführt.
+  Auch wie mit der Gear VR strahlt eine Kurve aus dem Controller, die auf dem Boden landet, und den Zielort zu bildet, wenn das Trackpad gedrückt wird. Durch dsa Loslassen des Trackpads auf dem Controller wird die Bewegung bestätigt und durchgeführt. (Abbildung ~\ref{fig:gearViveController})
   
   \textbf{Manipulation}
   \begin{itemize}
@@ -259,21 +298,16 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   \item \textbf{Loslassen}: Wenn ein Objekt in einer Hand (Controller) gehalten wird, und deren Auslöser losgelassen wird, wird das Objekt losgelassen. Das heißt, dass das Objekt entweder auf eine bestimmte Position gelegt wird oder fällt.
   \item \textbf{Überprüfung}: Wenn ein Objekt überprüft werden muss, wird ein Raycaster aus der Position der Augen ausstrahlt. Wenn der Raycaster die richtige Position trifft und der Auslöser von einer leeren Hand gedrückt wird, wird die Überprüfung durchgeführt.
   \end{itemize}
+
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/gearViveController.png}
+\caption{Gear VR Controller \& Vive Controller}
+\label{fig:gearViveController} 
+\end{figure}
   
-  \begin{figure}[ht]
-   \begin{minipage}[t]{0.48\linewidth}
-   \centering
-   \includegraphics[width=\textwidth]{images/GearVRController.png}
-   \caption[Skillslab WebVR]{Samsung Gear VR Controller}
-   \end{minipage}
-   \hspace{0.5cm}
-   \begin{minipage}[t]{0.48\linewidth}
-   \includegraphics[width=\textwidth]{images/ViveController.jpg}
-   \caption[Skillslab WebVR]{HTC Vive Controller}
-   \end{minipage}
-  \end{figure}
-  
-\begin{table}[]
+\begin{table}[ht]
 \begin{tabular}{llll}
 \hline
                                                                             & Exploration                                                                                                                                 & Navigation                                                                                                          & Manipulation                                                                                                                                                                                          \\ \hline
@@ -283,8 +317,8 @@ Smartphone                                                                  & \b
 \begin{tabular}[c]{@{}l@{}}Samsung\\ Gear VR\\ mit Controller\end{tabular}  & Kopf bewegen                                                                                                                                & Trackpad clicken                                                                                                    & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Auslöser clicken\end{tabular}                                                                                                                                \\ \hline
 HTC Vive                                                                    & Kopf bewegen                                                                                                                                & Trackpad clicken                                                                                                    & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Auslöser betätigen\\ \\ Greifen:\\ Auslöser drücken\\ \\ Befreien:\\ Auslöser loslösen\\ \\ Überprüfen:\\ Objekt anstarren\\ und Auslöser clicken\end{tabular} \\ \hline
 \end{tabular}
-\caption{Interaktionen unterschiedlichen Geräten}
-\label{my-label}
+\caption{Interaktionen für unterschiedlichen Geräten}
+\label{tab:Interaktionen}
 \end{table}
 
  \subsection{Geräusche}
@@ -292,7 +326,7 @@ HTC Vive                                                                    & Ko
  \subsubsection{VR Umgebung}
  Um eine möglichst realitätsnahenahe VR Umgebung darzustellen, sollen erst die realen Geräusche aufgenommen werden, weil reale Geräusche die Materialien der Objekten widerspiegeln können. Die Position, wo die Geräusche erklingen, werden für jedes Objekt angepasst, da die räumliche Erkennung durch die auditive Wahrnehmung gemacht werden kann. Die Geräusche für die Objekte müssen mit der Animation synchronisiert werden, sodass die Lebendigkeit verstärkt wird.
  
- \subsubsection{Interaktionen}
+ \subsubsection{Feedback der Interaktionen}
  Als ein Feedback der Interaktion spielen Geräusche eine wichtige Rolle. Die Geräusche für Interaktion sind keine realen Geräusche, sondern die Töne (Soundeffekt), die für bestimmte Interaktion geeignet sind.
  
  Insgesamt werden fünf Töne eingesetzt. Ein Ton erklingt, wenn der Zeiger auf PC, Smartphone und Gear VR ohne Controller mit Objekten interagiert. Die anderen vier Töne werden für das Drücken und Loslassen von Auslöser und Trackpad auf dem Gear VR Controller und HTC Vive Controller angepasst.
@@ -326,35 +360,35 @@ HTC Vive                                                                    & Ko
       
       \item Infusionsbesteck vorbereiten:
       
-      Das Infusionsbesteck wird erst aus der Schublade herausgenommen. Nach der Überprüfung des Etiketts wird das Besteck auf der Arbeitsfläche abgelegt und ausgepackt. Daraufhin wird der Durchflussregler zu gedreht und die Kappe des Dorns abgenommen.
+      Das Infusionsbesteck wird erst aus der Schublade herausgenommen. Nach der Überprüfung des Etiketts wird das Besteck auf der Arbeitsfläche abgelegt und ausgepackt. Daraufhin wird der Durchflussregler (Rollenkleme) zu gedreht und die Kappe des Dorns abgenommen. (Abbildung ~\ref{fig:infusionssystem})
+      
+\begin{figure}[ht]
+\vspace*{0.2cm}
+\centering
+\includegraphics[width=\textwidth]{images/infusionssystem.jpg}
+\caption{Infusionsbesteck}
+\label{fig:infusionssystem} 
+\end{figure}
       
       \item Infusion vorbereiten:
       
       Nach der Abnahmen des Deckels der Flasche wird der Dorn des Infusionsbestecks in die Flasche eingestochen. Danach wird die Flasche auf den Infusionsständer gehängt. Durch das Zusammendrücken der Tropfkammer fließt ein Teil der Frlüssigkeit in Tropfkammer. Durch die Öffnung der Rollenklemme wird die transparente Infusionsleitung mit der Flüssigkeit ausgefüllt. Am Ende wird die Infusionsleitung an der entsprechenden Vorrichtung befestigt.
-      
-      \begin{figure}[ht]
-       \begin{minipage}[t]{1\linewidth}
-        \centering
-         \includegraphics[width=\textwidth]{images/infusionssystem.jpg}
-        \caption[Skillslab WebVR]{Infusionsbesteck}
-       \end{minipage}
-      \end{figure}
       
       \item Namenetikett vorbereiten:
       
       Nach der Beschriftung eines Etiketts/Aufklebers wird dieses auf die Flasche geklebt.
       
   \end{enumerate}
-      
-  \begin{figure}[ht]
-  \begin{minipage}[t]{1\linewidth}
-  \centering
-  \includegraphics[width=\textwidth]{images/AblaufInfusionsvorbereitung.png}
-  \caption[Skillslab WebVR]{Ablauf}
-  \end{minipage}
-  \end{figure}
   
-  Die Abschnitte sind nicht nur die abstrakte Gliederung, sondern auch die Optionen, damit für die erste Aktivität in der Übung entschieden werden kann. Die Auswahl des Abschnitts kann entweder in der VR Umgebung oder bei dem Unterricht in LMS getroffen werden.
+  Die Abschnitte sind nicht nur die abstrakte Gliederung, sondern auch die Optionen, damit für die erste Aktivität in der Übung entschieden werden kann. Die Auswahl des Abschnitts kann entweder in der VR Umgebung oder bei dem Unterricht in LMS getroffen werden. (Abbildung ~\ref{fig:AblaufInfusionsvorbereitung})
+  
+\begin{figure}[ht]
+\vspace*{0.5cm}
+\centering
+\includegraphics[width=\textwidth]{images/AblaufInfusionsvorbereitung.png}
+\caption{Ablauf der Infusionsvorbereitung}
+\label{fig:AblaufInfusionsvorbereitung} 
+\end{figure}
   
   \subsubsection{Erkennung \& Feedback der Fortschritte}
   Der Fortschritt des Prozesses der Übung wird durch die Durchführung einer richtigen Aktivität gefördert. Wenn eine Aktion des Objektes zur richtigen Zeit durchgeführt wird, wird der Fortschritt erkannt. Die Erkennungen müssen durch die oben genannten Interaktionen nämlich Manipulationen der VR Geräten bewältigt wird. % TODO hier verstehe ich leider nicht, was du meinst :/
@@ -374,11 +408,11 @@ HTC Vive                                                                    & Ko
       
       \item \textbf{Hinweis-Box}:
       
-      Die Hinweis-Box ist ein halb-transparenter Kasten, der in der VR Umgebung dargestellt ist, wenn sich ein Objekt in der Hand befindet. Die Hinweis-Box hat zwei Funktionen.
+      Die Hinweis-Box ist ein halb-transparenter Kubus, der in der VR Umgebung dargestellt ist, wenn sich ein Objekt in der Hand befindet.  Die Hinweis-Box hat zwei Funktionen.
       
       Eine davon ist, die Position zu kennzeichnen, wohin das Objekt gelegt werden soll.
       
-      Die andere Funktion ist, die Zustände des genommenen Objektes zu zeigen. Wenn ein Objekt gerade in die Hand genommen wird, wird die Hinweis-Box dafür in rot dargestellt. Wenn alle Aufgaben, z.B Überprüfung, zu diesem Objekt erledigt sind, wird die Farbe des Objektes zu grün gewechselt, um den Benutzer zu informieren, dass das Objekt hingelegt werden darf. Wenn das Objekt in der entsprechenden grünen Hinweis-Box hingelegt wird, verschwindet die Hilf-Box und die Position des Objektes wird angepasst. Es gilt, dass das Objekt nicht in die Hinweis-Box positioniert wird, ein Objekt in einer roten Hinweis-Box hinzulegen. %TODO da weiß ich auch nicht was du genau meinst :(
+      Die andere Funktion ist, die Zustände des genommenen Objektes zu zeigen. Wenn ein Objekt gerade in die Hand genommen wird, wird die Hinweis-Box dafür in rot dargestellt. Wenn alle Aufgaben, z.B Überprüfung, zu diesem Objekt erledigt sind, wird die Farbe des Objektes zu grün gewechselt, um den Benutzer zu informieren, dass das Objekt hingelegt werden darf. Wenn das Objekt in der entsprechenden grünen Hinweis-Box hingelegt wird, verschwindet die Hilf-Box und die Position des Objektes wird angepasst. Es gilt, dass das Objekt nicht in die Hinweis-Box positioniert wird, ein Objekt in einer roten Hinweis-Box hinzulegen. (Tabelle ~\ref{tab:HinweisBox}) %TODO da weiß ich auch nicht was du genau meinst :(
       
       \item \textbf{30 Sekunden Indikator}:
       
@@ -406,13 +440,13 @@ Abschnitt 6 & \begin{tabular}[c]{@{}l@{}}Unter dem Hacken\\ der Infusion Stand\e
 Abschnitt 7 & Auf der Infusionsflasche                                                         & Namenetikett in Hand                                                                                     & Nameneitkett ausgefüllt                                                                                  \\ \hline
 \end{tabular}
 }
-\caption{Nutzung der Hinweis-Boxes}
-\label{my-label}
+\caption{Nutzung der Hinweis-Box}
+\label{tab:HinweisBox}
 \end{table}
 
   
 \subsection{Zusammenfassung}
-Web basierte Applikationen wie LMS sind weit verbreitet. Der Browser kann aus der Sicht der webbasierten Anwendung sogar als mini-Betriebssystem gelten. Deshalb besetzt die WebVR Applikation den unersetzbaren Vorteil, barrierefrei sich in anderen webbasierten Applikation zu integrieren.
+Webbasierte Applikationen wie LMS sind weit verbreitet. Der Browser kann aus der Sicht der webbasierten Anwendung sogar als mini-Betriebssystem gelten. Deshalb besetzt die WebVR Applikation den unersetzbaren Vorteil, barrierefrei sich in anderen webbasierten Applikation zu integrieren.
 
 Das immersive Erlebnis wird durch die lebendige Umgebung und interaktive Möglichkeiten angeboten. Mit aktueller WebVR Technik sind die visuellen und auditiven Simulationen realisierbar.
 
