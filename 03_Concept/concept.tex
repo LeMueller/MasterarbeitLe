@@ -48,9 +48,9 @@ Laut der Forschung ist die Lernmethode entscheidend für den Lerneffekt. WebVR T
 
  Der größte Vorteil der nativen Apps bezüglich der Erreichbarkeit ist die Möglichkeit der offline-Nutzung. Wenn die Applikation installiert ist, ist während der Nutzung der VR Übung kein online Zugang notwendig. Allerdings erfordert die Installation eine hohe Rechner-Kapazität (oder Smartphone-Kapazität). Wenn viele Übungen werden in eine Applikation eingepackt, führt es zu Missbrauch der Kapazität, weil tatsächlich die geschaffte Übungen nicht gebraucht sind. Wenn jede Übung eigene Applikation hat, wird viel extra Zeit in Installation vor dem Lernen investiert, sodass der Vorteil der offline Erreichbarkeit nicht mehr existiert.
 
- Capterra ist eine Webseite, die deren Benutzern hilft, geeignete Software in unterschiedlichen Bereichen zu finden. Es werden insgesamt 432 Softwares gefunden, wenn \glqq LMS Software \grqq\ gesucht wird. 406 von 432 der gefundenen LMSs haben web basierte Applikation zu Verfügung. Das heißt, dass 94\% LMS Internet fordert und können in Browser laufen lassen.
+ Capterra ist eine Webseite, die deren Benutzern hilft, geeignete Software in unterschiedlichen Bereichen zu finden. Es werden insgesamt 432 Softwares gefunden, wenn \glqq LMS Software \grqq\ gesucht wird. 406 von 432 der gefundenen LMSs haben webbasierte Applikation zu Verfügung. Das heißt, dass 94\% LMS Internet fordert und in Browser laufen lassen können.
 
- WebVR Applikation wird auch im Browser aufgerufen. Ohne Software Wechseln wird zu keiner Ablenkung geführt. Außerdem ist die Schnittstelle zwischen Web Applikationen einfacher zu implementieren, deswegen ist die Verbindung zwischen LMS und WebVR barrierefrei. Darüber hinaus fordert LMS sowieso Internet, kann die Anforderung für Internet von WebVR nicht als Nachteil gelten. 
+ WebVR Applikation wird auch im Browser aufgerufen. Ohne Software Wechseln wird zu keiner Ablenkung geführt. Außerdem ist die Schnittstelle zwischen Web Applikationen einfacher zu implementieren, deswegen ist die Verbindung zwischen LMS und WebVR barrierefrei. Darüber hinaus fordert LMS sowieso Internet, deswegen kann die Anforderung für Internet von WebVR nicht als Nachteil gelten. 
 
  Laut der oben genannten Gründe wird für die WebVR Technik entschieden, die VR Übung für den Vorbereitung einer Infusion zu realisieren.
 
@@ -65,7 +65,7 @@ Laut der Forschung ist die Lernmethode entscheidend für den Lerneffekt. WebVR T
      Der Nachteil ist, dass der Austausch der Informationen zwischen WebVR Applikation und LMS einspurig ist. Das LMS kann Keine Information von WebVR Applikation bekommen. Außerdem muss jede Änderung in WebVR Applikation (z.B. Umschreibung der Hinweise) von einem Programmierer gemacht werden, der in das Projekt eingearbeitet ist. Der Lehrende ist nicht in der Lage, alleine die Übung zu verbessern oder zu korrigieren.
      
    \item WebVR Applikation teilweise in dem Learning Managment System:
-     \subitem In LMS wird der Zugang zur VR Umgebung geboten, allerdings ist der Zugang keine URL, sondern erfahrungsmäßig ein Plugin. Durch das Plugin kann die WebVR Applikation die versteckten zugänglichen Daten der Datenbank des Unterrichts bekommen. Mit dem Zugang der Datenbank ist die WebVR Applikation in der Lage, die Daten in einer Datenbank zu speichern und die Daten aus der Datenbank zu lesen. Durch das Middleware wird die gegenseitige/zweispurige Kommunikation zwischen WebVR Applikation und LMS ermöglicht. Obwohl durch URL die zugänglichen Daten auch übertragen werden können, ist es sehr unsicher für das LMS, weil die URL öffentlich ist.
+     \subitem In LMS wird der Zugang zur VR Umgebung geboten, allerdings ist der Zugang keine URL, sondern erfahrungsmäßig ein Plugin. Durch das Plugin kann die WebVR Applikation die versteckten zugänglichen Daten der Datenbank des Unterrichts bekommen. Mit dem Zugang der Datenbank ist die WebVR Applikation in der Lage, die Daten in einer Datenbank zu speichern und die Daten aus der Datenbank zu lesen. Durch das Middleware wird die zweispurige Kommunikation zwischen WebVR Applikation und LMS ermöglicht. Obwohl durch URL die zugänglichen Daten auch übertragen werden können, ist es sehr unsicher für das LMS, weil die URL öffentlich ist.
      
      Der Vorteil ist, dass die Kommunikation zwischen WebVR Applikation und LMS frei ist. Das heißt, dass die Übertragung nicht nur für Text sondern auch für Bild, Audio und Video ermöglicht ist, und dass LMS die Informationen, die während der Übung in WebVR Applikation erstellt werden, ohne zeitlichen Verzug bekommen kann. Darüber hinaus kann der Lehrende durch dem Plugin die Inhalte in WebVR Applikation direkt teilweise verändern.
      
@@ -91,10 +91,10 @@ Bei diesem Projekt wird die erste Form implementiert. Wegen der begrenzten Entwi
 
 \section{Vorbereitung einer Infusion mit WebVR}
 
-Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer Infusion mit WebVR ausführlich erklärt. Die Konzeption wird nach den Kategorien der Immersion von Jason Jerald\citep{28} aufgebaut.
+Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer Infusion mit WebVR ausführlich erklärt. Die Konzeption wird nach den Kategorien der Immersion von Jason Jerald \citep{28} aufgebaut.
 
  \subsection{Graphical user interface (GUI)}
- GUI ist die visuelle Darstellung einer Applikation. Für dieses Projekt gilt GUI als die simulierte Umgebung. Laut der Forschung führt eine lebendigere Simulation zu besserem Behalten von Informationen bei VR-Training. \citep{27} Die Kategorien Extensiveness, Surroundness und Vividness werden durch die GUI realisiert.
+ GUI ist die visuelle Darstellung einer Applikation. Für dieses Projekt gilt GUI als die simulierte Umgebung. Laut der Forschung führt eine lebendigere Simulation zu besserem Behalten von Informationen bei VR-Training \citep{27}. Die Kategorien Extensiveness, Surroundness und Vividness werden durch die GUI realisiert.
  
   \subsubsection{Szene}
   Die VR Umgebung bezieht sich auf das \glqq Skillslab\grqq\ der Fachhochschule Bielefeld. Um die relevanten Objekte der Übung hervorzuheben, wird die Szene vereinfacht. (Abbildung ~\ref{fig:realToPrototype})
@@ -107,7 +107,7 @@ Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer 
 \label{fig:realToPrototype} 
 \end{figure}
   
-  Der Aufbau der Szene basiert auf einem Projekt, das im Jahr 2016 entwickelt wurde\citep{26}. Die Modelle werden korrigiert und ausgebessert. (Abbildung ~\ref{fig:WithoutGlass})
+  Der Aufbau der Szene basiert auf einem Projekt, das im Jahr 2016 entwickelt wurde \citep{26}. Die Modelle werden korrigiert und ausgebessert. (Abbildung ~\ref{fig:WithoutGlass})
 
 \begin{figure}[ht]
 \vspace*{0.2cm}
@@ -130,7 +130,7 @@ Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer 
    \end{itemize}
    
    \subsubsection{Transparenz}
-   Objekte mit eigentlich transparenten Materialien, wie beispielsweise Infusionsflasche und Infusionsbesteck, wurden im Jahr 2016 versuchshalber mit durchsichtigen Materialien ausgestattet. Allerdings wurden die transparenten Materialien nicht richtig in Gear VR dargestellt. Vermutlicher war dabei der Grund, dass die Leistung der damaligen Smartphones zu schwach war, weil die Renderung der transparenten Objekten sehr aufwendig ist.
+   Objekte mit transparenten Materialien, wie beispielsweise Infusionsflasche und Infusionsbesteck, wurden im Jahr 2016 versuchshalber mit durchsichtigen Materialien ausgestattet. Allerdings wurden die transparenten Materialien nicht richtig in Gear VR dargestellt. Vermutlicher war dabei der Grund, dass die Leistung der damaligen Smartphones zu schwach war, weil die Renderung der transparenten Objekten sehr aufwendig ist.
    
    Im Jahr 2018 ist die Leistung der Smartphones schon viel stärker. Es sollte möglich sein, in diesem Projekt die transparenten Objekten zutreffend zu rendern.
    
@@ -147,10 +147,10 @@ Als Schwerpunkt des Projektes wird die Konzeption der Übungsvorbereitung einer 
 
 In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun anstelle einer Mülleimers, ein Kanülen-Sammler in der vurtuellen Umgebung zur Verfügung steht.
 
-   \subsubsection{Entfernung der Hinweis Streifen}
+   \subsubsection{Entfernung der Text-Leiste}
    Bei der Version aus dem Jahre 2016 wurde für das Feedback eine schwarze Text-Leiste am unteren Sichtfeld des Nutzers positioniert. (Abbildung ~\ref{fig:Schritt_4_2}) Feedback kam dabei in Form von Text, also Hinweisen, und gegebenenfalls mit entsprechenden Icons (dass der Nutzer beispielsweise im Besitz eines Desinfektionstuchs ist). Bei der Evaluation stellte sich heraus, dass die Hinweise nicht gut gelesen werden konnten, weil die Leiste etwas zu niedrig positioniert worden war. Eine höhere Positionierung der Text-Leiste hätte hingegen eine zu große Einschränkung des Sichtfeldes mit sich gebracht.
    
-   Um die Text-Leiste \glqq verlustfrei\grqq (keine der Aufgaben, die die Leiste übernommen hat, soll vernachlässigt werden) zu entfernen, müssen erst die Aufgaben spezifiziert werden, die sie übernommen hat, sodass diese Aufgaben andere Bereiche übernehmen können und somit kein Verlust an Feedback entsteht. Insgesamt werden drei Aufgaben ermittelt:
+   Um die Text-Leiste \glqq verlustfrei\grqq\ (keine der Aufgaben, die die Leiste übernommen hat, soll vernachlässigt werden) zu entfernen, müssen erst die Aufgaben spezifiziert werden, die sie übernommen hat, sodass diese Aufgaben andere Bereiche übernehmen können und somit kein Verlust an Feedback entsteht. Insgesamt werden drei Aufgaben ermittelt:
    
    \begin{itemize}
        \item \textbf{Hinweise}: Die Aufgabe, Hinweise darzustellen wird von dem Whiteboard auf der linken Seite des Raums übernommen.
@@ -172,7 +172,7 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
    \subsubsection{Modellierung der Hände}
    Auf der Vive Version können die Objekte mit dem Controller genommen werden. Die Controller übernehmen die Rolle von Händen, deswegen sollen entsprechende Modelle der Händen die Modelle der Vive Controllers in der VR Umgebung ersetzen.
    
-   Die Modelle der Händen sollen sich je nach der Aktion der Controller in ihrer Haltung verändern. Wenn der Auslöser (TODO: meinst du den Hair-Trigger?) gedrückt wird, soll die entsprechende Hand leicht zu einer Faust geballt werden. Wenn der Auslöser hingegen losgelassen wird, soll die Faust wieder gelöst werden.
+   Die Modelle der Händen sollen sich je nach der Aktion der Controller in ihrer Haltung verändern. Wenn der Hair-Trigger gedrückt wird, soll die entsprechende Hand leicht zu einer Faust geballt werden. Wenn der Hair-Trigger hingegen losgelassen wird, soll die Faust wieder gelöst werden.
 
  \subsection{Interaktion}
  Interaktion ist ein wichtiger Teil der WebVR Applikation, weil die nicht nur die Implementierung von \glqq Interactability\grqq ist, sondern auch enge Beziehung mit \glqq Matching\grqq hat.
@@ -183,7 +183,7 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
 
  Für jedes Geräte wird von drei Aspekten der Interaktionen erklärt:
  
- \textbf{Exploration}: Änderung der Sicht. Aspekt (TODO: ich weiß nicht genau was du mit "Aspekt" meinst... vllt lieber "Erforschen der virtuellen Umgebung"? "Umsehen", "sich mit der Umgebung vertraut machen"; frag da am besten Thies, was du statt Aspekt schreiben kannst).
+ \textbf{Exploration}: Änderung des Blickfild.
  
  \textbf{Navigation}: Translation der Kamera.
  
@@ -278,7 +278,7 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   
   \textsl{Mit Controller}:
   
-  Ein Raycaster soll aus dem Controller ausstrahlen. Durch Betätigun des Auslösers des Controllers wird versucht, die Aktion des getroffenen Objekts zu aktivieren.
+  Ein Raycaster soll aus dem Controller ausstrahlen. Durch Betätigun des Hair-Triggers des Controllers wird versucht, die Aktion des getroffenen Objekts zu aktivieren.
   
  \subsubsection{HTC Vive}
  HTC Vive ist ein 6DoF HMD mit starker Leistung. Eine Vive wird mit einem PC verbunden. Die WebVR Applikation kann durch normale Browser wie Firefox aufgerufen und die VR Umgebung wird zeitgleich an das HMD geschickt.
@@ -293,10 +293,10 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
   
   \textbf{Manipulation}
   \begin{itemize}
-  \item \textbf{Aktivierung der Aktion des Objektes}: Durch Drücken des Auslösers wird versucht, die Aktion des jeweiligen Objektes zu aktivieren.
-  \item \textbf{Greifen}: Wenn der Controller mit einem Objekt überlappt und der Auslöser auf dem Controller gedrückt und nicht losgelassen wird, befindet sich das Objekt ab dem Zeitpunkt in der Hand (eigentlich dem Controller) Nutzers.
-  \item \textbf{Loslassen}: Wenn ein Objekt in einer Hand (Controller) gehalten wird, und deren Auslöser losgelassen wird, wird das Objekt losgelassen. Das heißt, dass das Objekt entweder auf eine bestimmte Position gelegt wird oder fällt.
-  \item \textbf{Überprüfung}: Wenn ein Objekt überprüft werden muss, wird ein Raycaster aus der Position der Augen ausstrahlt. Wenn der Raycaster die richtige Position trifft und der Auslöser von einer leeren Hand gedrückt wird, wird die Überprüfung durchgeführt.
+  \item \textbf{Aktivierung der Aktion des Objektes}: Durch Drücken des Hair-Triggers wird versucht, die Aktion des jeweiligen Objektes zu aktivieren.
+  \item \textbf{Greifen}: Wenn der Controller mit einem Objekt überlappt und der Hair-Trigger auf dem Controller gedrückt und nicht losgelassen wird, befindet sich das Objekt ab dem Zeitpunkt in der Hand (eigentlich dem Controller) Nutzers.
+  \item \textbf{Loslassen}: Wenn ein Objekt in einer Hand (Controller) gehalten wird, und deren Hair-Trigger losgelassen wird, wird das Objekt losgelassen. Das heißt, dass das Objekt entweder auf eine bestimmte Position gelegt wird oder fällt.
+  \item \textbf{Überprüfung}: Wenn ein Objekt überprüft werden muss, wird ein Raycaster aus der Position der Augen ausstrahlt. Wenn der Raycaster die richtige Position trifft und der Hair-Trigger von einer leeren Hand gedrückt wird, wird die Überprüfung durchgeführt.
   \end{itemize}
 
 \begin{figure}[ht]
@@ -314,8 +314,8 @@ In diesem Projekt wurde die fehlerhafte Modellierung ausgebessert, sodass nun an
 PC                                                                          & \begin{tabular}[c]{@{}l@{}}1.\\ Maus clicken\\ und bewegen\\ 2.\\ Maus clicken\\ dann bewegen\\ (ESC Tasten zu\\ deaktivieren)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Manuell:\\ W,A,S,D Tasten\\ \\ drücken\\ \\ Automaticsch:\\ Objekte anschauen\end{tabular} & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Maus clicken\end{tabular}                                                                                                                                    \\ \hline
 Smartphone                                                                  & \begin{tabular}[c]{@{}l@{}}1. Smartphone\\ bewegen\\ 2. Bildschirm\\ berühren\end{tabular}                                                  & \begin{tabular}[c]{@{}l@{}}Automatisch:\\ Objekt anschauen\end{tabular}                                             & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Objekt anstarren\end{tabular}                                                                                                                                \\ \hline
 \begin{tabular}[c]{@{}l@{}}Samsung\\ Gear VR\\ ohne Controller\end{tabular} & Kopf bewegen                                                                                                                                & \begin{tabular}[c]{@{}l@{}}Automatisch:\\ Objekt anschauen\end{tabular}                                             & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ 1.\\ Touchpack clicken\\ 2.\\ Objekt anstarren\end{tabular}                                                                                                  \\ \hline
-\begin{tabular}[c]{@{}l@{}}Samsung\\ Gear VR\\ mit Controller\end{tabular}  & Kopf bewegen                                                                                                                                & Trackpad clicken                                                                                                    & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Auslöser clicken\end{tabular}                                                                                                                                \\ \hline
-HTC Vive                                                                    & Kopf bewegen                                                                                                                                & Trackpad clicken                                                                                                    & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Auslöser betätigen\\ \\ Greifen:\\ Auslöser drücken\\ \\ Befreien:\\ Auslöser loslösen\\ \\ Überprüfen:\\ Objekt anstarren\\ und Auslöser clicken\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Samsung\\ Gear VR\\ mit Controller\end{tabular}  & Kopf bewegen                                                                                                                                & Trackpad clicken                                                                                                    & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Hair-Trigger clicken\end{tabular}                                                                                                                                \\ \hline
+HTC Vive                                                                    & Kopf bewegen                                                                                                                                & Trackpad clicken                                                                                                    & \begin{tabular}[c]{@{}l@{}}Aktivieren:\\ Hair-Trigger betätigen\\ \\ Greifen:\\ Hair-Trigger drücken\\ \\ Befreien:\\ Hair-Trigger loslösen\\ \\ Überprüfen:\\ Objekt anstarren\\ und Hair-Trigger clicken\end{tabular} \\ \hline
 \end{tabular}
 \caption{Interaktionen für unterschiedlichen Geräten}
 \label{tab:Interaktionen}
@@ -329,7 +329,7 @@ HTC Vive                                                                    & Ko
  \subsubsection{Feedback der Interaktionen}
  Als ein Feedback der Interaktion spielen Geräusche eine wichtige Rolle. Die Geräusche für Interaktion sind keine realen Geräusche, sondern die Töne (Soundeffekt), die für bestimmte Interaktion geeignet sind.
  
- Insgesamt werden fünf Töne eingesetzt. Ein Ton erklingt, wenn der Zeiger auf PC, Smartphone und Gear VR ohne Controller mit Objekten interagiert. Die anderen vier Töne werden für das Drücken und Loslassen von Auslöser und Trackpad auf dem Gear VR Controller und HTC Vive Controller angepasst.
+ Insgesamt werden fünf Töne eingesetzt. Ein Ton erklingt, wenn der Zeiger auf PC, Smartphone und Gear VR ohne Controller mit Objekten interagiert. Die anderen vier Töne werden für das Drücken und Loslassen von Hair-Trigger und Trackpad auf dem Gear VR Controller und HTC Vive Controller angepasst.
  
  \subsection{Anordnung}
  Als eine Übung soll der Ablauf nach einer korrekten Reihenfolge durchgeführt werden. Um den korrekten und fließenden Ablauf zu garantieren, wird die VR Übung von drei Aspekten gestaltet, nämlich Planung des Ablaufs, Erkennung \& Feedback der Fortschritte und Leitung des Ablaufs. Die Anordnung ist die Ausführung von Kategorie \glqq Plot\grqq.

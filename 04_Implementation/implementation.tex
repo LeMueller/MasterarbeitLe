@@ -44,8 +44,8 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  
  \begin{itemize}
      \item \textbf{Unity} ist ein umfassende Game Engine. Viele built-in Funktionen stehen zu Verfügung. Mit das Plugin von Mozilla kann ein Projekt als WebVR Applikation exportiert werden. Allerdings wird das Projekt in einem Rahmen stellt. In diesem Rahmen ist die Entwicklung hoch effizient. Aber es ist schwierig, mit der Dinge außer dem Rahmen beispielsweise LMS anzupassen. Deswegen wird Unity nicht ausgewählt.
-     \item \textbf{Play Canvas} ist ein webbasiert Game Engine. Damit kann das Projekt direkt als WebVR Applikation exportiert werden. Aber wenn man die Applikation auf eigne Server bewahren möchte, muss man monatlich zahlen.
-     \item \textbf{Vizor} ist eine webbasierte visuelle WebVR Plattform. Die Scripts wird durch Blueprint geschrieben. Ihre Stärke ist, die 360 Grade oder VR Szene darzustellen. Allerdings reicht die Unterstützung für Interaktion für dieses Projekt nicht.
+     \item \textbf{Play Canvas} ist ein webbasiert Game Engine. Damit kann das Projekt direkt als WebVR Applikation exportiert werden. Aber wenn man die Applikation auf eigne Server bewahren möchte, muss man monatlich zahlen. (Abbildung ~\ref{fig:Webbasierte Engine})
+     \item \textbf{Vizor} ist eine webbasierte visuelle WebVR Plattform. Die Scripts wird durch Blueprint geschrieben. Ihre Stärke ist, die 360 Grade oder VR Szene darzustellen. Allerdings reicht die Unterstützung für Interaktion für dieses Projekt nicht. (Abbildung ~\ref{fig:Webbasierte Engine})
      \item \textbf{React 360} basiert teilweise auf three.js und wird von Facebook entwickelt. Die Logik der Entwicklung von React 360 ist gleich wie die bekannte JavaScript Bibliothek React im Bereich Frontend-Entwicklung. Allerdings wurde React 360 noch nicht vorgestellt, wenn dieses Projekt fängt an. Damals existierte nur der Vorfahr von React 360, nämlich React VR. Aber die Funktionalität von React VR war nicht reif genug, dieses Projekt zu entwickeln.
      \item \textbf{A-Frame} ist ein von Mozilla entwickeltes kostenloses open source WebVR Framework. Es bietet die größte Freiheit, das Projekt zu manipulieren. Außerdem werden unterschiedlichen Geräte unterstützt. Mit A-Frame werden die Funktionen von three.js in einem Entity-Component System eingewickelt. Die Features von three.js werden vererbt. Die Lösungen der Probleme über der Entwicklung können entweder in der Community von A-Frame oder der Community von three.js gefunden werden.
  \end{itemize}
@@ -62,20 +62,20 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  \subsection{Projektierung}
  Im Bereich Web Entwicklung werden zwei beliebte Werkzeugen geboten, npm und Webpack. Mit den Beiden Werkzeugen kann Web Applikation projektiert werden und die Effizient der Entwicklung gefördert werden.
  
- NPM (Node Package Manager) ist ein Packetmanager für die JavaScript-Luafzeitumgebung Node.js. Mit npm ist es einfach, die auf npm gespeicherten Pakete(Softwares) zu benutzen. Die Abhängigkeit der Pakete wird durch npm automatisch behandelt. Alle benutzte Pakete werden in einer Datei eingepackt, sodass wird der Einsatz auf dem Server erleichtert.
+ NPM (Node Package Manager) ist ein Packetmanager für die JavaScript-Luafzeitumgebung Node.js. Mit npm ist es einfach, die auf npm gespeicherten Pakete(Softwares) zu benutzen. Die Abhängigkeit der Pakete wird durch npm automatisch behandelt. Alle benutzte Pakete werden in einer Datei eingepackt, sodass wird der Einsatz auf dem Server erleichtert. (Abbildung ~\ref{fig:npmWebpack})
  
- Webpack ist ein auf npm gespeichertes Werkzeug, die verwendete und geschriebene Dateien zu organisieren. Während der Entwicklung einer Web Applikation werden vielen Dateien beispielsweise Javascript Dateien, HTML Dateien, CSS Dateien, Bilder Dateien usw. benutzt. Die Dateien sind getrennt, aber mit einander verbindet. Solche dezentralisiere Struktur führt zum hohen Aufwand, das Projekt auf Server zu bewähren. Durch Webpack werden die Dateien während der Entwicklung bündig verpackt und komprimiert.
+ Webpack ist ein auf npm gespeichertes Werkzeug, die verwendete und geschriebene Dateien zu organisieren. Während der Entwicklung einer Web Applikation werden vielen Dateien beispielsweise Javascript Dateien, HTML Dateien, CSS Dateien, Bilder Dateien usw. benutzt. Die Dateien sind getrennt, aber mit einander verbindet. Solche dezentralisiere Struktur führt zum hohen Aufwand, das Projekt auf Server zu bewähren. Durch Webpack werden die Dateien während der Entwicklung bündig verpackt und komprimiert. (Abbildung ~\ref{fig:npmWebpack})
  
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{images/npmWebpack.png}
 \caption[Projektierungswerkzeuge]{Projektierungswerkzeuge: NPM und Webpack}
-\label{fig:npm Webpack}
+\label{fig:npmWebpack}
 \end{figure}
  
  Webpack-dev-server ist ein zusätzliches Werkzeug von Webpack. Dadurch wird die verpackte JavaScript Dateien automatisch kompiliert und die Webseite in Browser automatisch aktualisiert, solange die Codes geändert werden.
  
- Währen der Entwicklung einer Web Applikation können die CORS (Cross-Origin Resource Sharing) Errors auftauchen, wenn die lokale zugängliche Datei direkt in Browser aufgerufen wird, um das Effekt der Code anzuschauen. Der Grund ist, dass zur Sicherheit die Browsers Same-Origin-Policy benutzen. Das heißt, dass es untersagt wird, auf Objekte (zum Beispiel Grafiken) zuzugreifen, die von einer anderen Webseite stammen oder deren Speicherort nicht der Origin entspricht. Die von Browser direkt aufgerufenen lokalen Dateien gelten nicht als Same-Origin requests sondern Cross-Origin requests.
+ Währen der Entwicklung einer Web Applikation können die CORS (Cross-Origin Resource Sharing) Errors auftauchen, wenn die lokale zugängliche Datei direkt in Browser aufgerufen wird, um das Effekt der Code anzuschauen. Der Grund ist, dass zur Sicherheit die Browsers Same-Origin-Policy (Abbildung ~\ref{fig:Same-Origin-Policy}) benutzen. Das heißt, dass es untersagt wird, auf Objekte (zum Beispiel Grafiken) zuzugreifen, die von einer anderen Webseite stammen oder deren Speicherort nicht der Origin entspricht. Die von Browser direkt aufgerufenen lokalen Dateien gelten nicht als Same-Origin requests sondern Cross-Origin requests.
  
 \begin{figure}[ht]
 \centering
@@ -100,7 +100,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  
  Um die Fortschritte zu definieren, wird die Konzeption \glqq state container\grqq von der Technik Redux importiert. Jede Objekt in der VR Szene hat eigne Zustand, zum Beispiel Position. Die betreffenden Zustände werden geändert, wenn der Prozess der Applikation betrieben wird. Die Sammlung der Zustände der allen Objekten wird als \glqq state container\grqq bezeichnet. Durch die Kombination der Zustände wird der Fortschritt der Übung notiert.
  
- Eine Aktivität auf dem Objekt wird so durchgeführt. Zuerst wird die Interaktion auf einem Objekt erkannt. Danach werden die betreffenden Zustände geändert. Laut der Änderung der Zustände wird die entsprechende Aktivität des Objektes durchgeführt, was als Feedback an dem Benutzer gilt.
+ Eine Aktivität auf dem Objekt wird so durchgeführt. Zuerst wird die Interaktion auf einem Objekt erkannt. Danach werden die betreffenden Zustände geändert. Laut der Änderung der Zustände wird die entsprechende Aktivität des Objektes durchgeführt, was als Feedback an dem Benutzer gilt. (Abbildung ~\ref{fig:interaktionVerlauf})
  
 \begin{figure}[ht]
 \centering
@@ -112,7 +112,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{Beobachter (en. Observer Pattern)}
   Beobachter ist ein Entwurfsmuster (en. Design Pattern) aus dem Bereich Softwareentwicklung. Es ist geeignet, der Zustand Management zu implementieren.
   
-  Die Funktionalität davon ist ähnlich wie der Mechanismus von Twitter. Zum Beispiel hat ein Fußballspieler einen Account von Twitter, damit er Nachrichten freigibt. Die Fans von dem Fußballspieler \glqq follow\grqq dem Fußballspieler auf Twitter. Wenn der Fußballspieler Nachrichten freigibt, werden die Fans benachrichtigt.
+  Die Funktionalität davon ist ähnlich wie der Mechanismus von Twitter. Zum Beispiel hat ein Fußballspieler einen Account von Twitter, damit er Nachrichten freigibt. Die Fans von dem Fußballspieler \glqq follow\grqq dem Fußballspieler auf Twitter. Wenn der Fußballspieler Nachrichten freigibt, werden die Fans benachrichtigt. (Abbildung ~\ref{fig:observerPatern})
   
   Im Bereich Softwareentwicklung wird der Fußballspieler als \glqq Observable\grqq oder \glqq Subject\grqq bezeichnet. Die Fans werden als \glqq Observer\grqq bezeichnet. Die Aktivität \glqq follow\grqq ist \glqq Subscribe\grqq. Die Benachrichtigung heißt \glqq Notify\grqq.
   
@@ -123,7 +123,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:observerPatern} 
 \end{figure}
   
-  Um der das Oberserver Pattern zu implementieren, wird ein Class \glqq Observable\grqq in diesem Projekt erstellt.
+  Um der das Oberserver Pattern zu implementieren, wird ein Class \glqq Observable\grqq in diesem Projekt erstellt. (Abbildung ~\ref{fig:observable})
   
 \begin{figure}[ht]
 \vspace*{0.3cm}
@@ -139,7 +139,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Um das Zustand Management zu realisieren, wird ein Class \glqq stateIndex\grqq\ geschrieben. Da fast alle Objekt in der Szene mit diesem Class verbinden und das einzige \glqq state container\grqq referenzieren, wird das Class als \glqq static\grqq Class definiert.
   
-  Mit \glqq init\grqq\ Funktion werden alle Zustände initialisiert. Die Initialisierung liegt an dem Query string in URL. Das Query string ist ein Teil von URL, dadurch der  Parameter bei dem \glqq request\grqq zusammen an dem Server geschickt. Bei dieser Applikation ist das Query string die Ziffer des ausgewählten Abschnitts. Mit dem Query string wird die Zustände nach dem Ausgewählten Abschnitt initialisiert.
+  Mit \glqq init\grqq\ Funktion werden alle Zustände initialisiert. Die Initialisierung liegt an dem Query string in URL (Abbildung ~\ref{fig:queryString}). Das Query string ist ein Teil von URL, dadurch der  Parameter bei dem \glqq request\grqq zusammen an dem Server geschickt. Bei dieser Applikation ist das Query string die Ziffer des ausgewählten Abschnitts. Mit dem Query string wird die Zustände nach dem Ausgewählten Abschnitt initialisiert.
   
   Während der Initialisierung wird eine Entität von Observable erstellt, um die Benachrichtigung vorzubereiten.
   
@@ -170,7 +170,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Um die GUI richtig einzusetzen, wird ein Trick benutzt. Wenn die Applikation aufgerufen, wird die Szene nach den aktuellen Zuständen eingerichtet und werden gleichzeitig die Modells geladen. Es könnte passieren, dass das Modell noch nicht fertig geladen ist, wenn es von der Aktualisierung betroffen wird. Das führ zu Fehler der Applikation.
   
-  Um das Problem zu lösen, wird die Ladung vor der Aktualisierung überprüft. Mit der Funktion \glqq setInterval\grqq\ wird es implementiert, jede 0,5 Sekunde die Zustand der Ladung zu überprüfen. Wenn alle Modells schon geladen ist, wird die Überprüfung beendet und die Szene aktualisiert.
+  Um das Problem zu lösen, wird die Ladung vor der Aktualisierung überprüft (Abbildung ~\ref{fig:checkLadung}). Mit der Funktion \glqq setInterval\grqq\ wird es implementiert, jede 0,5 Sekunde die Zustand der Ladung zu überprüfen. Wenn alle Modells schon geladen ist, wird die Überprüfung beendet und die Szene aktualisiert.
   
 \begin{figure}[ht]
 \vspace*{0.3cm}
@@ -183,7 +183,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{Abschnitte Auswahl in VR Szene}
   Auf dem Whiteboard werden die Abschnitte aufgelistet. Durch Zeiger oder Raycaster wird die Funktion \glqq selectSection\grqq\ in Class \glqq stateIndex\grqq\ mit entsprechendem Parameter aufgerufen, um der Abschnitt zu wechseln.
   
-  Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle box\grqq eingesetzt, dadurch die Funktion \glqq selectSection\grqq\ von HTC Vive Controller aufgerufen kann.
+  Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle box\grqq eingesetzt, dadurch die Funktion \glqq selectSection\grqq\ von HTC Vive Controller aufgerufen kann. (Abbildung ~\ref{fig:toggleBoxAbschnitte})
   
 \begin{figure}[ht]
 \vspace*{0.3cm}
@@ -200,7 +200,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  Um das Projekt effizient zu entwickeln, wird eine Struktur von Class gestaltet, die sich meisten Objekte in diesem Projekt anpassen kann. Die Struktur basiert auf die Class Struktur von A-Frame.
  
  \subsubsection{Gestaltung}
- Die Philosophie von A-Frame ist, mit spezifischen HTML Elements die Szene aufzubauen. Ein Element ist eine Kombination der Entitäten von unterschiedlichen Classes. Eine Entität kann ein HTML Element oder ein Attribut eines HTML Elements sein. Das Class in A-Frame wird als Component genannt.
+ Die Philosophie von A-Frame ist, mit spezifischen HTML Elements die Szene aufzubauen. Ein Element ist eine Kombination der Entitäten von unterschiedlichen Classes (Abbildung ~\ref{fig:aframeClass}). Eine Entität kann ein HTML Element oder ein Attribut eines HTML Elements sein. Das Class in A-Frame wird als Component genannt.
  
  Drei Built-in Objekten von Component sind wichtig.
  \begin{itemize}
@@ -213,7 +213,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \vspace*{0.3cm}
 \centering
 \includegraphics[width=\textwidth]{images/aframeClass.png}
-\caption[typisches A-Frame Class]{typisches A-Frame Class}
+\caption[Typisches A-Frame Class]{typisches A-Frame Class}
 \label{fig:aframeClass} 
 \end{figure}
  
@@ -221,7 +221,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  
  Allerdings muss die Struktur von Component wegen der Nutzung von Observer Pattern neu gestaltet werden.
  
- Wie der Code von Class \glqq Observable\grqq\ gezeigt, dass der Parameter der Funktion \glqq subscribe\grqq\ eine Funktion sein soll. Aber die Funktionen, die in Class definiert werden, gelten nicht als eine bestimmte Funktion bei JavaScript. Deshalb müssen die Funktionen, die als \glqq oberser\grqq benutzt werden, außer dem Class definiert werden, sodass die Entitäten von dem Class die Nachrichten von observable empfangen können. Das führt zu einer suboptimale Situation, dass alle Entität, die durch dem gleichen Class erstellt werden, dieselbe Funktionen und Eigenschaften benutzen.
+ Wie der Code von Class \glqq Observable\grqq\ gezeigt, dass der Parameter der Funktion \glqq subscribe\grqq\ eine Funktion sein soll. Aber die Funktionen, die in Class definiert werden, gelten nicht als eine bestimmte Funktion bei JavaScript. Deshalb müssen die Funktionen, die als \glqq oberser\grqq benutzt werden, außer dem Class definiert werden, sodass die Entitäten von dem Class die Nachrichten von observable empfangen können. Das führt zu einer suboptimale Situation, dass alle Entität, die durch dem gleichen Class erstellt werden, dieselbe Funktionen und Eigenschaften benutzen. (Abbildung ~\ref{fig:eigenesClass})
  
  Obwohl die Struktur von Class passt sich die Philosophie von A-Frame nicht an, ist es praktisch und geeignet für diesem Projekt, weil fast alle Classes nur eine einzige Entiätit in der Szene haben.
  
@@ -256,7 +256,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Exploration}
   
-  Mit einer Entität von built-in Component \glqq a-camera\grqq in A-Frame wird ein Kamera in der Szene eingesetzt. Dadurch wird die Sicht von Benutzer in der VR Umgebung erstellt. Die Interaktionen, die die Kamera betreffen, nämlich Exploration und Navigation werden in dieser Entität realisiert.
+  Mit einer Entität von built-in Component \glqq a-camera\grqq in A-Frame wird ein Kamera in der Szene eingesetzt (Abbildung ~\ref{fig:cameraHtml}). Dadurch wird die Sicht von Benutzer in der VR Umgebung erstellt. Die Interaktionen, die die Kamera betreffen, nämlich Exploration und Navigation werden in dieser Entität realisiert.
   
   Mit dem Component \glqq look-controls\grqq kann die Rotation einer Entität manipuliert werden. Wenn \grqq look-controls\grqq als Attribut von \glqq a-camera\grqq eingesetzt wird, wird es realisiert, die Drehung der Kamera zu manipulieren.
   
@@ -292,7 +292,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Manipulation}
   
-  Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert. (Abbildung ~\ref{fig:aCursorElement}) Um der Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
+  Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert (Abbildung ~\ref{fig:aCursorElement}) . Um der Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
   
  \begin{figure}[ht]
 \vspace*{0.3cm}
@@ -410,9 +410,9 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:viveControllerElement} 
 \end{figure}
   
-  Nach der Erkennung der Controllers werden Events \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ ausgelöst, wenn der Auslöser gedrückt und losgelöst. Um die Nachrichten über die Aktivität der Controllers auszubreiten, wird Observer Pattern verwendet.
+  Nach der Erkennung der Controllers werden Events \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ ausgelöst, wenn der Hair-Trigger gedrückt und losgelöst. Um die Nachrichten über die Aktivität der Controllers auszubreiten, wird Observer Pattern verwendet.
   
-  Die Controller relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Auslöser gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt.(Abbildung ~\ref{fig:controller6D})
+  Die Controller relevante Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ an. Wenn der Hair-Trigger gedrückt oder losgelöst, wird die Informationen(Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt. (Abbildung ~\ref{fig:controller6D})
   
 \begin{figure}[ht]
 \vspace*{0.3cm}
@@ -474,7 +474,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Die Hinweis-Box wird durch das built-in Element \glqq a-box\grqq\ implementiert. Durch die Konfiguration des Attributs \glqq material\grqq\ wird die Hinweis-Box in halb transparentem Rot dargestellt, wenn ein Objekt beispielsweise Krankenakte in Hand ist. Die Hinweis-Box hört zu den Zuständen aller Objekte. Wenn alle nötige Aktivitäten für das Objekt fertig gemacht, z.B. Überprüfung der Krankenakte, werden die Änderungen der entsprechenden Zuständen von der Hinweis-Box erkannt. Nach der Erkennung wird das Attributs \glqq material\grqq\ zum Grün umgeschrieben.
   
-  Wenn die Kollision zwischen der grüne Hinweis-Box und dem Objekt in Hand während des Loslösens auf den Auslöser des Controllers detektiert wird, wird der entsprechende Zustand geändert und das Objekt auf den entsprechend Platz gelegt.
+  Wenn die Kollision zwischen der grüne Hinweis-Box und dem Objekt in Hand während des Loslösens auf den Hair-Trigger des Controllers detektiert wird, wird der entsprechende Zustand geändert und das Objekt auf den entsprechend Platz gelegt.
   
   image: M5 toggleBoxPortfolio .........
   
@@ -482,7 +482,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Die Funktion Kollisionserkennung wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion \glqq setFromObject\grqq\ als Kuben umgerechnet. Durch die Funktion \glqq intersectsBox\grqq\ wird es überprüft, ob zwei Kuben überlappt sind, damit die Kollision zu erkennen.
   
-  Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Kubus ist, ist die Kollisionserkennung ungenau. (Abbildung ~\ref{fig:controllerAction})
+  Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Kubus ist, ist die Kollisionserkennung ungenau. (Abbildung ~\ref{fig:collisionDetection})
   
 \begin{figure}[ht]
 \vspace*{0.3cm}
@@ -494,7 +494,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Freier Fall}
   
-  Die Objekte können aus den Händen fallen, wenn der Auslöser losgelöst wird.
+  Die Objekte können aus den Händen fallen, wenn der Hair-Trigger losgelöst wird.
   
   Das Fallen wird so simuliert, dass in jedem bestimmten Zeitraum (z.B. 0.01 Millisekunde) die Position auf Y Achse des Objektes eine Geschwindigkeit reduziert wird. Laut der Formel der Geschwindigkeit des freien Falls 
   
@@ -508,7 +508,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Um das Problem zu vermeiden, wird eine Variable \textit{lowestY} benutzt. Damit kann eine neue Ebenen erstellte werden, die als eine Kollision Ebene auf Y Achse gilt. Mit der Hilfe der neuen Ebenen, kann das Fallen des Objektes früher beendet werden. Allerdings kann es passieren, dass das Objekt über dem Boden liegt.
   
-  Außer Boden (Y = 0) können andere Objekte wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um der Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als die Kollision Bereich. (Abbildung ~\ref{fig:controllerAction})
+  Außer Boden (Y = 0) können andere Objekte wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um der Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als die Kollision Bereich. (Abbildung ~\ref{fig:fallDown})
   
 \begin{figure}[ht]
 \vspace*{1cm}
@@ -563,7 +563,7 @@ PC & Vive                                                                       
  \subsection{Töne}
  Die Töne sind wichtig, eine lebendige Simulation aufzubauen. Alle realen Geräusche werden während der Übung in reale Skillslab in Fachhochschule Bielelfeld aufgenommen. Die Größe ist ca. 14 MB. Es ist zu groß in einer webbasierte Applikation einzufügen, weil es zu lange Zeit für das Laden führt. Deswegen werden nur die Geräusche für die Feedbacks von Controllers eingesetzt.
  
- Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung auf dem Auslöser und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq componets\grqq\ eingepackt. Wenn ein Event von Controllers emittiert wird, wird die Funktion \glqq playSound\grqq\ des entsprechenden Sound Objekt aufgerufen. (Abbildung ~\ref{fig:submitSound})
+ Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung auf dem Hair-Trigger und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq componets\grqq\ eingepackt. Wenn ein Event von Controllers emittiert wird, wird die Funktion \glqq playSound\grqq\ des entsprechenden Sound Objekt aufgerufen. (Abbildung ~\ref{fig:submitSound})
  
 \begin{figure}[ht]
 \vspace*{0.8cm}
@@ -641,7 +641,7 @@ easing    & Die Erleichterung der Animation                                     
  
  Das Modell wird als glTF 2.0 exportiert. Das glTF 2.0 ist ein Format für 3D Objeket, die für webbasierte Applikation entwickelt. Die Vorteile sind kleine Größe und die Unterstützung der Animation.
  
- Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ (Abbildung ~\ref{fig:handAnimation}) von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand Faust während des Drucks auf dem Auslöser ein bisschen macht und die Hand Faust während der Auslösung auf den Auslöser lockert, nicht implementiert werden.
+ Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ (Abbildung ~\ref{fig:handAnimation}) von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand Faust während des Drucks auf dem Hair-Trigger ein bisschen macht und die Hand Faust während der Auslösung auf den Hair-Trigger lockert, nicht implementiert werden.
  
 \begin{figure}[ht]
 \vspace*{0.2cm}
@@ -656,6 +656,7 @@ easing    & Die Erleichterung der Animation                                     
  Die Uhr hat zwei Funktionen in der Szene, die Uhrzeit darzustellen und der 30 Sekunden Markierung während der Händedesinfektion zu zeigen.
  
  \subsubsection{Uhrzeit darstellen}
+ 
  Um die reale Uhrzeit darzustellen, wird ein Class \glqq clock\_hand\_roll\grqq\ entwickelt. Da der Zeiger bewegt sich jede Sekunde, wird die built-in Funktion \glqq tick\grqq\ benutzt. Die von \glqq tick\grqq\ aufgerufene Funktionen werden jede Sekunde ein Mal durchgeführt, wie \glqq setInterval\grqq\.
  
  Mit der Hilfe der Funktion \glqq tick\grqq\ wird jede Sekunde das Attribute \glqq Rotation\grqq\ der allen drei Zeiger aktualisiert. 
