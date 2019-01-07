@@ -119,7 +119,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{Beobachter (en. Observer Pattern)}
   Beobachter ist ein Entwurfsmuster (en. Design Pattern) aus dem Bereich Softwareentwicklung. Es ist dafür geeignet, um das Zustandsmanagement zu implementieren.
   
-  %TODO: ist es so richtig? (von Le)
+  %TODO: ist es so richtig(Zum Beispiel Linus Torvalds)? (von Le)
   Die Funktionalität davon ist ähnlich wie der Mechanismus von Twitter. Zum Beispiel Linus Torvalds \citep{42} von der Socialmediaplattform Twitter, die es seit 2012 gibt und wo Nutzer einen Account anlegen und anderen Nutzern \glqq folgen \grqq\ können. Bei Posts einer gefolgten Person werden die \glqq Folgenden \grqq\ benachrichtigt. (Abbildung ~\ref{fig:observerPatern})
   
   Im Bereich Softwareentwicklung wird der Gefolgten als \glqq Observable\grqq oder \glqq Subject\grqq bezeichnet. Die Folgenden werden als \glqq Observer\grqq bezeichnet. Die Aktivität \glqq follow\grqq ist \glqq Subscribe\grqq. Die Benachrichtigung heißt \glqq Notify\grqq.
@@ -134,7 +134,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Um das Oberserver Pattern zu implementieren, wird eine Klasse \glqq Observable\grqq in diesem Projekt erstellt. (Abbildung ~\ref{fig:observable})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Class Observable]{Class Observable}
 \includegraphics[width=\textwidth]{images/observable.png}
@@ -145,8 +145,8 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{Zustände Management}
   
   Um das Zustandsmanagement zu realisieren, wird ein Klasse \glqq stateIndex\grqq\ geschrieben. Da fast alle Objekt in der Szene mit dieser Klasse verbunden sind und den einzigen \glqq state container\grqq referenzieren, wird die Klasse als \glqq static\grqq Klasse definiert.
-  %TODO: ist so richtig? (von Le)
   
+  %TODO: ist es so richtig(static zu erklären)? (von Le)
   Die \glqq static\grqq\ Klasse hat keine Entität. Die zugehörigen Funktionen werden direkt von der Klasse aufgerufen. Da es kein \glqq static\grqq\ Klasse in JavaScript gibt, gilt die Klasse, deren allen zugehörigen Attributen und Funktionen \glqq static\grqq\ sind, als \glqq static\grqq Klasse.
   
   Mit der \glqq init\grqq\ Funktion werden alle Zustände initialisiert. Die Initialisierung liegt an dem Query string in URL (Abbildung ~\ref{fig:queryString}). Der Query string ist ein Teil von URL, wodurch der Parameter bei dem \glqq request\grqq zusammen an den Server geschickt wird. Bei dieser Applikation ist der Query string die Ziffer des ausgewählten Abschnitts. Mit dem Query string werden die Zustände nach dem ausgewählten Abschnitt initialisiert.
@@ -183,7 +183,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Um das Problem zu lösen, wird die Ladung vor der Aktualisierung überprüft (Abbildung ~\ref{fig:checkLadung}). Mit der Funktion \glqq setInterval\grqq\ wird es implementiert, alle 0,5 Sekunden den Zustand der Ladung zu überprüfen. Wenn alle Modelle schon geladen sind, wird die Überprüfung beendet und die Szene aktualisiert.
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1.2em}
 \centering
 \caption[Überprüfung der Zustände der Ladungen]{Überprüfung der Zustände der Ladungen}
 \includegraphics[width=\textwidth]{images/checkLadung.png}
@@ -196,7 +196,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle boxes\grqq eingesetzt, wodurch die Funktion \glqq selectSection\grqq\ des HTC Vive Controllers aufgerufen werden kann. (Abbildung ~\ref{fig:toggleBoxAbschnitte})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Toggle Boxes]{Toggle Boxes für die Auswahl der Abschnitte}
 \includegraphics[width=\textwidth]{images/toggleBoxAbschnitte.png}
@@ -221,7 +221,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  \end{itemize}
  
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Typisches A-Frame Class]{typisches A-Frame Class}
 \includegraphics[width=\textwidth]{images/aframeClass.png}
@@ -239,7 +239,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  Um die Attribute und Funktionen von Component von die Funktion in \glqq observer\grqq\ zu erreichen, werden die Attribute und Funktionen beispielsweise schema auch außerhalb der Klasse als globale Variablen geschrieben.
  
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Eigene Klassen Struktur]{Eigene Klassen Struktur}
 \includegraphics[width=\textwidth]{images/eigenesClass.png}
@@ -252,7 +252,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  Durch anpassen des \glqq eventlistener\grqq\ (\glqq on\grqq\ in Jquery), das während der Initialisierung eingefügt wird, kann die Nachricht von \glqq observable\grqq\ in die Klasse transportiert werden. (Abbildung ~\ref{fig:bestesClass})
  
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Bessere Klassen Struktur]{Bessere Klassen Struktur}
 \includegraphics[width=\textwidth]{images/bestClass.png}
@@ -280,13 +280,13 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Mit dem Component \glqq wasd-controls\grqq kann die Position einer Entität manipuliert werden. Die Nutzung ist ähnlich wie das Component \glqq look-controls\grqq. Wenn \grqq wasd-controls\grqq als Attribut von \glqq a-camera\grqq eingesetzt wird, wird die Position der Kamera mit den Tasten W, A, S und D auf der Tastatur manipuliert.
   
   %TODO: acceleration ist eigentlich Beschleunigung. Velocity ist die Geschwindigkeit im englischen
-  %eigentlich das ist Geschwindigkeit. Aber in Doc von A-Frame heißt es acceleration. (von Le)
+  %eigentlich das ist Geschwindigkeit. Aber in Doc von A-Frame wird es acceleration genannt. (von Le)
   Die Eigenschaft \glqq acceleration\grqq beschreibt die Geschwindigkeit der Bewegung, wenn die Teste gedrückt ist. Um Schwindel zu vermeiden, wird der Wert ziemlich klein eingerichtet.
   
   Es gibt noch einen Bug bei dem Component \glqq wasd-controls\grqq. Die manuelle Navigation kann mit Firefox richtig durchgeführt werden, aber mit Chrome kann die Bewegung nicht beendet werden.
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Kamera Element]{Kamera Element}
 \includegraphics[width=\textwidth]{images/cameraHtml.png}
@@ -296,7 +296,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Außer der manuellen Navigation wird auch die automatische Navigation implementiert. Das Event \glqq raycaster-intersected\grqq wird auf dasselbe Objekt emittiert, wenn das Objekt mit dem Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig sind, empfängt das Objekt kein Event mehr. (Abbildung ~\ref{fig:cameraMove})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Automatische Navigation]{Automatische Navigation}
 \includegraphics[width=\textwidth]{images/cameraMove.png}
@@ -308,7 +308,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert (Abbildung ~\ref{fig:aCursorElement}). Um den Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
   
  \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[a-cursor Element]{a-cursor Element}
 \includegraphics[width=\textwidth]{images/aCursorElement.png}
@@ -326,7 +326,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Da \glqq a-cursor\grqq die Eigenschaften von Raycaster integriert hat, stehen \glqq raycaster-intersection\grqq und \glqq raycaster-intersection-cleard\grqq für \glqq a-cursor\grqq zu Verfügung. (Abbildung ~\ref{fig:raycasterIntersection})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Automatische Navigation]{Automatische Navigation}
 \includegraphics[width=\textwidth]{images/raycasterIntersection.png}
@@ -336,7 +336,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, den Zeiger in rot darzustellen und ein entsprechendes Geräusch erklingen zu lassen, wenn der Zeiger aktiviert wird. (Abbildung ~\ref{fig:cursorSubmit})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Zeiger bestimmen]{Zeiger bestimmen}
 \includegraphics[width=\textwidth]{images/cursorSubmit.png}
@@ -356,9 +356,8 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \begin{itemize}
       \item \textbf{Raycaster}: Die Idee des Raycasters ist, den Raycaster vom Controller zu den Augen zu bringen. Der Zeiger ist nicht mehr ein Ring, sondern eins aus dem Augen ausstrahlende Linie, sodass der Abstand zwischen Augen und Objekten keine Rolle spielt. Allerdings wird der Raycaster in Gear VR nicht richtig dargestellt. Die Linie wird in viele kurze Stückchen geschnitten. Und die Stückchen zeigen nicht in eine bestimmte Richtung. (Abbildung ~\ref{fig:GearVRRaycaster})
       
-%TODO: Positoin des Bildes einrichten!!!      
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Raycaster in Gear VR]{Raycaster aus Kamera in Gear VR in A-Frame basic Scene}
 \includegraphics[width=\textwidth]{images/gearVRRaycaster.png}
@@ -369,7 +368,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
       (Abbildung ~\ref{fig:GearVRCursor})
       
 \begin{figure}[t]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[vergrößerte Szene in Gear VR]{vergrößerte Szene in Gear VR}
 \includegraphics[width=\textwidth]{images/gearVRCursor.png}
@@ -393,7 +392,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Die Manipulation wird durch das Component \glqq laser-controls\grqq\ realisiert. Mit dem Component wird nicht nur der Gear VR Controller, sondern auch Daydrame Controller usw. (Abbildung ~\ref{fig:GearVRControllerElement} \& Abbildung ~\ref{fig:GearVRWithController})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Gear VR Controller Element]{Gear VR Controller Element}
 \includegraphics[width=\textwidth]{images/gearVRControllerElement.png}
@@ -401,7 +400,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \end{figure}
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Gear VR mit Controller]{Gear VR mit Controller}
 \includegraphics[width=\textwidth]{images/gearVRWithController.png}
@@ -417,7 +416,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Durch das built-in Component \glqq vive-controls\grqq\ werden die Vive Controllers anerkannt. Mit dem Attribut \glqq model\grqq\ wird die Darstellung des Modells von Controller konfiguriert. Da die Controllers als Hände gezeigt werden, wird das Attribut als \glqq false\grqq\ eingerichtet. (Abbildung ~\ref{fig:viveControllerElement})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Vive Controller Element]{Vive Controller Element}
 \includegraphics[width=\textwidth]{images/viveControllerElement.png}
@@ -429,7 +428,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Die Controller relevanten Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ . Wenn der Hair-Trigger gedrückt oder losgelöst wird, wird die Information (Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt. (Abbildung ~\ref{fig:controller6D})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[6 DoF Controller]{6 DoF Controller}
 \includegraphics[width=\textwidth]{images/controller6D.png}
@@ -439,7 +438,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Um die globale Position zu errechnen, wird die Funktion von three.js verwendet. Die A-Frame Objekte sind eigentlich verpackte three.js Objekte, deswegen ist die Verwendung von three.js in A-Frame barrierefrei. Das gilt als ein Vorteil von A-Frame. (Abbildung ~\ref{fig:getWorldPosition})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[get global position]{get global position}
 \includegraphics[width=\textwidth]{images/getWorldPosition.png}
@@ -457,7 +456,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Zum Beispiel wird der Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als die ID des Controllers, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers (Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte als Information übergeben wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen. (Abbildung ~\ref{fig:controller6D} \& Abbildung ~\ref{fig:portfolioPress})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Bearbeitung der Krankenakte]{Bearbeitung der Krankenakte}
 \includegraphics[width=\textwidth]{images/portfolioPress.png}
@@ -477,7 +476,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Die \glqq MutationObserver\grqq\ beachten die \glqq childList\grqq\ des eingegebenen Controllers. Wenn die Einfügung und Entfernung der Child Elements des Controllers fertig ist, werden die eingegebenen Attribute eingesetzt. (Abbildung ~\ref{fig:controllerAction})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Veränderung der Attribute]{Veränderung der Attribute}
 \includegraphics[width=\textwidth]{images/controllerAction.png}
@@ -499,7 +498,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Würfel ist, ist die Kollisionserkennung ungenau. (Abbildung ~\ref{fig:collisionDetection})
   
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Kollisionserkennung]{Kollisionserkennung}
 \includegraphics[width=\textwidth]{images/collisionDetection.png}
@@ -526,7 +525,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   Außer Boden (Y = 0) können andere Objekte eine wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um den Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als der Kollisionsbereich. (Abbildung ~\ref{fig:fallDown})
   
 \begin{figure}[ht]
-\vspace*{1cm}
+\vspace*{1em}
 \centering
 \caption[Freier Fall]{Freier Fall}
 \includegraphics[width=\textwidth]{images/fallDown.png}
@@ -546,7 +545,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  Durch die Funktion \glqq navigator.userAgent\grqq wird die Informationen über den Browser ausgelesen. Dadurch werden die Typen der Geräten (PC, Smartphone, GearVR) unterschieden. Durch das Event \glqq gamepadconnected\grqq wird der verbundene Controller (GearVR Controller, Vive Controller) erkannt. Damit wird die Mode auf dem PC (flach, VR) und Gear VR (ohne Controller, mit Controller) unterschieden. Durch das Event \glqq enter-vr\grqq\ wird die Mode auf Smartphone (flach, Cardboard) unterschieden. (Abbildung ~\ref{fig:geraeteAnpassen} \& Tabelle ~\ref{tab:geraeteAnpassen}) 
  
 \begin{figure}[ht]
-\vspace*{0.3cm}
+\vspace*{1em}
 \centering
 \caption[Geräte erkennen]{Geräte erkennen}
 \includegraphics[width=\textwidth]{images/geraeteAnpassen.png}
@@ -580,7 +579,7 @@ PC & Vive                                                                       
  Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung des Hair-Triggers und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq components\grqq\ eingepackt. Wenn ein Event von Controllern emittiert wird, wird die Funktion \glqq playSound\grqq\ das entsprechende Sound Objekt aufgerufen. (Abbildung ~\ref{fig:submitSound})
  
 \begin{figure}[ht]
-\vspace*{0.8cm}
+\vspace*{1em}
 \centering
 \caption[Geräusche abspielen]{Geräusche abspielen}
 \includegraphics[width=\textwidth]{images/submitSound.png}
@@ -625,7 +624,7 @@ easing    & Die Erleichterung der Animation                                     
  Um die Animation einfach zu benutzen, wird eine Funktion entwickelt. Das \glqq a-animation\grqq Element wird erstellt. Und nach dem Laufen der Animation wird das Element nach dem Bedarf, der als Parameter eingegeben, entworfen oder behalten. (Abbildung ~\ref{fig:aAnimation})
  
 \begin{figure}[ht]
-\vspace*{0.6cm}
+\vspace*{1em}
 \centering
 \caption[Animation]{Animation}
 \includegraphics[width=\textwidth]{images/aAnimation.png}
@@ -639,7 +638,7 @@ easing    & Die Erleichterung der Animation                                     
  Das Hand Modell wird in Blender animiert. Zuerst wird das Skelett für die Hand erstellt. Mit der Funktion \glqq Set Parent To \grqq\ können das Modell und die Skelett zusammen verbinden. Durch \glqq Key Frame\grqq\ kann die Hand animiert werden. (Abbildung ~\ref{fig:handSetParentTo} \& Abbildung ~\ref{fig:handKeyframes})
  
 \begin{figure}[ht]
-\vspace*{0.2cm}
+\vspace*{1em}
 \centering
 \caption[Verbinden Modell und Skelett]{Verbinden Modell und Skelett}
 \includegraphics[width=\textwidth]{images/handSetParentTo.png}
@@ -647,7 +646,7 @@ easing    & Die Erleichterung der Animation                                     
 \end{figure}
 
 \begin{figure}[ht]
-\vspace*{0.2cm}
+\vspace*{1em}
 \centering
 \caption[Einstellung der Animation von Hand]{Einstellung der Animation von Hand}
 \includegraphics[width=\textwidth]{images/handKeyframes.png}
@@ -659,7 +658,7 @@ easing    & Die Erleichterung der Animation                                     
  Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ (Abbildung ~\ref{fig:handAnimation}) von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand leicht eine Faust macht während des Drucks auf dem Hair-Trigger und die Hand eine Faust macht während der Auslösung auf den Hair-Trigger lockert, nicht implementiert werden.
  
 \begin{figure}[ht]
-\vspace*{0.2cm}
+\vspace*{1em}
 \centering
 \caption[Aufruf der Animation von Hand]{Aufruf der Animation von Hand}
 \includegraphics[width=\textwidth]{images/handAnimation.png}
@@ -683,7 +682,7 @@ easing    & Die Erleichterung der Animation                                     
  Das Produkt von der Ziffer mal entsprechendem Winkel bei jeder Bewegung ist der Winkel der Rotation auf der X-Ebene in den Koordinate. (Abbildung ~\ref{fig:clockRoll})
  
 \begin{figure}[ht]
-\vspace*{0.2cm}
+\vspace*{1em}
 \centering
 \caption[Drehung des Zeigers der Uhr]{Drehung des Zeigers der Uhr}
 \includegraphics[width=\textwidth]{images/clockRoll.png}
@@ -694,7 +693,7 @@ easing    & Die Erleichterung der Animation                                     
  Solange der Griff des Händedesinfektionsspenders gedrückt wird, wird ein Event \glqq handwashing\grqq\ emittiert. Danach wird ein A-Frame Element \glqq a-gltf-model\grqq\ für die 30 Sekunden Markierung mit entsprechenden Attributen erstellt. Die Methode, die Rotation zu errechnen, ist die gleiche, wie die Methode für den Sekundenzeiger. Nach 30 Sekunden wird die Markierung des Element entworfen. (Abbildung ~\ref{fig:clockMarker})
  
 \begin{figure}[ht]
-\vspace*{0.2cm}
+\vspace*{1em}
 \centering
 \caption[Markierung der Uhr]{Markierung der Uhr}
 \includegraphics[width=\textwidth]{images/clockMarker.png}
