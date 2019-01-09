@@ -119,7 +119,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{Beobachter (en. Observer Pattern)}
   Beobachter ist ein Entwurfsmuster (en. Design Pattern) aus dem Bereich Softwareentwicklung. Es ist dafür geeignet, um das Zustandsmanagement zu implementieren.
   
-  %TODO: ist es so richtig(Zum Beispiel Linus Torvalds)? (von Le)
+  %TODO: ist es so richtig(Zum Beispiel von Linus Torvalds)? (von Le)
   Die Funktionalität davon ist ähnlich wie der Mechanismus von Twitter. Zum Beispiel Linus Torvalds \citep{42} von der Socialmediaplattform Twitter, die es seit 2012 gibt und wo Nutzer einen Account anlegen und anderen Nutzern \glqq folgen \grqq\ können. Bei Posts einer gefolgten Person werden die \glqq Folgenden \grqq\ benachrichtigt. (Abbildung ~\ref{fig:observerPatern})
   
   Im Bereich Softwareentwicklung wird der Gefolgten als \glqq Observable\grqq oder \glqq Subject\grqq bezeichnet. Die Folgenden werden als \glqq Observer\grqq bezeichnet. Die Aktivität \glqq follow\grqq ist \glqq Subscribe\grqq. Die Benachrichtigung heißt \glqq Notify\grqq.
@@ -131,7 +131,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:observerPatern} 
 \end{figure}
   
-  Um das Oberserver Pattern zu implementieren, wird eine Klasse \glqq Observable\grqq in diesem Projekt erstellt. (Abbildung ~\ref{fig:observable})
+  Um das Oberserver Pattern zu implementieren, wird eine Klasse {\fontfamily{qcr}\selectfont Observable} in diesem Projekt erstellt. (Abbildung ~\ref{fig:observable})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -140,20 +140,20 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \includegraphics[width=\textwidth]{images/observable.png}
 \label{fig:observable} 
 \end{figure}
-  Während der Erstellung einer Instanz von \glqq Observable\grqq\ wird ein Array generiert, um die \glqq Observers\grqq\ zu speichern. Durch die Funktionen \glqq subscribe\grqq\ und \glqq unsubscribe\grqq\ können die \glqq Observers\grqq\ in dem Array eingefügt oder von dem Array ausgezogen werden. Die \glqq Observers\grqq\ (Funktionen) sollen einen Parameter haben, um die Nachrichten von \glqq Observer\grqq\ zu empfangen. Wenn die Funktion \glqq Notify\grqq\ aufgerufen wird, werden alle \glqq Observers\grqq\ in dem Array nacheinander aufgerufen. Der Parameter der Funktion \glqq Notify\grqq\ wird als Parameter der \glqq Observers\grqq\ eingesetzt, sodass die Nachrichten ausgeteilt werden.
+  Während der Erstellung einer Instanz von {\fontfamily{qcr}\selectfont Observable} wird ein Array {\fontfamily{qcr}\selectfont Observers} generiert, um die Funktionen von \glqq Observers\grqq\ zu speichern. Durch die Funktionen {\fontfamily{qcr}\selectfont subscribe} und {\fontfamily{qcr}\selectfont unsubscribe} können die Funktionen von \glqq Observer\grqq\ in dem Array eingefügt oder von dem Array ausgezogen werden. Die \glqq Observers\grqq\ sollen eine Funktion mit einem Parameter haben, um die Nachrichten von {\fontfamily{qcr}\selectfont Observable} zu empfangen. Wenn die Funktion {\fontfamily{qcr}\selectfont Notify} aufgerufen wird, werden alle abonnierten Funktionen von \glqq Observers\grqq\ in dem Array {\fontfamily{qcr}\selectfont Observers} nacheinander aufgerufen. Der Parameter der Funktion {\fontfamily{qcr}\selectfont Notify} wird als Parameter der Funktion von \glqq Observers\grqq\ eingesetzt, sodass die Nachrichten ausgeteilt werden.
   
   \subsubsection{Zustände Management}
   
-  Um das Zustandsmanagement zu realisieren, wird ein Klasse \glqq stateIndex\grqq\ geschrieben. Da fast alle Objekt in der Szene mit dieser Klasse verbunden sind und den einzigen \glqq state container\grqq referenzieren, wird die Klasse als \glqq static\grqq Klasse definiert.
+  Um das Zustandsmanagement zu realisieren, wird ein Klasse {\fontfamily{qcr}\selectfont stateIndex} geschrieben. Da fast alle Objekt in der Szene mit dieser Klasse verbunden sind und den einzigen \glqq state container\grqq referenzieren, wird die Klasse als \glqq static\grqq Klasse definiert.
   
   %TODO: ist es so richtig(static zu erklären)? (von Le)
-  Die \glqq static\grqq\ Klasse hat keine Entität. Die zugehörigen Funktionen werden direkt von der Klasse aufgerufen. Da es kein \glqq static\grqq\ Klasse in JavaScript gibt, gilt die Klasse, deren allen zugehörigen Attributen und Funktionen \glqq static\grqq\ sind, als \glqq static\grqq Klasse.
+  Die \glqq static\grqq\ Klasse hat keine Entität. Die zugehörigen Funktionen werden direkt durch die Klasse aufgerufen. Da es kein \glqq static\grqq\ Klasse in JavaScript gibt, gilt die Klasse, deren allen zugehörigen Attributen und Funktionen \glqq static\grqq\ sind, als \glqq static\grqq Klasse.
   
-  Mit der \glqq init\grqq\ Funktion werden alle Zustände initialisiert. Die Initialisierung liegt an dem Query string in URL (Abbildung ~\ref{fig:queryString}). Der Query string ist ein Teil von URL, wodurch der Parameter bei dem \glqq request\grqq zusammen an den Server geschickt wird. Bei dieser Applikation ist der Query string die Ziffer des ausgewählten Abschnitts. Mit dem Query string werden die Zustände nach dem ausgewählten Abschnitt initialisiert.
+  Mit der Funktion {\fontfamily{qcr}\selectfont init}  werden alle Zustände initialisiert. Die Initialisierung liegt an dem Query string in URL (Abbildung ~\ref{fig:queryString}). Der Query string ist ein Teil von URL, wodurch der Parameter bei dem \glqq request\grqq zusammen an den Server geschickt wird. Bei dieser Applikation ist der Query string die Ziffer des ausgewählten Abschnitts. Mit dem Query string werden die Zustände nach dem ausgewählten Abschnitt initialisiert.
   
-  Während der Initialisierung wird eine Entität von Observable erstellt, um die Benachrichtigung vorzubereiten.
+  Während der Initialisierung wird eine Entität von {\fontfamily{qcr}\selectfont Observable} erstellt, um die Benachrichtigung zu verbreiten.
   
-  Die \glqq init\grqq\ Funktion wird nur einmal aufgerufen, wenn die Applikation aufgerufen wird.
+  Die {\fontfamily{qcr}\selectfont init} Funktion wird nur einmal aufgerufen, wenn die Applikation aufgerufen wird.
   
 \begin{figure}[ht]
 \centering
@@ -162,25 +162,25 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:queryString} 
 \end{figure}
   
-  Zu Sicherheit dürfen die Zustände von anderen Objekt nicht erreichbar sein. Deswegen werden die Funktionen der Klasse \glqq stateIndex\grqq\ angeboten, um die Zustände zu manipulieren.
+  Zu Sicherheit dürfen die Zustände von anderen Objekt nicht erreichbar sein. Deswegen werden die Funktionen von der Klasse {\fontfamily{qcr}\selectfont stateIndex} angeboten, um die Zustände zu manipulieren.
   
   \begin{itemize}
-      \item \textbf{getState}: um alle aktuelle Zustände zu bekommen.
-      \item \textbf{get}: um einen bestimmte Zustand zu bekommen.
-      \item \textbf{getIn}: um einen bestimmten Zustand in tiefen Ebenen zu bekommen.
-      \item \textbf{set}: um einen bestimmten Zustand zu aktualisieren. Durch die Funktion \glqq Notify\grqq\ von \glqq Observable\grqq\ werden neue Zustände an alle Observer geschickt.
-      \item \textbf{setIn}: um einen bestimmten Zustand in tiefen Ebenen zu aktualisieren. Durch der Funktion \glqq Notify\grqq\ von \glqq Observable\grqq\ werden die neuen Zustände an alle Observer ausgeteilt.
+      \item {\fontfamily{qcr}\selectfont getState}: um alle aktuelle Zustände zu bekommen.
+      \item {\fontfamily{qcr}\selectfont get}: um einen bestimmte Zustand zu bekommen.
+      \item {\fontfamily{qcr}\selectfont getIn}: um einen bestimmten Zustand in tiefen Ebenen zu bekommen.
+      \item {\fontfamily{qcr}\selectfont set}: um einen bestimmten Zustand zu aktualisieren. Durch die Funktion {\fontfamily{qcr}\selectfont Notify} von \glqq Observable\grqq\ werden neue Zustände an alle \glqq Observer\grqq\ geschickt.
+      \item {\fontfamily{qcr}\selectfont setIn}: um einen bestimmten Zustand in tiefen Ebenen zu aktualisieren. Durch der Funktion {\fontfamily{qcr}\selectfont Notify} von \glqq Observable\grqq\ werden die neuen Zustände an alle \glqq Observer\grqq\ ausgeteilt.
   \end{itemize}
   
  \subsection{Abschnitte Auswahl}
  Die Auswahl der Abschnitte kann zu zwei Zeitpunkten durchgeführt werden. Einer davon ist während des Aufrufs der Applikation. Die Ziffer des ausgewählten Abschnitts wird durch den Query string in URL an die Applikation weitergegeben. Der andere Zeitpunkt ist vor dem Nehmen der Krankenakte in der VR Szene. Auf dem Whiteboard werden die Abschnitte aufgelistet, wodurch ein bestimmter Abschnitt ausgewählt werden kann.
  
   \subsubsection{Abschnitte Auswahl durch URL}
-  Die Zustände werden am Anfang als ursprüngliche Zustände initialisiert. Durch die Funktion \glqq getSectionSelectionFromURL\grqq\ in der Klasse \glqq stateIndex\grqq\ kann die ausgewählte Ziffer bestimmt werden. Wenn die Ziffer zwischen 1 und 7 ist, werden die betroffenen Zustände durch die Funktion \glqq selectSection\grqq\ aktualisiert. Danach werden die Objekte in der Szene nach den Zuständen auch aktualisiert.
+  Die Zustände werden am Anfang als ursprüngliche Zustände initialisiert. Durch die Funktion {\fontfamily{qcr}\selectfont getSectionSelectionFromURL} in der Klasse {\fontfamily{qcr}\selectfont stateIndex} kann die ausgewählte Ziffer bestimmt werden. Wenn die Ziffer zwischen 1 und 7 ist, werden die betroffenen Zustände durch die Funktion {\fontfamily{qcr}\selectfont selectSection} aktualisiert. Danach werden die Objekte in der Szene nach den Zuständen auch aktualisiert.
   
   Um die GUI richtig einzusetzen, wird ein Trick benutzt. Wenn die Applikation aufgerufen wird, wird die Szene nach den aktuellen Zuständen eingerichtet und es werden gleichzeitig die Modelle geladen. Es könnte passieren, dass ein Modell noch nicht fertig geladen ist, wenn es von der Aktualisierung betroffen ist. Das führt zu Fehlern in der Applikation.
   
-  Um das Problem zu lösen, wird die Ladung vor der Aktualisierung überprüft (Abbildung ~\ref{fig:checkLadung}). Mit der Funktion \glqq setInterval\grqq\ wird es implementiert, alle 0,5 Sekunden den Zustand der Ladung zu überprüfen. Wenn alle Modelle schon geladen sind, wird die Überprüfung beendet und die Szene aktualisiert.
+  Um das Problem zu lösen, wird die Ladung vor der Aktualisierung überprüft (Abbildung ~\ref{fig:checkLadung}). Mit der Funktion {\fontfamily{qcr}\selectfont setInterval} wird es implementiert, alle 0,5 Sekunden den Zustand der Ladung zu überprüfen. Wenn alle Modelle schon geladen sind, wird die Überprüfung beendet und die Szene aktualisiert.
   
 \begin{figure}[ht]
 \vspace*{1.2em}
@@ -191,9 +191,9 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \end{figure}
   
   \subsubsection{Abschnitte Auswahl in VR Szene}
-  Auf dem Whiteboard werden die Abschnitte aufgelistet. Durch Zeiger oder Raycaster wird die Funktion \glqq selectSection\grqq\ in der Klasse \glqq stateIndex\grqq\ mit entsprechendem Parameter aufgerufen, um den Abschnitt zu wechseln.
+  Auf dem Whiteboard werden die Abschnitte aufgelistet. Durch Zeiger oder Raycaster wird die Funktion {\fontfamily{qcr}\selectfont selectSection} in der Klasse {\fontfamily{qcr}\selectfont stateIndex} mit entsprechendem Parameter aufgerufen, um den Abschnitt zu wechseln.
   
-  Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle boxes\grqq eingesetzt, wodurch die Funktion \glqq selectSection\grqq\ des HTC Vive Controllers aufgerufen werden kann. (Abbildung ~\ref{fig:toggleBoxAbschnitte})
+  Vor den Zeichnen auf dem Whitebard werden 7 \glqq toggle boxes\grqq eingesetzt, wodurch die Funktion {\fontfamily{qcr}\selectfont selectSection} durch HTC Vive Controllers aufgerufen werden kann. (Abbildung ~\ref{fig:toggleBoxAbschnitte})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -204,7 +204,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \end{figure}
   
   \subsubsection{Möglichkeit der Verbesserung}
-  Die Abschnitte-Auswahl kann nicht nur während der Initialisierung, sondern auch nach der Initialisierung durchgeführt wird. Deswegen sollen die Funktionen der Abschnitte-Auswahl wie \glqq selectSection\grqq\ nicht in der Klasse \glqq stateIndex\grqq\ eingepackt werden, sondern in eine eigene Datei geschrieben werden.
+  Die Abschnitte-Auswahl kann nicht nur während der Initialisierung, sondern auch nach der Initialisierung durchgeführt wird. Deswegen sollen die Funktionen der Abschnitte-Auswahl wie {\fontfamily{qcr}\selectfont selectSection} nicht in der Klasse {\fontfamily{qcr}\selectfont stateIndex} eingepackt werden, sondern in eine eigene Datei geschrieben werden.
   
  \subsection{Gestaltung der Struktur der Klassen der Objekte}
  Um das Projekt effizient zu entwickeln, wird eine Struktur der Klassen gestaltet, die sich an die meisten Objekte in diesem Projekt anpassen kann. Die Struktur basiert auf der Klasse Struktur von A-Frame.
@@ -212,12 +212,11 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  \subsubsection{Gestaltung}
  Die Philosophie von A-Frame ist, mit spezifischen HTML Elementen die Szene aufzubauen. Ein Element ist eine Kombination der Entitäten von unterschiedlichen Klassen (Abbildung ~\ref{fig:aframeClass}). Eine Entität kann ein HTML Element oder ein Attribut eines HTML Elements sein. Das Klasse in A-Frame wird als Component bezeichnet.
  
- %TODO: einige dich auf ein Konzept: bei Observable hast du es in Klammern gesetzt. Wenn du Funktionsnamen (wie zB init, update,...) verwendest, dann solltest du es auch kenntlich machen. Schreibe das Wort dann entweder kursiv, oder ebenso in Anführungszeichen
- Drei Built-in Objekte von Component sind wichtig.
+ Drei built-in Objekte von Component sind wichtig.
  \begin{itemize}
-     \item \textbf{init} ist eine Funktion, die während der Erstellung einer Entität von Component durchgeführt wird.
-     \item \textbf{schema} ist ein JavaScript Objekt, das Attribute von Component speichert.
-     \item \textbf{update} ist eine Funktion, die durchgeführt wird, wenn das schema durch HTML geändert wird. Die Initialisierung gilt als eine Änderung von schema, d.h. dass die Funktion update während der Erstellung einer Entität durchgeführt wird. Deswegen muss die Funktion init nicht definiert sein, wenn die Funktion update existiert.
+     \item {\fontfamily{qcr}\selectfont init} ist eine Funktion, die während der Erstellung einer Entität von Component durchgeführt wird.
+     \item {\fontfamily{qcr}\selectfont schema} ist ein JavaScript Objekt, das Attribute von Component speichert.
+     \item {\fontfamily{qcr}\selectfont update} ist eine Funktion, die durchgeführt wird, wenn das schema durch HTML geändert wird. Die Initialisierung gilt als eine Änderung von schema, d.h. dass die Funktion update während der Erstellung einer Entität durchgeführt wird. Deswegen muss die Funktion init nicht definiert sein, wenn die Funktion update existiert.
  \end{itemize}
  
 \begin{figure}[ht]
@@ -232,11 +231,11 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  
  Allerdings muss die Struktur von Component wegen der Nutzung von Observer Pattern neu gestaltet werden.
  
- Der Code der Klasse \glqq Observable\grqq\ hat gezeigt, dass die Parameter der Funktion \glqq subscribe\grqq\ eine Funktion sein sollen. Aber die Funktionen, die in der Klasse definiert werden, gelten nicht als eine bestimmte Funktion bei JavaScript. Deshalb müssen die Funktionen, die als \glqq observer\grqq benutzt werden, außerhalb der Klasse definiert werden, sodass die Entitäten der Klasse die Nachrichten von observable empfangen können. Das führt zu einer suboptimalen Situation, dass alle Entität, die durch die gleiche Klasse erstellt werden, dieselben Funktionen und Eigenschaften benutzen. (Abbildung ~\ref{fig:eigenesClass})
+ Der Code der Klasse {\fontfamily{qcr}\selectfont Observable} hat gezeigt, dass die Parameter der Funktion {\fontfamily{qcr}\selectfont subscribe} eine Funktion sein sollen. Aber die Funktionen, die in der Klasse definiert werden, gelten nicht als eine bestimmte Funktion bei JavaScript. Deshalb müssen die Funktionen, die als \glqq observer\grqq benutzt werden, außerhalb der Klasse definiert werden, sodass die Entitäten der Klasse die Nachrichten von \glqq observable\grqq\ empfangen können. Das führt zu einer suboptimalen Situation, dass alle Entität, die durch die gleiche Klasse erstellt werden, dieselben Funktionen und Eigenschaften benutzen. (Abbildung ~\ref{fig:eigenesClass})
  
  Obwohl die Struktur der Klasse sich der Philosophie von A-Frame nicht anpasst, ist es praktisch und geeignet für dieses Projekt, weil fast alle Klassen nur eine einzige Entität in der Szene haben.
  
- Um die Attribute und Funktionen von Component von die Funktion in \glqq observer\grqq\ zu erreichen, werden die Attribute und Funktionen beispielsweise schema auch außerhalb der Klasse als globale Variablen geschrieben.
+ Um die Attribute und Funktionen von Component von die Funktion in \glqq observer\grqq\ zu erreichen, werden die Attribute und Funktionen beispielsweise {\fontfamily{qcr}\selectfont schema} auch außerhalb der Klasse als globale Variablen geschrieben.
  
 \begin{figure}[ht]
 \vspace*{1em}
@@ -249,7 +248,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  \subsubsection{Möglichkeit der Verbesserung}
  Es ist auch möglich, nach der Philosophie von A-Frame die Klassen Struktur zu gestalten.
  
- Durch anpassen des \glqq eventlistener\grqq\ (\glqq on\grqq\ in Jquery), das während der Initialisierung eingefügt wird, kann die Nachricht von \glqq observable\grqq\ in die Klasse transportiert werden. (Abbildung ~\ref{fig:bestesClass})
+ Durch anpassen von {\fontfamily{qcr}\selectfont addEventListener} ({\fontfamily{qcr}\selectfont on} in Jquery), das während der Initialisierung eingefügt wird, kann die Nachricht von \glqq observable\grqq\ in die Klasse transportiert werden. (Abbildung ~\ref{fig:bestesClass})
  
 \begin{figure}[ht]
 \vspace*{1em}
@@ -267,23 +266,23 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Exploration}
   
-  Mit einer Entität von built-in Component \glqq a-camera\grqq in A-Frame wird eine Kamera in der Szene eingesetzt (Abbildung ~\ref{fig:cameraHtml}). Dadurch wird die Sicht des Nutzers in der VR Umgebung erstellt. Die Interaktionen, die die Kamera betreffen, nämlich Exploration und Navigation werden in dieser Entität realisiert.
+  Mit einer Entität von built-in Component {\fontfamily{qcr}\selectfont a-camera} in A-Frame wird eine Kamera in der Szene eingesetzt (Abbildung ~\ref{fig:cameraHtml}). Dadurch wird die Sicht des Nutzers in der VR Umgebung erstellt. Die Interaktionen, die die Kamera betreffen, nämlich Exploration und Navigation werden in dieser Entität realisiert.
   
-  Mit dem Component \glqq look-controls\grqq kann die Rotation einer Entität manipuliert werden. Wenn \grqq look-controls\grqq als Attribut von \glqq a-camera\grqq eingesetzt wird, wird es realisiert, den Winkel der Kamera zu manipulieren.
+  Mit dem Component {\fontfamily{qcr}\selectfont look-controls} kann die Rotation einer Entität manipuliert werden. Wenn {\fontfamily{qcr}\selectfont look-controls} als Attribut von {\fontfamily{qcr}\selectfont a-camera} eingesetzt wird, wird es realisiert, den Winkel der Kamera zu manipulieren.
   
-  Wenn die Eigenschaft \glqq pointerLockEnabled\grqq von \glqq look-controls\grqq  als \glqq true\grqq\ eingerichtet wird, wird der Zeiger auf PC durch einen Klick auf die Maus versteckt, und die Kamera wird durch die Bewegung der Maus gedreht. Wenn die ESC Taste auf der Tastatur gedrückt wird, wird der Zeiger wieder gezeigt, und die Maus verliert die Kontrolle über die Rotation der Kamera.
+  Wenn die Eigenschaft {\fontfamily{qcr}\selectfont pointerLockEnabled} von {\fontfamily{qcr}\selectfont look-controls}  als {\fontfamily{qcr}\selectfont true} eingerichtet wird, wird der Zeiger auf PC durch einen Klick auf die Maus versteckt, und die Kamera wird durch die Bewegung der Maus gedreht. Wenn die ESC Taste auf der Tastatur gedrückt wird, wird der Zeiger wieder gezeigt, und die Maus verliert die Kontrolle über die Rotation der Kamera.
   
-  Außerdem ist es möglich, durch das Ziehen auf dem Smartphone die Kamera zu drehen, wenn die Eigenschaft \glqq touchEnabled\grqq als \glqq true\grqq\ konfiguriert ist. \glqq true\grqq\ ist die Standardeinstellung für \glqq touchEnabled\grqq, deswegen muss das Attribut nicht extra eingerichtet werden.
+  Außerdem ist es möglich, durch das Ziehen auf dem Smartphone die Kamera zu drehen, wenn die Eigenschaft {\fontfamily{qcr}\selectfont touchEnabled} als {\fontfamily{qcr}\selectfont true} konfiguriert ist. {\fontfamily{qcr}\selectfont true} ist die Standardeinstellung für{\fontfamily{qcr}\selectfont touchEnabled}, deswegen muss das Attribut nicht extra eingerichtet werden.
   
   \textbf{Navigation}
   
-  Mit dem Component \glqq wasd-controls\grqq kann die Position einer Entität manipuliert werden. Die Nutzung ist ähnlich wie das Component \glqq look-controls\grqq. Wenn \grqq wasd-controls\grqq als Attribut von \glqq a-camera\grqq eingesetzt wird, wird die Position der Kamera mit den Tasten W, A, S und D auf der Tastatur manipuliert.
+  Mit dem Component {\fontfamily{qcr}\selectfont wasd-controls} kann die Position einer Entität manipuliert werden. Die Nutzung ist ähnlich wie das Component {\fontfamily{qcr}\selectfont look-controls}. Wenn {\fontfamily{qcr}\selectfont wasd-controls} als Attribut von {\fontfamily{qcr}\selectfont a-camera} eingesetzt wird, wird die Position der Kamera mit den Tasten W, A, S und D auf der Tastatur manipuliert.
   
   %TODO: acceleration ist eigentlich Beschleunigung. Velocity ist die Geschwindigkeit im englischen
   %eigentlich das ist Geschwindigkeit. Aber in Doc von A-Frame wird es acceleration genannt. (von Le)
-  Die Eigenschaft \glqq acceleration\grqq beschreibt die Geschwindigkeit der Bewegung, wenn die Teste gedrückt ist. Um Schwindel zu vermeiden, wird der Wert ziemlich klein eingerichtet.
+  Die Eigenschaft {\fontfamily{qcr}\selectfont acceleration} beschreibt die Geschwindigkeit der Bewegung, wenn die Teste gedrückt ist. Um Schwindel zu vermeiden, wird der Wert ziemlich klein eingerichtet.
   
-  Es gibt noch einen Bug bei dem Component \glqq wasd-controls\grqq. Die manuelle Navigation kann mit Firefox richtig durchgeführt werden, aber mit Chrome kann die Bewegung nicht beendet werden.
+  Es gibt noch einen Bug bei dem Component {\fontfamily{qcr}\selectfont wasd-controls}. Die manuelle Navigation kann mit Firefox richtig durchgeführt werden, aber mit Chrome kann die Bewegung nicht beendet werden.
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -293,7 +292,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:cameraHtml} 
 \end{figure}
   
-  Außer der manuellen Navigation wird auch die automatische Navigation implementiert. Das Event \glqq raycaster-intersected\grqq wird auf dasselbe Objekt emittiert, wenn das Objekt mit dem Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig sind, empfängt das Objekt kein Event mehr. (Abbildung ~\ref{fig:cameraMove})
+  Außer der manuellen Navigation wird auch die automatische Navigation implementiert. Das Event {\fontfamily{qcr}\selectfont raycaster-intersected} wird auf dasselbe Objekt emittiert, wenn das Objekt mit dem Zeiger überlappt. Dann bewegt sich die Kamera zu dem Objekt. Nach sechs Sekunden geht die Kamera wieder zurück. Wenn die Aktivitäten auf einem Objekt fertig sind, empfängt das Objekt kein Event mehr. (Abbildung ~\ref{fig:cameraMove})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -305,7 +304,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Manipulation}
   
-  Die Manipulation auf PC und Smartphone wird mit dem built-in Component \glqq a-cursor\grqq implementiert (Abbildung ~\ref{fig:aCursorElement}). Um den Zeiger in der Mitte der Sicht darzustellen, wird \glqq a-cursor\grqq als ein Child-Component von \glqq a-camera\grqq eingesetzt.
+  Die Manipulation auf PC und Smartphone wird mit dem built-in Component {\fontfamily{qcr}\selectfont a-cursor} implementiert (Abbildung ~\ref{fig:aCursorElement}). Um den Zeiger in der Mitte der Sicht darzustellen, wird {\fontfamily{qcr}\selectfont a-cursor} als ein Child-Component von {\fontfamily{qcr}\selectfont a-camera} eingesetzt.
   
  \begin{figure}[ht]
 \vspace*{1em}
@@ -315,15 +314,15 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:aCursorElement} 
 \end{figure}
   
-  Das Attribut \glqq objects\grqq beschreibt, mit welchen Objekten man interagieren kann. Alle solche Objekte werden mit der Klasse \glqq clickable\grqq bezeichnet. Mit dem Attribut \glqq geometry\grqq wird der Zeiger als ein Ring definiert.
+  Das Attribut {\fontfamily{qcr}\selectfont objects} beschreibt, mit welchen Objekten man interagieren kann. Alle solche Objekte werden mit der HTML Klasse {\fontfamily{qcr}\selectfont clickable} bezeichnet. Mit dem Attribut {\fontfamily{qcr}\selectfont geometry} wird der Zeiger als ein Ring definiert.
   
-  Als Standardeinstellung wird der Zeiger auf dem PC aktiviert, wenn die linke Taste von der Maus gedrückt wird. Mit dem Attribut \glqq fuse-timeout\grqq wird der Zeiger auf dem Smartphone konfiguriert. Die Wert 1000 bedeutet, dass der Zeiger aktiviert wird, wenn der Zeiger auf einem Objekt 1 Sekunde fokussiert.
+  Als Standardeinstellung wird der Zeiger auf dem PC aktiviert, wenn die linke Taste von der Maus gedrückt wird. Mit dem Attribut {\fontfamily{qcr}\selectfont fuse-timeout} wird der Zeiger auf dem Smartphone konfiguriert. Die Wert 1000 bedeutet, dass der Zeiger aktiviert wird, wenn der Zeiger auf einem Objekt 1 Sekunde fokussiert.
   
-  Das Attribut \glqq raycaster-intersection\grqq ist eine Entität der Klasse \glqq raycaster-intersection\grqq, welche die Funktion realisiert, dass der Zeiger farblich zu grün wechselt, wenn der Zeiger die Objekte trifft, mit denen interagiert werden kann.
+  Das Attribut {\fontfamily{qcr}\selectfont raycaster-intersection} ist eine Entität der Klasse {\fontfamily{qcr}\selectfont raycaster-intersection}, welche die Funktion realisiert, dass der Zeiger farblich zu grün wechselt, wenn der Zeiger die Objekte trifft, mit denen interagiert werden kann.
   
-  Das Event \glqq raycaster-intersected\grqq wird auf den Objekten selber emittiert, wenn das raycaster sich mit den Objekten überlappt. Im Gegenzug wird \glqq raycaster-intersected-cleard\grqq emittiert, wenn nichts mit dem Raycaster überlappt.
+  Das Event {\fontfamily{qcr}\selectfont raycaster-intersected} wird auf den Objekten selber emittiert, wenn das raycaster sich mit den Objekten überlappt. Im Gegenzug wird {\fontfamily{qcr}\selectfont raycaster-intersected-cleard} emittiert, wenn nichts mit dem Raycaster überlappt.
   
-  Da \glqq a-cursor\grqq die Eigenschaften von Raycaster integriert hat, stehen \glqq raycaster-intersection\grqq und \glqq raycaster-intersection-cleard\grqq für \glqq a-cursor\grqq zu Verfügung. (Abbildung ~\ref{fig:raycasterIntersection})
+  Da {\fontfamily{qcr}\selectfont a-cursor} die Eigenschaften von Raycaster integriert hat, stehen die Events {\fontfamily{qcr}\selectfont raycaster-intersection} und {\fontfamily{qcr}\selectfont raycaster-intersection-cleard} für {\fontfamily{qcr}\selectfont a-cursor} zu Verfügung. (Abbildung ~\ref{fig:raycasterIntersection})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -333,7 +332,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:raycasterIntersection} 
 \end{figure}
   
-  Das Attribut \glqq cursor-submit\grqq ist zuständig für die Funktion, den Zeiger in rot darzustellen und ein entsprechendes Geräusch erklingen zu lassen, wenn der Zeiger aktiviert wird. (Abbildung ~\ref{fig:cursorSubmit})
+  Das Attribut {\fontfamily{qcr}\selectfont cursor-submit} ist zuständig für die Funktion, den Zeiger in rot darzustellen und ein entsprechendes Geräusch erklingen zu lassen, wenn der Zeiger aktiviert wird. (Abbildung ~\ref{fig:cursorSubmit})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -383,13 +382,13 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Navigation und Manipulation werden durch den Controller aktiviert.
   
-  Das Element von Gear VR Controller wird mit dem Element der Kamera zusammen in dem Element mit ID \glqq cameraRig\grqq\ eingepackt. Die Bewegung der Kamera wird durch die Translation von \glqq cameraRig\grqq\ ermöglicht, sodass die relative Position zwischen der Kamera und dem Controller während der Bewegung behalten wird.
+  Das Element von Gear VR Controller wird mit dem Element der Kamera zusammen in dem Element mit ID {\fontfamily{qcr}\selectfont cameraRig} eingepackt. Die Bewegung der Kamera wird durch die Translation von {\fontfamily{qcr}\selectfont cameraRig} ermöglicht, sodass die relative Position zwischen der Kamera und dem Controller während der Bewegung behalten wird.
   
-  Mit dem built-in Component \glqq teleport-controls\grqq\ wird die Navigation implementiert. Das Attribut \glqq cameraRig\grqq\ beschreibt das Element, das sich zu der bezeichneten Position bewegt. Das Attribut \glqq teleportOrigin\grqq\ beschreibt das Element, das als der Ursprung des Elements \glqq cameraRig\grqq\ gilt.
+  Mit dem built-in Component {\fontfamily{qcr}\selectfont teleport-controls} wird die Navigation implementiert. Das Attribut{\fontfamily{qcr}\selectfont cameraRig} beschreibt das Element, das sich zu der bezeichneten Position bewegt. Das Attribut {\fontfamily{qcr}\selectfont teleportOrigin} beschreibt das Element, das als der Ursprung des Elements {\fontfamily{qcr}\selectfont cameraRig} gilt.
   
-  Wenn das Trackpad auf dem Gear VR Controller gedrückt wird, wird die Position festgelegt. Solange der Trackpad losgelöst wird, bewegt sich das Element \glqq cameraRig\grqq\ zu der festgelegten Position. Die Position der Kamera auf den X und Z Achsen sind die gleichen wie die festgelegten Positionen.
+  Wenn das Trackpad auf dem Gear VR Controller gedrückt wird, wird die Position festgelegt. Solange der Trackpad losgelöst wird, bewegt sich das Element {\fontfamily{qcr}\selectfont cameraRig} zu der festgelegten Position. Die Position der Kamera auf den X und Z Achsen sind die gleichen wie die festgelegten Positionen.
   
-  Die Manipulation wird durch das Component \glqq laser-controls\grqq\ realisiert. Mit dem Component wird nicht nur der Gear VR Controller, sondern auch Daydrame Controller usw. (Abbildung ~\ref{fig:GearVRControllerElement} \& Abbildung ~\ref{fig:GearVRWithController})
+  Die Manipulation wird durch das Component {\fontfamily{qcr}\selectfont laser-controls} realisiert. Mit dem Component wird nicht nur der Gear VR Controller, sondern auch Daydrame Controller usw. (Abbildung ~\ref{fig:GearVRControllerElement} \& Abbildung ~\ref{fig:GearVRWithController})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -409,11 +408,11 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \subsubsection{HTC Vive}
   
-  Die Navigation von HTC Vive wird durch das Component \glqq teleport-controls\grqq\ ist so implementiert wie bei der Gear VR.
+  Die Navigation von HTC Vive wird durch das Component {\fontfamily{qcr}\selectfont teleport-controls} ist so implementiert wie bei der Gear VR.
   
   \textbf{Component vive-controls}
   
-  Durch das built-in Component \glqq vive-controls\grqq\ werden die Vive Controllers anerkannt. Mit dem Attribut \glqq model\grqq\ wird die Darstellung des Modells von Controller konfiguriert. Da die Controllers als Hände gezeigt werden, wird das Attribut als \glqq false\grqq\ eingerichtet. (Abbildung ~\ref{fig:viveControllerElement})
+  Durch das built-in Component {\fontfamily{qcr}\selectfont vive-controls} werden die Vive Controllers anerkannt. Mit dem Attribut {\fontfamily{qcr}\selectfont model} wird die Darstellung des Modells von Controller konfiguriert. Da die Controllers als Hände gezeigt werden, wird das Attribut als {\fontfamily{qcr}\selectfont false} eingerichtet. (Abbildung ~\ref{fig:viveControllerElement})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -423,9 +422,9 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:viveControllerElement} 
 \end{figure}
   
-  Nach der Erkennung der Controllers werden Events \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ ausgelöst, wenn der Hair-Trigger gedrückt und losgelöst wird. Um die Nachrichten über die Aktivität des Controllers auszubreiten, wird Observer Pattern verwendet.
+  Nach der Erkennung der Controllers werden Events {\fontfamily{qcr}\selectfont triggerdown} und {\fontfamily{qcr}\selectfont triggerup} ausgelöst, wenn der Hair-Trigger gedrückt und losgelöst wird. Um die Nachrichten über die Aktivität des Controllers auszubreiten, wird Observer Pattern verwendet.
   
-  Die Controller relevanten Funktionen bei unterschiedlichen Objekten melden sich bei den Observerables für \glqq triggerdown\grqq\ und \glqq triggerup\grqq\ . Wenn der Hair-Trigger gedrückt oder losgelöst wird, wird die Information (Name von Event, ID von Controller, globale Position von Controller) an alle Observers geschickt. (Abbildung ~\ref{fig:controller6D})
+  Die Controller relevanten Funktionen bei unterschiedlichen Objekten melden sich bei den \glqq Observerables\grqq\ für {\fontfamily{qcr}\selectfont triggerdown} und {\fontfamily{qcr}\selectfont triggerup}. Wenn der Hair-Trigger gedrückt oder losgelöst wird, wird die Information (Name von Event, ID von Controller, globale Position von Controller) an alle \glqq Observers\grqq\ geschickt. (Abbildung ~\ref{fig:controller6D})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -447,13 +446,13 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Prüfung mit Raycaster}
   
-  Ein aus den Augen ausstrahlender versteckter Raycaster wird in dem Element \glqq a-camera\grqq\ eingesetzt. Wenn die Krankenakte, Infusionsflasche und Infusionsbesteck überprüft werden sollen, wird der Raycaster gezeigt, um die Überprüfung durchzuführen. Wenn der Raycaster die richtige Position trifft, wird das Event \glqq raycaster-intersection\grqq\ ausgelöst, und der Raycaster wird in grün dargestellt, ansonsten in orange. Wenn die Überprüfung fertig ist, die relevanten Zustände für die Prüfungen als \glqq true\grqq\ gesetzt sind, wird der Raycaster wieder versteckt.
+  Ein aus den Augen ausstrahlender versteckter Raycaster wird in dem Element {\fontfamily{qcr}\selectfont a-camera} eingesetzt. Wenn die Krankenakte, Infusionsflasche und Infusionsbesteck überprüft werden sollen, wird der Raycaster gezeigt, um die Überprüfung durchzuführen. Wenn der Raycaster die richtige Position trifft, wird das Event {\fontfamily{qcr}\selectfont raycaster-intersection} ausgelöst, und der Raycaster wird in grün dargestellt, ansonsten in orange. Wenn die Überprüfung fertig ist, die relevanten Zustände für die Prüfungen als {\fontfamily{qcr}\selectfont true} gesetzt sind, wird der Raycaster wieder versteckt.
   
   \textbf{Zustände für Vive Controller}
   
   Weil die Manipulation mit Vive Controllern große Freiheiten hat, und nicht jede Ausführung einer Aktivität den Fortschritt fördert, wird eine neue Liste für die Zustände der Vive Controller und die entsprechenden Funktionen erstellt.
   
-  Zum Beispiel wird der Wert des Zustands für Vive Controller \glqq portfolioInHand\grqq\ als die ID des Controllers, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers (Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component Krankenakte als Information übergeben wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen. (Abbildung ~\ref{fig:controller6D} \& Abbildung ~\ref{fig:portfolioPress})
+  Zum Beispiel wird der Wert des Zustands für Vive Controller {\fontfamily{qcr}\selectfont portfolioInHand} als die ID des Controllers, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers (Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component der Krankenakte übergeben wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen. (Abbildung ~\ref{fig:controller6D} \& Abbildung ~\ref{fig:portfolioPress})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -467,13 +466,13 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Wenn ein Element in dem Controller Element eingezogen oder aus dem Controller ausgezogen wird, wird die Dimension der Koordinaten geändert. Deshalb muss das Attribut Position neu berechnet und umgesetzt werden.
   
-  Normalerweise kann das Attribut direkt mit dem Befehl \glqq setAttribute\grqq konfiguriert werden. Allerdings sind die 3D A-Frame Objekte viel größer als 2D Objekte, sodass die DOM Manipulation länger dauert. Deshalb passiert es, dass die Änderung des Attributs vor dem Umzug des DOM Elements geschafft wird. Und nach dem Umzug wird das Attribut wieder zurückgesetzt.
+  Normalerweise kann das Attribut direkt mit dem Befehl {\fontfamily{qcr}\selectfont setAttribute} konfiguriert werden. Allerdings sind die 3D A-Frame Objekte viel größer als 2D Objekte, sodass die DOM Manipulation länger dauert. Deshalb passiert es, dass die Änderung des Attributs vor dem Umzug des DOM Elements geschafft wird. Und nach dem Umzug wird das Attribut wieder zurückgesetzt.
   
-  Um das Problem zu lösen, muss die DOM Funktion \glqq MutationObserver\grqq\ verwendet werden. Die Funktion \glqq MutationObserver\grqq\ ist zuständig dafür, die Änderung der gegebenen Attribute eines Elements zu beobachten. Wenn die Änderung fertig ist, wird eine Nachricht an alle Observers geschickt.
+  Um das Problem zu lösen, muss die DOM Funktion {\fontfamily{qcr}\selectfont MutationObserver} verwendet werden. Die Funktion {\fontfamily{qcr}\selectfont MutationObserver} ist zuständig dafür, die Änderung der gegebenen Attribute eines Elements zu beobachten. Wenn die Änderung fertig ist, wird eine Nachricht an alle Observers geschickt.
   
-  Weil die DOM Manipulation sehr häufig ist und fast alle aufwendigen Änderungen mit den Controllern zu tun haben, wird die Funktion \glqq MutationObserver\grqq\ in einer Klasse \glqq controllerActions\grqq\ verpackt, um die Verwendung zu vereinfachen.
+  Weil die DOM Manipulation sehr häufig ist und fast alle aufwendigen Änderungen mit den Controllern zu tun haben, wird die Funktion {\fontfamily{qcr}\selectfont MutationObserver} in einer Klasse {\fontfamily{qcr}\selectfont controllerActions} verpackt, um die Verwendung zu vereinfachen.
   
-  Die \glqq MutationObserver\grqq\ beachten die \glqq childList\grqq\ des eingegebenen Controllers. Wenn die Einfügung und Entfernung der Child Elements des Controllers fertig ist, werden die eingegebenen Attribute eingesetzt. (Abbildung ~\ref{fig:controllerAction})
+  Die {\fontfamily{qcr}\selectfont MutationObserver} beachten die {\fontfamily{qcr}\selectfont childList} des eingegebenen Controllers. Wenn die Einfügung und Entfernung der Child Elements des Controllers fertig ist, werden die eingegebenen Attribute eingesetzt. (Abbildung ~\ref{fig:controllerAction})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -485,7 +484,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Hinweis-Box}
   
-  Die Hinweis-Box wird durch das built-in Element \glqq a-box\grqq\ implementiert. Durch die Konfiguration des Attributs \glqq material\grqq\ wird die Hinweis-Box in halb-transparentem rot dargestellt, wenn ein Objekt, beispielsweise die Krankenakte, in der Hand ist. Die Hinweis-Box beobachtet die Zustände aller Objekte. Wenn alle nötige Aktivitäten für das Objekt fertig gemacht sind, z.B. Überprüfung der Krankenakte, werden die Änderungen der entsprechenden Zustände von der Hinweis-Box erkannt. Nach der Erkennung wird das Attribut \glqq material\grqq\ in grün umgeschrieben.
+  Die Hinweis-Box wird durch das built-in Element {\fontfamily{qcr}\selectfont a-box} implementiert. Durch die Konfiguration des Attributs {\fontfamily{qcr}\selectfont material} wird die Hinweis-Box in halb-transparentem rot dargestellt, wenn ein Objekt, beispielsweise die Krankenakte, in der Hand ist. Die Hinweis-Box beobachtet die Zustände aller Objekte. Wenn alle nötige Aktivitäten für das Objekt fertig gemacht sind, z.B. Überprüfung der Krankenakte, werden die Änderungen der entsprechenden Zustände von der Hinweis-Box erkannt. Nach der Erkennung wird das Attribut {\fontfamily{qcr}\selectfont material} in grün umgeschrieben.
   
   Wenn die Kollision zwischen der grünen Hinweis-Box und dem Objekt in der Hand während des Loslösens auf den Hair-Trigger des Controllers detektiert wird, wird der entsprechende Zustand geändert und das Objekt auf den entsprechend Platz gelegt.
   
@@ -493,7 +492,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   \textbf{Kollisionserkennung}
   
-  Die Funktion Kollisionserkennung wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion \glqq setFromObject\grqq\ als Würfel umgerechnet. Durch die Funktion \glqq intersectsBox\grqq\ wird es überprüft, ob zwei Würfel überlappt sind, damit die Kollision zu erkennen.
+  Die Funktion Kollisionserkennung wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion {\fontfamily{qcr}\selectfont setFromObject} als Würfel umgerechnet. Durch die Funktion {\fontfamily{qcr}\selectfont intersectsBox} wird es überprüft, ob zwei Würfel überlappt sind, damit die Kollision zu erkennen.
   
   Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Würfel ist, ist die Kollisionserkennung ungenau. (Abbildung ~\ref{fig:collisionDetection})
   
@@ -513,16 +512,16 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   image: Formel Geschwindigkeit V(t) = gt, g = 9.8 .........
   
-  kann die Geschwindigkeit so errechnet \textit{speed = speed + accelerate} werden. 
+  kann die Geschwindigkeit so errechnet {\fontfamily{qcr}\selectfont speed = speed + accelerate} werden. 
   %TODO 9.8 ist die Erdbeschleunigung und wird in m/s^2 eig angegeben
   %TODO: nicht ganz klar (von Le)
-  Da das reale Erdbeschleunigung ist 9.8 m/s, soll die konstante Wert \textit{accelerate} 0.098 sein. Aber in der simulierten VR Umgebung fällt das Objekt zu schnell, sodass das Fallen nicht deutlich gemerkt werden kann. Um bessere Benutzererfahrung zu implementieren, wird die Wert \textit{accelerate} als 0.049 befestigt.
+  Da das reale Erdbeschleunigung ist 9.8 m/s, soll die konstante Wert {\fontfamily{qcr}\selectfont accelerate} 0.098 sein. Aber in der simulierten VR Umgebung fällt das Objekt zu schnell, sodass das Fallen nicht deutlich gemerkt werden kann. Um bessere Benutzererfahrung zu implementieren, wird die Wert {\fontfamily{qcr}\selectfont accelerate} als 0.049 befestigt.
   
   Um den passende Zeitpunkt zu finden, das Fallen zu beenden, wird jede 0.01 Millisekunde die Kollision auf Y-Achse detektiert. Allerdings könnte es passieren, dass vor der Detektion das Objekt in der letzten 0.01 Millisekunde schon in anderem Objekt, beispielsweise in den Boden, gefallen ist. Wenn das Objekt sehr dünn ist, z.B. Namenetikett, wird es nicht mehr gesehen.
   
-  Um das Problem zu vermeiden, wird eine Variable \textit{lowestY} benutzt. Damit kann eine neue Ebene erstellt werden, die als eine Kollisions-Ebene auf der Y-Achse gilt. Mit der Hilfe der neuen Ebene, kann das Fallen des Objektes früher beendet werden. Allerdings kann es passieren, dass das Objekt oberhalb des Boden liegt.
+  Um das Problem zu vermeiden, wird eine Variable {\fontfamily{qcr}\selectfont lowestY} benutzt. Damit kann eine neue Ebene erstellt werden, die als eine Kollisions-Ebene auf der Y-Achse gilt. Mit der Hilfe der neuen Ebene, kann das Fallen des Objektes früher beendet werden. Allerdings kann es passieren, dass das Objekt oberhalb des Boden liegt.
   
-  Außer Boden (Y = 0) können andere Objekte eine wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um den Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft \glqq boundingBox\grqq gefunden werden. Die höchste Fläche gilt als der Kollisionsbereich. (Abbildung ~\ref{fig:fallDown})
+  Außer Boden (Y = 0) können andere Objekte eine wichtige Rolle bei dem Fallen spielen, z.B die Arbeisoberfläche auf den Schubladentisch. Um den Bereich der Arbeitsoberfläche zu finden, muss die Koordination des Rahmen des Schubladentisches in der Szene gefunden werden. Das A-Frame Objekt wird erst zum three.js Box3 Objekt umgesetzt. Der Wert der Position des Rahmens des Objektes kann aus der Eigenschaft {\fontfamily{qcr}\selectfont boundingBox} gefunden werden. Die höchste Fläche gilt als der Kollisionsbereich. (Abbildung ~\ref{fig:fallDown})
   
 \begin{figure}[ht]
 \vspace*{1em}
@@ -542,7 +541,7 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
  \subsection{Geräte anpassen}
  Anpassende Interaktionen werden für unterschiedliche Geräte gestaltet und implementiert. Um die Szene lebhafter darzustellen, die Interaktion barrierefrei durchzuführen und die falsche Initialisierung der Position der Kamera (Bug von A-Frame) zu beheben, muss die Applikation für die unterschiedlichen Geräte während des Ladens konfiguriert werden.
  
- Durch die Funktion \glqq navigator.userAgent\grqq wird die Informationen über den Browser ausgelesen. Dadurch werden die Typen der Geräten (PC, Smartphone, GearVR) unterschieden. Durch das Event \glqq gamepadconnected\grqq wird der verbundene Controller (GearVR Controller, Vive Controller) erkannt. Damit wird die Mode auf dem PC (flach, VR) und Gear VR (ohne Controller, mit Controller) unterschieden. Durch das Event \glqq enter-vr\grqq\ wird die Mode auf Smartphone (flach, Cardboard) unterschieden. (Abbildung ~\ref{fig:geraeteAnpassen} \& Tabelle ~\ref{tab:geraeteAnpassen}) 
+ Durch die Funktion {\fontfamily{qcr}\selectfont navigator.userAgent} wird die Informationen über den Browser ausgelesen. Dadurch werden die Typen der Geräten (PC, Smartphone, GearVR) unterschieden. Durch das Event {\fontfamily{qcr}\selectfont gamepadconnected} wird der verbundene Controller (GearVR Controller, Vive Controller) erkannt. Damit wird die Mode auf dem PC (flach, VR) und Gear VR (ohne Controller, mit Controller) unterschieden. Durch das Event {\fontfamily{qcr}\selectfont enter-vr} wird die Mode auf Smartphone (flach, Cardboard) unterschieden. (Abbildung ~\ref{fig:geraeteAnpassen} \& Tabelle ~\ref{tab:geraeteAnpassen}) 
  
 \begin{figure}[ht]
 \vspace*{1em}
@@ -576,7 +575,7 @@ PC & Vive                                                                       
  \subsection{Töne}
  Die Töne sind wichtig, um eine lebhaftere Simulation aufzubauen. Alle realen Geräusche werden während der Übung im realen Skillslab der Fachhochschule Bielelfeld aufgenommen. Die Größe ist ca. 14 MB. Es ist zu groß, um es in einer webbasierten Applikation einzufügen, weil es zu langer Zeit für das Laden führt. Deswegen werden nur die Geräusche für die Feedbacks von Controllern eingesetzt.
  
- Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung des Hair-Triggers und dem Trackpad angepasst. Die built-in Funktion \glqq playSound\grqq\ wird in dem Objekt \glqq sound\grqq\ von \glqq components\grqq\ eingepackt. Wenn ein Event von Controllern emittiert wird, wird die Funktion \glqq playSound\grqq\ das entsprechende Sound Objekt aufgerufen. (Abbildung ~\ref{fig:submitSound})
+ Vier Geräusche werden bei der Kamera eingesetzt, und für den Druck und die Loslösung des Hair-Triggers und dem Trackpad angepasst. Die built-in Funktion {\fontfamily{qcr}\selectfont playSound} wird in dem Objekt {\fontfamily{qcr}\selectfont sound} von {\fontfamily{qcr}\selectfont components} eingepackt. Wenn ein Event von Controllern emittiert wird, wird die Funktion {\fontfamily{qcr}\selectfont playSound} das entsprechende Sound Objekt aufgerufen. (Abbildung ~\ref{fig:submitSound})
  
 \begin{figure}[ht]
 \vspace*{1em}
@@ -591,14 +590,14 @@ PC & Vive                                                                       
  
  Solange ein Desinfektionstuch in Hder and gehalten wird, wird eine rote Hinweis-Box über dem Mülleimer dargestellt, um die Botschaft zu vermitteln, dass das Tuch und Handschuhe in den Mülleimer eingeworfen werden sollen, aber nicht zu der Zeit, wo die Voraussetzung (Desinfektion der Arbeitsoberfläche) noch nicht erfüllt wird.
  
- Gleichzeitig überprüfen die zwei Umschalter alle 0.5 Sekunden, ob die Kollision zwischen dem Tuch und dem Umschalter erkannt wird. Wenn ein Schalter das Tuch getroffen hat, wird der entsprechende Zustand für den Vive Controller als \glqq true\grqq\ gesetzt.
+ Gleichzeitig überprüfen die zwei Umschalter alle 0.5 Sekunden, ob die Kollision zwischen dem Tuch und dem Umschalter erkannt wird. Wenn ein Schalter das Tuch getroffen hat, wird der entsprechende Zustand für den Vive Controller als {\fontfamily{qcr}\selectfont true} gesetzt.
  
- Solange die beiden Zustände der Umschalter \glqq true\grqq\ sind, wechselt die Farbe der Hinweis-Box über dem Mülleimer zu grün, um die Information zu teilen, dass das Tuch und die Handschuhe in den Mülleimer eingeworfen werden dürfen.
+ Solange die beiden Zustände der Umschalter {\fontfamily{qcr}\selectfont true} sind, wechselt die Farbe der Hinweis-Box über dem Mülleimer zu grün, um die Information zu teilen, dass das Tuch und die Handschuhe in den Mülleimer eingeworfen werden dürfen.
  
  image: m5 Arbeitsfläche desinfektion Szene .........
  
  \subsection{Animation}
- Die Animation in A-Frame wird auch durch ein HTML Element \glqq a-animation\grqq bezeichnet. Das übergeordnete Element ist das Objekt das zu animieren ist. Die genaue Manipulation wird durch die Attribute des \glqq a-animation\grqq Elements konfiguriert. (Tabelle ~\ref{tab:aAnimation})
+ Die Animation in A-Frame wird auch durch ein HTML Element {\fontfamily{qcr}\selectfont a-animation} bezeichnet. Das übergeordnete Element ist das Objekt das zu animieren ist. Die genaue Manipulation wird durch die Attribute des {\fontfamily{qcr}\selectfont a-animation} Elements konfiguriert. (Tabelle ~\ref{tab:aAnimation})
  
 \begin{table}
 \centering
@@ -633,7 +632,7 @@ easing    & Die Erleichterung der Animation                                     
  
  \subsection{Hand}
  
- Durch das \glqq a-animation\grqq Element kann das ganze Objekt animiert werden. Um kompliziertere Animationen zu realisieren, wird das Objekt während der Modellierung direkt animiert.
+ Durch das {\fontfamily{qcr}\selectfont a-animation} Element kann das ganze Objekt animiert werden. Um kompliziertere Animationen zu realisieren, wird das Objekt während der Modellierung direkt animiert.
  
  Das Hand Modell wird in Blender animiert. Zuerst wird das Skelett für die Hand erstellt. Mit der Funktion \glqq Set Parent To \grqq\ können das Modell und die Skelett zusammen verbinden. Durch \glqq Key Frame\grqq\ kann die Hand animiert werden. (Abbildung ~\ref{fig:handSetParentTo} \& Abbildung ~\ref{fig:handKeyframes})
  
@@ -655,7 +654,7 @@ easing    & Die Erleichterung der Animation                                     
  
  Das Modell wird als glTF 2.0 exportiert. Das glTF 2.0 ist ein Format für 3D Objekte, die für webbasierte Applikation entwickelt wurde. Die Vorteile sind die kleine Größe und die Unterstützung der Animation.
  
- Bei A-Frame kann die Animation durch das Attribut \glqq animation-mixer\grqq\ (Abbildung ~\ref{fig:handAnimation}) von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand leicht eine Faust macht während des Drucks auf dem Hair-Trigger und die Hand eine Faust macht während der Auslösung auf den Hair-Trigger lockert, nicht implementiert werden.
+ Bei A-Frame kann die Animation durch das Attribut {\fontfamily{qcr}\selectfont animation-mixer} (Abbildung ~\ref{fig:handAnimation}) von dem Hand Modell aufgerufen werden. Allerdings kann der Zeitraum der Animation bei A-Frame nicht ausgewählt werden, was mit Unity oder Unreal Engine geschafft werden kann. Deshalb kann der Effekt, dass die Hand leicht eine Faust macht während des Drucks auf dem Hair-Trigger und die Hand eine Faust macht während der Auslösung auf den Hair-Trigger lockert, nicht implementiert werden.
  
 \begin{figure}[ht]
 \vspace*{1em}
@@ -671,13 +670,13 @@ easing    & Die Erleichterung der Animation                                     
  
  \subsubsection{Uhrzeit darstellen}
  
- Um die reale Uhrzeit darzustellen, wird eine Klasse \glqq clock\_hand\_roll\grqq\ entwickelt. Da sich der Zeiger jede Sekunde bewegt, wird die built-in Funktion \glqq tick\grqq\ benutzt. Die von \glqq tick\grqq\ aufgerufenen Funktionen werden jede Sekunde ein Mal durchgeführt, wie \glqq setInterval\grqq\.
+ Um die reale Uhrzeit darzustellen, wird eine Klasse {\fontfamily{qcr}\selectfont clock\_hand\_roll} entwickelt. Da sich der Zeiger jede Sekunde bewegt, wird die built-in Funktion {\fontfamily{qcr}\selectfont tick} benutzt. Die von {\fontfamily{qcr}\selectfont tick} aufgerufenen Funktionen werden jede Sekunde ein Mal durchgeführt, wie {\fontfamily{qcr}\selectfont setInterval}.
  
- Mit der Hilfe der Funktion \glqq tick\grqq\ wird jede Sekunde das Attribut \glqq Rotation\grqq\ aller drei Zeiger aktualisiert. 
+ Mit der Hilfe der Funktion {\fontfamily{qcr}\selectfont tick} wird jede Sekunde das Attribut {\fontfamily{qcr}\selectfont Rotation} aller drei Zeiger aktualisiert. 
  
- Um den Winkel der Rotation zu berechnen wird zuerst die aktuelle Uhrzeit durch die Klasse \glqq Data\grqq\ erhalten. Und mit den Funktionen \glqq getSeconds\grqq\, \glqq getMinutes\grqq\, \glqq getHours\grqq\ werden die Ziffern für jeden Zeiger berechnet.
+ Um den Winkel der Rotation zu berechnen wird zuerst die aktuelle Uhrzeit durch die Klasse {\fontfamily{qcr}\selectfont Data} erhalten. Und mit den Funktionen {\fontfamily{qcr}\selectfont getSeconds}, {\fontfamily{qcr}\selectfont getMinutes}, {\fontfamily{qcr}\selectfont getHours} werden die Ziffern für jeden Zeiger berechnet.
  
- Danach wird der Winkel jedes Zeigers berechnet, der sich bei jeder Bewegung dreht. Für Sekundenzeiger und Minutenzeiger ist der Winkel 360/60. Für Stundenzeiger ist der Winkel 360/12.
+ Danach wird der Winkel jedes Zeigers berechnet, der sich bei jeder Bewegung dreht. Für Sekundenzeiger und Minutenzeiger ist der Winkel {\fontfamily{qcr}\selectfont  360/60}. Für Stundenzeiger ist der Winkel {\fontfamily{qcr}\selectfont  360/12}.
  
  Das Produkt von der Ziffer mal entsprechendem Winkel bei jeder Bewegung ist der Winkel der Rotation auf der X-Ebene in den Koordinate. (Abbildung ~\ref{fig:clockRoll})
  
@@ -690,7 +689,7 @@ easing    & Die Erleichterung der Animation                                     
 \end{figure}
  
  \subsubsection{30 Sekunden Markierung}
- Solange der Griff des Händedesinfektionsspenders gedrückt wird, wird ein Event \glqq handwashing\grqq\ emittiert. Danach wird ein A-Frame Element \glqq a-gltf-model\grqq\ für die 30 Sekunden Markierung mit entsprechenden Attributen erstellt. Die Methode, die Rotation zu errechnen, ist die gleiche, wie die Methode für den Sekundenzeiger. Nach 30 Sekunden wird die Markierung des Element entworfen. (Abbildung ~\ref{fig:clockMarker})
+ Solange der Griff des Händedesinfektionsspenders gedrückt wird, wird ein Event {\fontfamily{qcr}\selectfont  handwashing} emittiert. Danach wird ein A-Frame Element {\fontfamily{qcr}\selectfont  a-gltf-model} für die 30 Sekunden Markierung mit entsprechenden Attributen erstellt. Die Methode, die Rotation zu errechnen, ist die gleiche, wie die Methode für den Sekundenzeiger. Nach 30 Sekunden wird die Markierung des Element entworfen. (Abbildung ~\ref{fig:clockMarker})
  
 \begin{figure}[ht]
 \vspace*{1em}
@@ -703,6 +702,6 @@ easing    & Die Erleichterung der Animation                                     
 \subsection{Zusammenfassung}
 Das Projekt wird in zwei Teilen implementiert, die Gestaltung des Unterrichts in LMS und die WebVR Applikation.
 
-Wegen des Mangels der fachlichen Kenntnissen werden die meisten Materialien aus dem Internet verwendet. Allerdings ist das Ziel, das LMS und die WebVR Applikation zu verbinden, erreicht.
+Wegen des Mangels der fachlichen Kenntnissen werden die meisten Materialien aus dem Internet verwendet. Allerdings ist das Ziel, das LMS und die WebVR Applikation zu verbinden, erreichtet.
 
-Als Schwerpunkt des Projektes wird die meiste Zeit in die WebVR Applikation investiert. Die Implementierung wird iterativ verbessert und ergänzt. Obwohl nicht alle Funktionen optimal implementiert sind, wird die Konzeption der cross-platformen WebVR Applikation umgesetzt.
+Als Schwerpunkt des Projektes wird die meiste Zeit in die WebVR Applikation investiert. Die Implementierung wird iterativ verbessert und ergänzt. Obwohl nicht alle Funktionen optimal implementiert sind, wird die Konzeption der cross-platformen WebVR Applikation realisiert.
