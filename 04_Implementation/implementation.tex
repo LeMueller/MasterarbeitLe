@@ -264,8 +264,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{PC und Smartphone}
   Viele Interaktionen auf dem PC und Smartphone werden durch dasselbe Component umgesetzt, deswegen werden die Implementierung von PC und Smartphone zusammen erklärt.
   
+  \vspace{1em}
+  \noindent
   \textbf{Exploration}
+  \vspace{1em}
   
+  \noindent
   Mit einer Entität von built-in Component {\fontfamily{qcr}\selectfont a-camera} in A-Frame wird eine Kamera in der Szene eingesetzt (Abbildung ~\ref{fig:cameraHtml}). Dadurch wird die Sicht des Nutzers in der VR Umgebung erstellt. Die Interaktionen, die die Kamera betreffen, nämlich Exploration und Navigation werden in dieser Entität realisiert.
   
   Mit dem Component {\fontfamily{qcr}\selectfont look-controls} kann die Rotation einer Entität manipuliert werden. Wenn {\fontfamily{qcr}\selectfont look-controls} als Attribut von {\fontfamily{qcr}\selectfont a-camera} eingesetzt wird, wird es realisiert, den Winkel der Kamera zu manipulieren.
@@ -274,8 +278,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Außerdem ist es möglich, durch das Ziehen auf dem Smartphone die Kamera zu drehen, wenn die Eigenschaft {\fontfamily{qcr}\selectfont touchEnabled} als {\fontfamily{qcr}\selectfont true} konfiguriert ist. {\fontfamily{qcr}\selectfont true} ist die Standardeinstellung für{\fontfamily{qcr}\selectfont touchEnabled}, deswegen muss das Attribut nicht extra eingerichtet werden.
   
+  \vspace{1em}
+  \noindent
   \textbf{Navigation}
+  \vspace{1em}
   
+  \noindent
   Mit dem Component {\fontfamily{qcr}\selectfont wasd-controls} kann die Position einer Entität manipuliert werden. Die Nutzung ist ähnlich wie das Component {\fontfamily{qcr}\selectfont look-controls}. Wenn {\fontfamily{qcr}\selectfont wasd-controls} als Attribut von {\fontfamily{qcr}\selectfont a-camera} eingesetzt wird, wird die Position der Kamera mit den Tasten W, A, S und D auf der Tastatur manipuliert.
   
   %TODO: acceleration ist eigentlich Beschleunigung. Velocity ist die Geschwindigkeit im englischen
@@ -302,8 +310,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:cameraMove} 
 \end{figure}
   
+  \vspace{1em}
+  \noindent
   \textbf{Manipulation}
+  \vspace{1em}
   
+  \noindent
   Die Manipulation auf PC und Smartphone wird mit dem built-in Component {\fontfamily{qcr}\selectfont a-cursor} implementiert (Abbildung ~\ref{fig:aCursorElement}). Um den Zeiger in der Mitte der Sicht darzustellen, wird {\fontfamily{qcr}\selectfont a-cursor} als ein Child-Component von {\fontfamily{qcr}\selectfont a-camera} eingesetzt.
   
  \begin{figure}[ht]
@@ -345,8 +357,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   \subsubsection{Samsung Gear VR}
   Die Interaktionen für Samsung Gear VR sind abhängig von der Verfügbarkeit des Controllers.
   
+  \vspace{1em}
+  \noindent
   \textbf{Ohne Controller}
+  \vspace{1em}
   
+  \noindent
   Die Interaktionen von Samsung Gear VR ohne Controller sollen von den Funktionen für PC und Smartphone durch A-Frame automatisch angepasst werden. Allerdings taucht ein Problem bei der Anpassung an Gear VR auf: die Zeiger für jedes Auge überlappen sich nicht korrekt. Das heißt, dass zwei Zeiger in der Sicht erscheinen.
   
   Der Grund dafür ist, dass der Zeiger zu nahe an den Augen steht. Wenn der Zeiger weiter zu der Augen gelegt wird, ist der Zeiger eindeutig. Das führt jedoch zu der Situation, dass der Zeiger hinter manchen Objekten, wie der Krankenakte, ist. Wenn die Krankenakte auch weiter hinten eingesetzt wird, können die Informationen auf der Krankenakte nicht deutlich gesehen werden.
@@ -378,8 +394,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Obwohl die zweite Möglichkeit keine optimale Lösung ist, weil der Nutzer sich fühlt, dass er selber ein Riese ist, ist es besser als geschnittenes Raycaster, deswegen wird diese Lösung eingesetzt. 
   
+  \vspace{1em}
+  \noindent
   \textbf{Mit Controller}
+  \vspace{1em}
   
+  \noindent
   Navigation und Manipulation werden durch den Controller aktiviert.
   
   Das Element von Gear VR Controller wird mit dem Element der Kamera zusammen in dem Element mit ID {\fontfamily{qcr}\selectfont cameraRig} eingepackt. Die Bewegung der Kamera wird durch die Translation von {\fontfamily{qcr}\selectfont cameraRig} ermöglicht, sodass die relative Position zwischen der Kamera und dem Controller während der Bewegung behalten wird.
@@ -410,8 +430,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
   
   Die Navigation von HTC Vive wird durch das Component {\fontfamily{qcr}\selectfont teleport-controls} ist so implementiert wie bei der Gear VR.
   
+  \vspace{1em}
+  \noindent
   \textbf{Component vive-controls}
+  \vspace{1em}
   
+  \noindent
   Durch das built-in Component {\fontfamily{qcr}\selectfont vive-controls} werden die Vive Controllers anerkannt. Mit dem Attribut {\fontfamily{qcr}\selectfont model} wird die Darstellung des Modells von Controller konfiguriert. Da die Controllers als Hände gezeigt werden, wird das Attribut als {\fontfamily{qcr}\selectfont false} eingerichtet. (Abbildung ~\ref{fig:viveControllerElement})
   
 \begin{figure}[ht]
@@ -444,12 +468,20 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:getWorldPosition} 
 \end{figure}
   
+  \vspace{1em}
+  \noindent
   \textbf{Prüfung mit Raycaster}
+  \vspace{1em}
   
+  \noindent
   Ein aus den Augen ausstrahlender versteckter Raycaster wird in dem Element {\fontfamily{qcr}\selectfont a-camera} eingesetzt. Wenn die Krankenakte, Infusionsflasche und Infusionsbesteck überprüft werden sollen, wird der Raycaster gezeigt, um die Überprüfung durchzuführen. Wenn der Raycaster die richtige Position trifft, wird das Event {\fontfamily{qcr}\selectfont raycaster-intersection} ausgelöst, und der Raycaster wird in grün dargestellt, ansonsten in orange. Wenn die Überprüfung fertig ist, die relevanten Zustände für die Prüfungen als {\fontfamily{qcr}\selectfont true} gesetzt sind, wird der Raycaster wieder versteckt.
   
+  \vspace{1em}
+  \noindent
   \textbf{Zustände für Vive Controller}
+  \vspace{1em}
   
+  \noindent
   Weil die Manipulation mit Vive Controllern große Freiheiten hat, und nicht jede Ausführung einer Aktivität den Fortschritt fördert, wird eine neue Liste für die Zustände der Vive Controller und die entsprechenden Funktionen erstellt.
   
   Zum Beispiel wird der Wert des Zustands für Vive Controller {\fontfamily{qcr}\selectfont portfolioInHand} als die ID des Controllers, der mit der Krankenakte interagiert, gespeichert, und die Zustände an die Observers (Krankenakte usw.) geschickt. Solange die Änderung des Zustands im Component der Krankenakte übergeben wird, wird das Element der Krankenakte in dem Element des entsprechenden Controllers eingezogen. (Abbildung ~\ref{fig:controller6D} \& Abbildung ~\ref{fig:portfolioPress})
@@ -462,8 +494,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:portfolioPress} 
 \end{figure}
   
+  \vspace{1em}
+  \noindent
   \textbf{Attribute Veränderung}
+  \vspace{1em}
   
+  \noindent
   Wenn ein Element in dem Controller Element eingezogen oder aus dem Controller ausgezogen wird, wird die Dimension der Koordinaten geändert. Deshalb muss das Attribut Position neu berechnet und umgesetzt werden.
   
   Normalerweise kann das Attribut direkt mit dem Befehl {\fontfamily{qcr}\selectfont setAttribute} konfiguriert werden. Allerdings sind die 3D A-Frame Objekte viel größer als 2D Objekte, sodass die DOM Manipulation länger dauert. Deshalb passiert es, dass die Änderung des Attributs vor dem Umzug des DOM Elements geschafft wird. Und nach dem Umzug wird das Attribut wieder zurückgesetzt.
@@ -482,16 +518,24 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:controllerAction} 
 \end{figure}
   
+  \vspace{1em}
+  \noindent
   \textbf{Hinweis-Box}
+  \vspace{1em}
   
+  \noindent
   Die Hinweis-Box wird durch das built-in Element {\fontfamily{qcr}\selectfont a-box} implementiert. Durch die Konfiguration des Attributs {\fontfamily{qcr}\selectfont material} wird die Hinweis-Box in halb-transparentem rot dargestellt, wenn ein Objekt, beispielsweise die Krankenakte, in der Hand ist. Die Hinweis-Box beobachtet die Zustände aller Objekte. Wenn alle nötige Aktivitäten für das Objekt fertig gemacht sind, z.B. Überprüfung der Krankenakte, werden die Änderungen der entsprechenden Zustände von der Hinweis-Box erkannt. Nach der Erkennung wird das Attribut {\fontfamily{qcr}\selectfont material} in grün umgeschrieben.
   
   Wenn die Kollision zwischen der grünen Hinweis-Box und dem Objekt in der Hand während des Loslösens auf den Hair-Trigger des Controllers detektiert wird, wird der entsprechende Zustand geändert und das Objekt auf den entsprechend Platz gelegt.
   
   image: M5 toggleBoxPortfolio .........
   
+  \vspace{1em}
+  \noindent
   \textbf{Kollisionserkennung}
+  \vspace{1em}
   
+  \noindent
   Die Funktion Kollisionserkennung wird durch die Funktionen von three.js implementiert. Die zwei Objekte werden erst durch die Funktion {\fontfamily{qcr}\selectfont setFromObject} als Würfel umgerechnet. Durch die Funktion {\fontfamily{qcr}\selectfont intersectsBox} wird es überprüft, ob zwei Würfel überlappt sind, damit die Kollision zu erkennen.
   
   Allerdings ist die Methode keine optimale Lösung. Wenn der Rahmen des Objektes kein Würfel ist, ist die Kollisionserkennung ungenau. (Abbildung ~\ref{fig:collisionDetection})
@@ -504,8 +548,12 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \label{fig:collisionDetection} 
 \end{figure}
   
+  \vspace{1em}
+  \noindent
   \textbf{Freier Fall}
+  \vspace{1em}
   
+  \noindent
   Die Objekte können aus den Händen fallen, wenn der Hair-Trigger losgelöst wird.
   
   Das Fallen wird so simuliert, dass in jedem bestimmten Zeitraum (z.B. 0.01 Millisekunde) die Position auf der Y-Achse des Objektes eine Geschwindigkeit reduziert wird. Laut der Formel der Geschwindigkeit des freien Falls 
@@ -699,8 +747,8 @@ easing    & Die Erleichterung der Animation                                     
 \label{fig:clockMarker} 
 \end{figure}
 
-\subsection{Zusammenfassung}
-Das Projekt wird in zwei Teilen implementiert, die Gestaltung des Unterrichts in LMS und die WebVR Applikation.
+\section{Zusammenfassung}
+Das Projekt wird in zwei Teilen implementiert, die Gestaltung des Unterrichts in LMS und die Entwicklung der WebVR Applikation.
 
 Wegen des Mangels der fachlichen Kenntnissen werden die meisten Materialien aus dem Internet verwendet. Allerdings ist das Ziel, das LMS und die WebVR Applikation zu verbinden, erreichtet.
 
