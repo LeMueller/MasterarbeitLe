@@ -137,8 +137,29 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \vspace*{1em}
 \centering
 \caption[Class Observable]{Class Observable}
-\includegraphics[width=\textwidth]{images/observable.png}
-\label{fig:observable} 
+%\includegraphics[width=\textwidth]{images/observable.png}
+\begin{lstlisting}[language=JavaScript, style=htmlcssjs]
+export default class Observable {
+    // Store all observers
+    constructor() {
+        this.observers = [];
+    }
+    // Add observer(function) to observers
+    subscribe(f) {
+        this.observers.push(f);
+    }
+    // Remove observer(function) from observers
+    unsubscribe(f) {
+        this.observers = this.observers.filter(subscriber => subscriber !== f);
+    }
+    // Run all subscribed functions from different observer
+    notify(data) {
+        this.observers.forEach(observer => observer(data));
+    }
+}
+\end{lstlisting}
+\label{fig:observable}
+\vspace*{1em}
 \end{figure}
   Während der Erstellung einer Instanz von {\fontfamily{qcr}\selectfont Observable} wird ein Array {\fontfamily{qcr}\selectfont Observers} generiert, um die Funktionen von \glqq Observers\grqq\ zu speichern. Durch die Funktionen {\fontfamily{qcr}\selectfont subscribe} und {\fontfamily{qcr}\selectfont unsubscribe} können die Funktionen von \glqq Observer\grqq\ in dem Array eingefügt oder von dem Array ausgezogen werden. Die \glqq Observers\grqq\ sollen eine Funktion mit einem Parameter haben, um die Nachrichten von {\fontfamily{qcr}\selectfont Observable} zu empfangen. Wenn die Funktion {\fontfamily{qcr}\selectfont Notify} aufgerufen wird, werden alle abonnierten Funktionen von \glqq Observers\grqq\ in dem Array {\fontfamily{qcr}\selectfont Observers} nacheinander aufgerufen. Der Parameter der Funktion {\fontfamily{qcr}\selectfont Notify} wird als Parameter der Funktion von \glqq Observers\grqq\ eingesetzt, sodass die Nachrichten ausgeteilt werden.
   
@@ -186,7 +207,40 @@ Die Implementierung der WebVR Applikation ist der Schwerpunkt dieses Projektes. 
 \vspace*{1.2em}
 \centering
 \caption[Überprüfung der Zustände der Ladungen]{Überprüfung der Zustände der Ladungen}
-\includegraphics[width=\textwidth]{images/checkLadung.png}
+%\includegraphics[width=\textwidth]{images/checkLadung.png}
+\begin{lstlisting}[language=JavaScript, style=htmlcssjs]
+export default class stateIndex {
+    static init() {
+        this.selectSection(0);
+        const selectedSection = Number(this.getSectionSelectionFromURL());
+        if (selectedSection > 0 && selectedSection <= 7) {
+            // If selected with URL, check the staus of loading every 0.5 sec
+            let setSectionStillElementsLoaded = setInterval(()=>{
+                if (
+                    // for section 5
+                    document.querySelector('#nacl500Bottle')
+                    && document.querySelector('#nacl500Cap')
+                    && document.querySelector('#toggleBoxNacl500Cap')
+                    // for section 6
+                    && document.querySelector('#infusionSetInPack')
+                    && document.querySelector('#infusionSetOpen')
+                    && document.querySelector('#infusionSetOpenCap')
+                    && document.querySelector('#infusionSetOpenWheel')
+                    // for section 7
+                    && document.querySelector('#infusionSetHanged')
+                    && document.querySelector('#infusionSetHangedFill')
+                    && document.querySelector('#infusionSetHangedWheel')
+                    && document.querySelector('#infusionSetHangedFilled')
+                    && document.querySelector('#infusionSetHangedFilledWheel')
+                    && document.querySelector('#infusionSetFixed')
+                ) {
+                    this.selectSection(selectedSection);
+                    window.clearInterval(setSectionStillElementsLoaded);
+                    stateIndex.set('started', true);
+                }
+            }, 500);
+        }
+\end{lstlisting}
 \label{fig:checkLadung} 
 \end{figure}
   
@@ -674,7 +728,44 @@ easing    & Die Erleichterung der Animation                                     
 \vspace*{1em}
 \centering
 \caption[Animation]{Animation}
-\includegraphics[width=\textwidth]{images/aAnimation.png}
+%\includegraphics[width=\textwidth]{images/aAnimation.png}
+\begin{lstlisting}[language=JavaScript, style=htmlcssjs]
+import $ from 'jquery';
+const aAnimationWrapper = (el, begin, attribute, from, to,
+    dur, direction='', remove=false, fill='none',
+    repeat=0, easing='ease') 
+    => {
+    const move=document.createElement("a-animation");
+    move.setAttribute("begin",begin);
+    move.setAttribute("attribute", attribute);``
+    move.setAttribute("from", from);
+    move.setAttribute("to", to);
+    move.setAttribute("dur", dur);
+    move.setAttribute("direction", direction);
+    move.setAttribute("fill", fill);
+    move.setAttribute("repeat", repeat);
+    move.setAttribute("easing", easing);
+    if (!el.append) {
+        el.appendChild(move);
+    }
+    else {
+        el.append(move);
+    }
+    if (remove) {
+        if (repeat) {
+            setTimeout(()=>{
+                $(move).remove();
+            }, dur * (repeat + 1));
+        }
+        else {
+            setTimeout(()=>{
+                $(move).remove();
+            }, dur);
+        }
+    }
+};
+export default aAnimationWrapper;
+\end{lstlisting}
 \label{fig:aAnimation} 
 \end{figure}
  
